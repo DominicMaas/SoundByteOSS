@@ -1,0 +1,1 @@
+The source code for the next generation apps is still closed. The code will be moved here over time (starting with the core library and iOS app). I'm unsure what to do with the web application at the moment.
