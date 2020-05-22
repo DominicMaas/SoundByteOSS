@@ -25,15 +25,20 @@ To leave feedback, click on the `Issues` tab above. You will need a GitHub accou
 
 The Amalthea engine, iOS and UWP will eventually be open sourced (the UWP app still requires a lot of code to be ported from the legacy app). The web application is not planned to be open sourced.
 
-## Build Status
+## Build Status (Legacy)
 
 |Platform|CI|Staging|Store|
 |---|---|---|---|
 | UWP | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/UWP-CI)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=21) | - | - |
-| Android | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/Android-CI)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=24) | - | - |
-| iOS | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/iOS-CI)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=27) | ![TestFlight](https://vsrm.dev.azure.com/SoundByte/_apis/public/Release/badge/f48f04c8-e1e9-4eec-84a1-29f6abd2ec99/1/1) | -  |
-| Web | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/Web-CI)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=19) | - | - |
-| Dashboard | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/Dashboard-CI)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=30) | - | - |
+
+## Build Status (Amalthea)
+
+|Platform|CI|Staging|Release|
+|---|---|---|---|
+| UWP | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/UWP-CI)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=21) | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/UWP-Staging)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=22) | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/UWP-Production)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=23) |
+| Android | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/Android-CI)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=24) | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/Android-Staging)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=25) | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/Android-Production)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=26) |
+| iOS | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/iOS-CI)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=27) | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/iOS-Staging)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=28) | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/iOS-Production)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=29) |
+| Web | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/Web-CI)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=19) | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/Web-Staging)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=18) | [![Build status](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_apis/build/status/Web-Production)](https://dev.azure.com/soundbyte/SoundByte%20Build%20Process/_build/latest?definitionId=20) |
 
 ## Music Providers
 If you have any issues or feature requests for certain music providers (e.g. playback bug with YouTube), please create an issue.
