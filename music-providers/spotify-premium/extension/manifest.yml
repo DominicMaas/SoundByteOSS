@@ -1,0 +1,34 @@
+# Basic information about the extension
+id: cb1c2e56-4526-11ea-b77f-2e728ce88125
+name: Spotify Premium
+publisher: SoundByte
+version: 1.0.0
+platformVersion: 1.0
+description: Provides support for Spotify Premium playback
+url: https://soundbytemedia.com/store/details?id=cb1c2e56-4526-11ea-b77f-2e728ce88125
+
+# The script that contains code for this extension
+script: main.js
+
+# What areas of the application can be accessed
+permissions:
+  - authentication
+  - network
+  - navigation
+
+# The platforms this extension can run on.
+platforms:
+  - uwp
+  - ios
+
+# Extension assets
+assets:
+  storeLogo: assets/logo.png
+
+# Authentication
+authentication:
+  type: oauth
+  scheme: OAuth
+  clientId: 7a5b9b286b6747cb828f9e9866067da7
+  redirectUrl: https://soundbytemedia.com/authorization/soundbyte
+  connectUrl: https://accounts.spotify.com/authorize?client_id=7a5b9b286b6747cb828f9e9866067da7&response_type=code&display=popup&scope=streaming%20user-read-private%20user-read-email&redirect_uri=https://soundbytemedia.com/authorization/soundbyte

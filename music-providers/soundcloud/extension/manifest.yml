@@ -1,0 +1,112 @@
+# Basic information about the extension
+id: 02dfa08f-6c33-47fd-89cc-8a1c7c65be46
+name: SoundCloud
+publisher: SoundByte
+version: 1.0.5
+platformVersion: 1.0
+description: Provides support for SoundCloud playback
+url: https://soundbytemedia.com/store/details?id=02dfa08f-6c33-47fd-89cc-8a1c7c65be46
+
+# The script that contains code for this extension
+script: main.js
+
+# What areas of the application can be accessed
+permissions:
+  - authentication
+  - network
+  - navigation
+
+# The platforms this extension can run on.
+platforms:
+  - uwp
+  - ios
+
+# Extension assets
+assets:
+  storeLogo: assets/store.jpg
+
+# Authentication
+authentication:
+  type: oauth
+  scheme: OAuth
+  clientId: gU5Rw9VDiPPA4OcDlC8VVcb19sHDZFTT
+  redirectUrl: http://localhost/soundbyte
+  connectUrl: https://soundcloud.com/connect?scope=non-expiring&client_id=gU5Rw9VDiPPA4OcDlC8VVcb19sHDZFTT&response_type=code&display=popup&redirect_uri=http://localhost/soundbyte
+
+# Handle playback
+playback:
+  supportsVideo: false
+  onMusicRequest: getMediaStream # JS method to get the media stream
+  #onVideoRequest
+
+# Resolvers
+resolvers:
+  track: resolveTrack
+  tracks: resolveTracks
+
+  user: resolveUser
+  users: resolveUsers
+
+  playlist: resolvePlaylist
+  playlists: resolvePlaylists
+
+  # Special resolvers that return a soundbyte.SourceResponse
+  playlistTracks: resolvePlaylistTracks
+
+# Music content defintions
+content:
+  # Explore Page
+  - title: New & Hot SoundCloud
+    area: DiscoverMedia
+    buttons:
+      - PlayAllButton
+      - ShufflePlayButton
+    onGet: getTrendingTracks
+    onViewMore: navigateTrendingTracks
+  - title: Top 50 SoundCloud
+    area: DiscoverMedia
+    buttons:
+      - PlayAllButton
+      - ShufflePlayButton
+    onGet: getTopTracks
+    onViewMore: navigateTopTracks
+
+  # Stream on home page
+  - title: SoundCloud Stream
+    area: Home
+    isAuthenticatedFeed: true
+    buttons:
+      - PlayAllButton
+      - ShufflePlayButton
+    onGet: getUserStream
+
+  # Logged in users likes
+  - title: SoundCloud
+    area: MyMusicLikes
+    isAuthenticatedFeed: true
+    buttons:
+      - PlayAllButton
+      - ShufflePlayButton
+    onGet: getUserLikes
+
+  # Logged in users playlists
+  - title: SoundCloud
+    area: MyMusicPlaylists
+    isAuthenticatedFeed: true
+    onGet: getUserPlaylists
+
+  # Search
+  - title: SoundCloud
+    area: SearchTracks
+    buttons:
+      - PlayAllButton
+      - ShufflePlayButton
+    onGet: getSearchedTracks
+
+  - title: SoundCloud
+    area: SearchPlaylists
+    onGet: getSearchedPlaylists
+
+  - title: SoundCloud
+    area: SearchUsers
+    onGet: getSearchedUsers

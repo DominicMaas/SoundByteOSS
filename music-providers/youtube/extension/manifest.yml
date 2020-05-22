@@ -1,0 +1,87 @@
+# Basic information about the extension
+id: 47B8474C-2006-4845-9A46-4A5CDFE2B758
+name: YouTube
+publisher: SoundByte
+version: 1.0.8
+platformVersion: 1.0
+description: Provides support for YouTube Music playback.
+url: https://soundbytemedia.com/store/item/747B8474C-2006-4845-9A46-4A5CDFE2B758
+
+# The script that contains code for this extension
+script: main.js
+
+# What areas of the application can be accessed
+permissions:
+  - authentication
+  - network
+  - navigation
+  - interop
+
+# The platforms this music provider can run on.
+platforms:
+  - uwp
+  - ios
+
+# Extension assets
+assets:
+  storeLogo: assets/store.png
+
+# Authentication
+authentication:
+  type: oauth
+  scheme: Bearer
+  clientId: 1065985627197-th8jmhv58pf9dk4530khul402nn49hs5.apps.googleusercontent.com
+  redirectUrl: http://localhost/soundbyte
+  connectUrl: https://accounts.google.com/o/oauth2/v2/auth?client_id=1065985627197-th8jmhv58pf9dk4530khul402nn49hs5.apps.googleusercontent.com&redirect_uri=http://localhost/soundbyte&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube
+
+# Handle playback
+playback:
+  supportsVideo: true
+  onMusicRequest: getAudioStream # JS method to get the audio stream
+  onVideoRequest: getVideoStream # JS method to get the video stream
+
+# Resolvers
+resolvers:
+  # Special resolvers that return a soundbyte.SourceResponse
+  playlistTracks: resolvePlaylistTracks
+
+# Music content defintions
+content:
+  # Explore Page
+  - title: Trending on YouTube
+    area: DiscoverMedia
+    buttons:
+      - PlayAllButton
+      - ShufflePlayButton
+    onGet: getTrending
+
+  # Logged in users likes
+  - title: YouTube
+    area: MyMusicLikes
+    isAuthenticatedFeed: true
+    buttons:
+      - PlayAllButton
+      - ShufflePlayButton
+    onGet: getUserLikes
+
+  # Logged in users playlists
+  - title: YouTube
+    area: MyMusicPlaylists
+    isAuthenticatedFeed: true
+    onGet: getUserPlaylists
+
+  # Search
+  - title: YouTube
+    area: SearchTracks
+    buttons:
+      - PlayAllButton
+      - ShufflePlayButton
+    onGet: getSearchedTracks
+
+  - title: YouTube
+    area: SearchPlaylists
+    onGet: getSearchedPlaylists
+
+  - title: YouTube
+    area: SearchUsers
+    onGet: getSearchedUsers
