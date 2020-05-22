@@ -103,18 +103,6 @@ namespace SoundByte.App.Uwp.Views.Shell
             // Run on the background thread
             await Task.Run(async () =>
             {
-                try
-                {
-                    // Load premium
-                    if (ApiInformation.IsTypePresent("Windows.Services.Store.StoreContext"))
-                        await PremiumService.Current.InitProductInfoAsync();
-                }
-                catch (Exception ex)
-                {
-                    await NavigationService.Current.CallMessageDialogAsync(ex.Message, "Error loading premium status information.");
-                    SimpleIoc.Default.GetInstance<ITelemetryService>().TrackException(ex);
-                }
-
                 // Load logged in user objects
                 var result = await SoundByteService.Current.InitUsersAsync();
                 if (!string.IsNullOrEmpty(result))

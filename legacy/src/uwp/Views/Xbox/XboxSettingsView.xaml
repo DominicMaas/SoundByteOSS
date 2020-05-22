@@ -56,17 +56,6 @@
                     Click="SoundByteSignOut"
                     Content="Sign out"
                     Style="{StaticResource ModernButtonStyle}" />
-
-                <TextBlock
-                    FontSize="26"
-                    Style="{StaticResource TitleStyle}"
-                    Text="Premium" />
-
-                <core:PremiumPaneView
-                    x:Name="PremiumView"
-                    Grid.Column="2"
-                    Margin="-16,-45,-16,-16"
-                    HorizontalAlignment="Left" />
             </StackPanel>
 
             <StackPanel Grid.Column="2" HorizontalAlignment="Left">

@@ -261,18 +261,6 @@ namespace SoundByte.App.Uwp.Views.Shell
             {
                 try
                 {
-                    // Load premium
-                    if (ApiInformation.IsTypePresent("Windows.Services.Store.StoreContext"))
-                        await PremiumService.Current.InitProductInfoAsync();
-                }
-                catch (Exception ex)
-                {
-                    await NavigationService.Current.CallMessageDialogAsync(ex.Message, "Error loading premium status information.");
-                    SimpleIoc.Default.GetInstance<ITelemetryService>().TrackException(ex);
-                }
-
-                try
-                {
                     // Continue playlist last song (if not already playing something)
                     var status = SimpleIoc.Default.GetInstance<IPlaybackService>().GetPlaybackState();
                     if (status == MediaPlaybackState.None)
@@ -507,10 +495,6 @@ namespace SoundByte.App.Uwp.Views.Shell
 
                 case "playing":
                     RootFrame.Navigate(typeof(NowPlayingView));
-                    break;
-
-                case "premium":
-                    OpenSidePane(typeof(PremiumPaneView), "Premium");
                     break;
 
                 case "settings":

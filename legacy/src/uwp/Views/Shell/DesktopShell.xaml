@@ -303,24 +303,6 @@
                             Text="&#xEC4F;" />
                     </Button>
 
-                    <!--  SoundByte premium  -->
-                    <Button
-                        Width="40"
-                        Height="40"
-                        Margin="1,0,1,0"
-                        VerticalAlignment="Top"
-                        Click="NavigateCommandBar"
-                        Style="{StaticResource NavigationButton}"
-                        Tag="premium">
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="SoundByte Premium" />
-                        </ToolTipService.ToolTip>
-                        <TextBlock
-                            FontFamily="Segoe MDL2 Assets"
-                            FontSize="16"
-                            Text="&#xE719;" />
-                    </Button>
-
                     <!--  Account manager  -->
                     <Button
                         Width="40"
@@ -376,18 +358,6 @@
                                     Text="Music Providers">
                                     <MenuFlyoutItem.Icon>
                                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEC4F;" />
-                                    </MenuFlyoutItem.Icon>
-                                </MenuFlyoutItem>
-
-                                <!--  SoundByte Premium  -->
-                                <MenuFlyoutItem
-                                    Click="NavigateCommandBar"
-                                    FocusVisualPrimaryThickness="4"
-                                    FocusVisualSecondaryThickness="0"
-                                    Tag="premium"
-                                    Text="SoundByte Premium">
-                                    <MenuFlyoutItem.Icon>
-                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE719;" />
                                     </MenuFlyoutItem.Icon>
                                 </MenuFlyoutItem>
 

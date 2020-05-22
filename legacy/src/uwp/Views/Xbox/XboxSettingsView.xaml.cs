@@ -34,9 +34,6 @@ namespace SoundByte.App.Uwp.Views.Xbox
             // Load settings
             LoadSettingsPage();
 
-            // Load premium info
-            PremiumView.Load();
-
             // Set the app version
             AppVersion.Text = $"{Package.Current.Id.Version.Major}.{Package.Current.Id.Version.Minor}.{Package.Current.Id.Version.Build}";
 
