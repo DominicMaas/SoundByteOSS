@@ -110,7 +110,7 @@
                     FontSize="14"
                     FontWeight="SemiBold"
                     Opacity="0.9"
-                    Text="Copyright © 2016 - 2019 Grid Entertainment. All Rights Reserved" />
+                    Text="In memory of Dennis Bednarz&#x0a;&#x0a;Copyright © 2020 Dominic Maas&#x0a;All Rights Reserved" />
                 <StackPanel
                     Margin="0,4,0,2"
                     HorizontalAlignment="Left"
@@ -145,9 +145,20 @@
                     Style="{StaticResource SubTitleStyle}"
                     Text="Social Media"
                     TextAlignment="Left" />
+
                 <HyperlinkButton
-                    Content="Twitter"
-                    NavigateUri="https://gridentertainment.net/fwlink/yENyTb"
+                    Content="Twitter (SoundByte)"
+                    NavigateUri="https://twitter.com/SoundByteUWP"
+                    Style="{StaticResource LinkStyle}" />
+
+                <HyperlinkButton
+                    Content="Twitter (Dominic Maas)"
+                    NavigateUri="https://twitter.com/dominicjmaas"
+                    Style="{StaticResource LinkStyle}" />
+
+                <HyperlinkButton
+                    Content="Twitter (Dennis Bednarz)"
+                    NavigateUri="https://twitter.com/DennisBednarz"
                     Style="{StaticResource LinkStyle}" />
 
                 <!--  More links  -->
@@ -155,19 +166,21 @@
                     Style="{StaticResource SubTitleStyle}"
                     Text="Links"
                     TextAlignment="Left" />
+
                 <HyperlinkButton
-                    Content="SoundByte"
+                    Content="SoundByte Website"
                     NavigateUri="https://soundbytemedia.com"
-                    Style="{StaticResource LinkStyle}" />
-                <HyperlinkButton
-                    Content="Grid Entertainment"
-                    NavigateUri="https://gridentertainment.net"
                     Style="{StaticResource LinkStyle}" />
 
                 <HyperlinkButton
                     HorizontalAlignment="Left"
                     Content="Privacy Policy"
-                    NavigateUri="https://gridentertainment.net/fwlink/Y5jGLtoFXs"
+                    NavigateUri="https://soundbytemedia.com/pages/privacy-policy"
+                    Style="{StaticResource LinkStyle}" />
+
+                <HyperlinkButton
+                    Content="GitHub"
+                    NavigateUri="https://github.com/DominicMaas/SoundByteOSS"
                     Style="{StaticResource LinkStyle}" />
 
                 <!--  Thanks To  -->
@@ -177,11 +190,11 @@
                     Text="Thanks To" />
                 <TextBlock
                     Style="{StaticResource TextStyle}"
-                    Text="Dennis Bednarz (@DennisBednarz on Twitter) for the logo and app design."
+                    Text="Dennis Bednarz for the logo, app design and support along the way"
                     TextAlignment="Left" />
                 <TextBlock
                     Style="{StaticResource TextStyle}"
-                    Text="All of the beta testers."
+                    Text="All of the beta testers"
                     TextAlignment="Left" />
             </StackPanel>
         </Grid>

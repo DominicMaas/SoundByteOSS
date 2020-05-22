@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SoundByte.App.Uwp")]
 [assembly: AssemblyDescription("Main SoundByte Application")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Grid Entertainment")]
+[assembly: AssemblyCompany("Dominic Maas")]
 [assembly: AssemblyProduct("SoundByte")]
-[assembly: AssemblyCopyright("Copyright © 2019 Grid Entertainment")]
+[assembly: AssemblyCopyright("Copyright © 2020 Dominic Maas")]
 [assembly: AssemblyTrademark("SoundByte")]
 [assembly: AssemblyCulture("")]
 

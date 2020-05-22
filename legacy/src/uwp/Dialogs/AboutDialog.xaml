@@ -8,7 +8,7 @@
     Style="{StaticResource AppContentDialog}"
     mc:Ignorable="d">
 
-    <Grid Width="460" Padding="25">
+    <Grid Width="490" Padding="25">
         <ScrollViewer HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Hidden">
             <StackPanel Margin="0,15,0,0">
                 <TextBlock
@@ -23,7 +23,7 @@
                     FontSize="14"
                     FontWeight="SemiBold"
                     Opacity="0.9"
-                    Text="Copyright © 2019 Dominic Maas.&#x0a;All Rights Reserved"
+                    Text="In memory of Dennis Bednarz&#x0a;&#x0a;Copyright © 2020 Dominic Maas&#x0a;All Rights Reserved"
                     TextAlignment="Center" />
 
                 <StackPanel
@@ -61,13 +61,27 @@
                     Style="{StaticResource SubTitleStyle}"
                     Text="Social Media"
                     TextAlignment="Center" />
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <HyperlinkButton
-                        Margin="4,0"
-                        Content="Twitter"
-                        NavigateUri="https://twitter.com/SoundByteUWP"
-                        Style="{StaticResource LinkStyle}" />
-                </StackPanel>
+
+                <HyperlinkButton
+                    Margin="0,-4,0,0"
+                    HorizontalAlignment="Center"
+                    Content="Twitter (SoundByte)"
+                    NavigateUri="https://twitter.com/SoundByteUWP"
+                    Style="{StaticResource LinkStyle}" />
+
+                <HyperlinkButton
+                    Margin="0,-4,0,0"
+                    HorizontalAlignment="Center"
+                    Content="Twitter (Dominic Maas)"
+                    NavigateUri="https://twitter.com/dominicjmaas"
+                    Style="{StaticResource LinkStyle}" />
+
+                <HyperlinkButton
+                    Margin="0,-4,0,0"
+                    HorizontalAlignment="Center"
+                    Content="Twitter (Dennis Bednarz)"
+                    NavigateUri="https://twitter.com/DennisBednarz"
+                    Style="{StaticResource LinkStyle}" />
 
                 <!--  More links  -->
                 <TextBlock
@@ -89,6 +103,13 @@
                     NavigateUri="https://soundbytemedia.com/pages/privacy-policy"
                     Style="{StaticResource LinkStyle}" />
 
+                <HyperlinkButton
+                    Margin="0,-4,0,0"
+                    HorizontalAlignment="Center"
+                    Content="GitHub"
+                    NavigateUri="https://github.com/DominicMaas/SoundByteOSS"
+                    Style="{StaticResource LinkStyle}" />
+
                 <!--  Thanks To  -->
                 <TextBlock
                     HorizontalAlignment="Center"
@@ -96,11 +117,11 @@
                     Text="Thanks To" />
                 <TextBlock
                     Style="{StaticResource TextStyle}"
-                    Text="Dennis Bednarz (@DennisBednarz on Twitter) for the logo and app design."
+                    Text="Dennis Bednarz for the logo, app design and support along the way"
                     TextAlignment="Center" />
                 <TextBlock
                     Style="{StaticResource TextStyle}"
-                    Text="All of the beta testers."
+                    Text="All of the beta testers"
                     TextAlignment="Center" />
 
                 <Button
