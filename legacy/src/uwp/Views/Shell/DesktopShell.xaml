@@ -205,19 +205,6 @@
                     </muxc:NavigationViewItem.Content>
                 </muxc:NavigationViewItem>
 
-                <!--  Podcasts  -->
-                <muxc:NavigationViewItem Tag="podcasts">
-                    <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource FontAwesomeFont}" Glyph="&#xf2ce;" />
-                    </muxc:NavigationViewItem.Icon>
-                    <muxc:NavigationViewItem.Content>
-                        <TextBlock
-                            Margin="0,-4,0,0"
-                            FontWeight="SemiBold"
-                            Text="Podcasts" />
-                    </muxc:NavigationViewItem.Content>
-                </muxc:NavigationViewItem>
-
                 <!--  My Music  -->
                 <muxc:NavigationViewItem Tag="my-music">
                     <muxc:NavigationViewItem.Icon>
