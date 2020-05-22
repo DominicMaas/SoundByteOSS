@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 
 namespace SoundByte.Core.Sources.SoundCloud
 {
-    
     public class SoundCloudStreamSource : ISource
     {
         public override Dictionary<string, object> GetParameters()
@@ -31,7 +30,7 @@ namespace SoundByte.Core.Sources.SoundCloud
             if (SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundCloud))
             {
                 // Call the SoundCloud API and get the items
-                var items = await SoundByteService.Current.GetAsync<StreamTrackHolder>(ServiceTypes.SoundCloud, "/e1/me/stream",
+                var items = await SoundByteService.Current.GetAsync<StreamTrackHolder>(ServiceTypes.SoundCloudV2, "/stream",
                     new Dictionary<string, string>
                     {
                         {"limit", count.ToString()},
@@ -47,7 +46,7 @@ namespace SoundByte.Core.Sources.SoundCloud
 
                 // Parse uri for cursor
                 var param = new QueryParameterCollection(items.Response.NextList);
-                var nextToken = param.FirstOrDefault(x => x.Key == "cursor").Value;
+                var nextToken = param.FirstOrDefault(x => x.Key == "offset").Value;
 
                 // Convert the items to base items
                 var baseItems = new List<BaseSoundByteItem>();
