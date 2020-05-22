@@ -1,0 +1,946 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutPivotHeader.Label" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AppBarUI_Login.Label" xml:space="preserve">
+    <value>Manage Accounts</value>
+  </data>
+  <data name="AppBarUI_Notifications.Label" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="AppBarUI_Offline.Label" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="AppBarUI_Playing.Label" xml:space="preserve">
+    <value>Playing</value>
+  </data>
+  <data name="AppBarUI_Refresh.Label" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="AppBarUI_Search.Label" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="AppBarUI_Settings.Label" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="AppBarUI_Upload.Label" xml:space="preserve">
+    <value>Upload Sound</value>
+  </data>
+  <data name="AppBar_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="AppBar_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestBuy" xml:space="preserve">
+    <value>Buy Now ({0})</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestExist" xml:space="preserve">
+    <value>You already bought SoundByte and have all the extra features unlocked.</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestExistTitle" xml:space="preserve">
+    <value>Already Purchased</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestFail" xml:space="preserve">
+    <value>An error occured while trying to purchase the app. Make sure that you are connected to the internet and try again.</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestFailTitle" xml:space="preserve">
+    <value>Something Went Wrong</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestOtherCancel" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestSuccess" xml:space="preserve">
+    <value>Thank you for purchasing SoundByte! You can now experience great features such as uploading sounds, messaging users and extended customization.</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestSuccessTitle" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestText" xml:space="preserve">
+    <value>By upgrading to SoundByte Pro you will enable the following features: Uploading Sounds, Advanced Tile Customization (Look, Colors, Name), Extended App Theme Options (3 RGB Sliders for you to choose any color), Advanced Notification Settings (Change what type of notifications you recieve, and how they should be displayed) and much more.</value>
+  </data>
+  <data name="AppMonitizeHelper_PurchaseRequestTitle" xml:space="preserve">
+    <value>Purchase Full App for {0} ?</value>
+  </data>
+  <data name="BackgroundTask_CleanUp_NotificationDescription" xml:space="preserve">
+    <value>{0} MB of space has been cleared from your device. To disable these notifications, go to the settings page in the SoundByte app.</value>
+  </data>
+  <data name="BackgroundTask_CleanUp_NotificationTitle" xml:space="preserve">
+    <value>Cleared {0} Cached Images</value>
+  </data>
+  <data name="ChangelogPivotHeader.Label" xml:space="preserve">
+    <value>What's New</value>
+  </data>
+  <data name="CloseButton.Content" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ErrorControl_LoginFalse_Content" xml:space="preserve">
+    <value>You need to be logged in to view this content.</value>
+  </data>
+  <data name="ErrorControl_LoginFalse_Header" xml:space="preserve">
+    <value>Nothing to hear here</value>
+  </data>
+  <data name="ExploreGenreCombo_AllMusicGenres.Content" xml:space="preserve">
+    <value>All Music Genres</value>
+  </data>
+  <data name="ExploreGenreCombo_AllAudioGenres.Content" xml:space="preserve">
+    <value>All Audio Genres</value>
+  </data>
+  <data name="ExplorePivotHeader.Label" xml:space="preserve">
+    <value>Charts</value>
+  </data>
+  <data name="ExploreTracks_Content" xml:space="preserve">
+    <value>That's strange?</value>
+  </data>
+  <data name="ExploreTracks_Header" xml:space="preserve">
+    <value>Nothing to hear here</value>
+  </data>
+  <data name="ExtraBackgroundSettingsButton.Content" xml:space="preserve">
+    <value>Customize</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Audio.Content" xml:space="preserve">
+    <value>Background Audio</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Background.Content" xml:space="preserve">
+    <value>BACKGROUND</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Cleanup.Content" xml:space="preserve">
+    <value>Background Cleanup</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Default.PlaceholderText" xml:space="preserve">
+    <value>Choose...</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Design.Content" xml:space="preserve">
+    <value>App Design</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Features.Content" xml:space="preserve">
+    <value>App Features</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Feedback.Content" xml:space="preserve">
+    <value>Feedback Page</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_General.Content" xml:space="preserve">
+    <value>GENERAL</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Home.Content" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Notifications.Content" xml:space="preserve">
+    <value>Background Notifications</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Pages.Content" xml:space="preserve">
+    <value>PAGES</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Performance.Content" xml:space="preserve">
+    <value>App Performance</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Playlist.Content" xml:space="preserve">
+    <value>Set Page</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Search.Content" xml:space="preserve">
+    <value>Search Page</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Settings.Content" xml:space="preserve">
+    <value>Settings Page</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Track.Content" xml:space="preserve">
+    <value>Now Playing Page</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Translation.Content" xml:space="preserve">
+    <value>App Translation</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Upload.Content" xml:space="preserve">
+    <value>Upload Page</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_User.Content" xml:space="preserve">
+    <value>User Page</value>
+  </data>
+  <data name="FeedbackPage_Cat_Combo_Welcome.Content" xml:space="preserve">
+    <value>Welcome Page</value>
+  </data>
+  <data name="FeedbackPage_Cat_Title.Text" xml:space="preserve">
+    <value>Which category/area?</value>
+  </data>
+  <data name="FeedbackPage_Extra_Input.PlaceholderText" xml:space="preserve">
+    <value>Enter your thoughts...</value>
+  </data>
+  <data name="FeedbackPage_Extra_Title.Text" xml:space="preserve">
+    <value>Any extra information? (Type your contact details if you would like a reponse.)</value>
+  </data>
+  <data name="FeedbackPage_Feel_1.Content" xml:space="preserve">
+    <value>Good</value>
+  </data>
+  <data name="FeedbackPage_Feel_2.Content" xml:space="preserve">
+    <value>Average</value>
+  </data>
+  <data name="FeedbackPage_Feel_3.Content" xml:space="preserve">
+    <value>Poor</value>
+  </data>
+  <data name="FeedbackPage_Privacy.Text" xml:space="preserve">
+    <value>Please Note: Anonymous data will be sent along with your feedback. To see what data is submitted, check the SoundByte Privacy Policy in the 'About' page.</value>
+  </data>
+  <data name="FeedbackPage_Send.Content" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="FeedbackPage_Subtitle.Text" xml:space="preserve">
+    <value>How do you feel about your experience with SoundByte?</value>
+  </data>
+  <data name="FeedbackPage_Title.Text" xml:space="preserve">
+    <value>SoundByte Feedback</value>
+  </data>
+  <data name="GeneralText_Today" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="GeneralText_Yesterday" xml:space="preserve">
+    <value>Yesterday</value>
+  </data>
+  <data name="InfoPivotHeader.Label" xml:space="preserve">
+    <value>Basic Info</value>
+  </data>
+  <data name="LikesPivotHeader.Label" xml:space="preserve">
+    <value>Likes</value>
+  </data>
+  <data name="LikeTracks_Content" xml:space="preserve">
+    <value>Start liking sounds to get started.</value>
+  </data>
+  <data name="LikeTracks_Header" xml:space="preserve">
+    <value>Nothing to hear here</value>
+  </data>
+  <data name="MetaPivotHeader.Label" xml:space="preserve">
+    <value>Metadata</value>
+  </data>
+  <data name="NotificationsPivotHeader.Label" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="PermissionsPivotHeader.Label" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="PlaylistDialog_CreateSet.Content" xml:space="preserve">
+    <value>Create Set</value>
+  </data>
+  <data name="PlaylistDialog_SaveAndClose.Content" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="PlaylistNavigateError_Button" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="PlaylistNavigateError_Content" xml:space="preserve">
+    <value>An error occured while trying to navigate to the set, try again later.</value>
+  </data>
+  <data name="PlaylistNavigateError_Title" xml:space="preserve">
+    <value>Navigation Failed</value>
+  </data>
+  <data name="PlaylistPivotHeader.Label" xml:space="preserve">
+    <value>Sets</value>
+  </data>
+  <data name="PurchasePivotHeader.Label" xml:space="preserve">
+    <value>Upgrade</value>
+  </data>
+  <data name="SearchBoxText.PlaceholderText" xml:space="preserve">
+    <value>Search...</value>
+  </data>
+  <data name="SettingsBackgroundExtraOption.Text" xml:space="preserve">
+    <value>Change Advanced Notification Settings</value>
+  </data>
+  <data name="SettingsPivotHeader.Label" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_AccentColorCustomLabel.Content" xml:space="preserve">
+    <value>Custom</value>
+    <comment>Used in the accent color combo box</comment>
+  </data>
+  <data name="Settings_AccentColorDefaultLabel.Content" xml:space="preserve">
+    <value>Default</value>
+    <comment>Used in the accent color combo box</comment>
+  </data>
+  <data name="Settings_AccentColorLabel.Text" xml:space="preserve">
+    <value>Accent Color</value>
+    <comment>Used in the accent color combo box</comment>
+  </data>
+  <data name="Settings_AccentColorSoundcloudLabel.Content" xml:space="preserve">
+    <value>SoundCloud Orange</value>
+    <comment>Used in the accent color combo box</comment>
+  </data>
+  <data name="Settings_AccentColorSystemLabel.Content" xml:space="preserve">
+    <value>System Accent</value>
+    <comment>Used in the accent color combo box</comment>
+  </data>
+  <data name="Settings_BackgroundDescription.Text" xml:space="preserve">
+    <value>The options below let you control what notifications you recieve, and if you purchase SoundByte Pro, you can disable certain kinds of notifications or enable grouped notifications. By enabling clean up notifications, you will receive a notification everytime the app performs a clean up. This notification will display how much space was cleaned off of your device.</value>
+  </data>
+  <data name="Settings_BackgroundLabel.Text" xml:space="preserve">
+    <value>BACKGROUND</value>
+  </data>
+  <data name="Settings_BackgroundNotificationsToggle.Header" xml:space="preserve">
+    <value>Enable Background Notifications</value>
+  </data>
+  <data name="Settings_BackgroundNotificationsToggle.OffContent" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Settings_BackgroundNotificationsToggle.OnContent" xml:space="preserve">
+    <value>Yes</value>
+    <comment>The on position of the track number toggle label</comment>
+  </data>
+  <data name="Settings_CleanupNotificationToggle.Header" xml:space="preserve">
+    <value>Enable Cleanup Notifications</value>
+  </data>
+  <data name="Settings_CleanupNotificationToggle.OffContent" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Settings_CleanupNotificationToggle.OnContent" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Settings_HighQualityImagesToggle.Header" xml:space="preserve">
+    <value>Enable High Quality Images</value>
+  </data>
+  <data name="Settings_HighQualityImagesToggle.OffContent" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Settings_HighQualityImagesToggle.OnContent" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Settings_LanguageLabel.Text" xml:space="preserve">
+    <value>Language</value>
+    <comment>The label for the language combo box</comment>
+  </data>
+  <data name="Settings_SilentNotificationToggle.Header" xml:space="preserve">
+    <value>Enable Notification Sounds</value>
+  </data>
+  <data name="Settings_SilentNotificationToggle.OffContent" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Settings_SilentNotificationToggle.OnContent" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Settings_ThemeDarkLabel.Content" xml:space="preserve">
+    <value>Dark</value>
+    <comment>Used in theme combo box</comment>
+  </data>
+  <data name="Settings_ThemeDefaultLabel.Content" xml:space="preserve">
+    <value>Default</value>
+    <comment>Used in theme combo box</comment>
+  </data>
+  <data name="Settings_ThemeLabel.Text" xml:space="preserve">
+    <value>Theme</value>
+    <comment>Label for theme combo box</comment>
+  </data>
+  <data name="Settings_ThemeLightLabel.Content" xml:space="preserve">
+    <value>Light</value>
+    <comment>Used in theme combo box</comment>
+  </data>
+  <data name="Settings_TrackNumberToggle.Header" xml:space="preserve">
+    <value>Enable Track Counter</value>
+    <comment>The title text for the tile number toggle </comment>
+  </data>
+  <data name="Settings_TrackNumberToggle.OffContent" xml:space="preserve">
+    <value>No</value>
+    <comment>The off position of the track number toggle label</comment>
+  </data>
+  <data name="Settings_TrackNumberToggle.OnContent" xml:space="preserve">
+    <value>Yes</value>
+    <comment>The on position of the track number toggle label</comment>
+  </data>
+  <data name="Settings_UserInterfaceDescription.Text" xml:space="preserve">
+    <value>The options below change different aspects of the SoundByte user interface. For more accent colors (any of your choice) upgrade to SoundByte Pro.</value>
+    <comment>Description for the user interface settings</comment>
+  </data>
+  <data name="Settings_UserInterfaceLabel.Text" xml:space="preserve">
+    <value>USER INTERFACE</value>
+    <comment>Label header for the user interface settings</comment>
+  </data>
+  <data name="ShareDialog_CloseCaption.Text" xml:space="preserve">
+    <value>Close the share menu.</value>
+  </data>
+  <data name="ShareDialog_CloseTitle.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ShareDialog_LinkCaption.Text" xml:space="preserve">
+    <value>Copy a link to the clipboard.</value>
+  </data>
+  <data name="ShareDialog_LinkTitle.Text" xml:space="preserve">
+    <value>Copy Link</value>
+  </data>
+  <data name="ShareDialog_SoundByteLinkCaption.Text" xml:space="preserve">
+    <value>Copy a link for other SoundByte users.</value>
+  </data>
+  <data name="ShareDialog_SoundByteLinkTitle.Text" xml:space="preserve">
+    <value>Copy SoundByte Link</value>
+  </data>
+  <data name="ShareDialog_WindowCharmDescription" xml:space="preserve">
+    <value>Share this item with your friends below:</value>
+  </data>
+  <data name="ShareDialog_WindowsCaption.Text" xml:space="preserve">
+    <value>Use the Windows share dialog.</value>
+  </data>
+  <data name="ShareDialog_WindowsTitle.Text" xml:space="preserve">
+    <value>Share with Windows</value>
+  </data>
+  <data name="StreamPivotHeader.Label" xml:space="preserve">
+    <value>Stream</value>
+  </data>
+  <data name="StreamTracks_Content" xml:space="preserve">
+    <value>Start following users to get updates on what they post.</value>
+  </data>
+  <data name="StreamTracks_Header" xml:space="preserve">
+    <value>Nothing to hear here</value>
+  </data>
+  <data name="TileManagerPreviewText" xml:space="preserve">
+    <value>Preview:</value>
+  </data>
+  <data name="TileManagerPrimeButton" xml:space="preserve">
+    <value>Pin Tile</value>
+  </data>
+  <data name="TileManagerSecondButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TileManagerTitle" xml:space="preserve">
+    <value>Customize Tile:</value>
+  </data>
+  <data name="TileManagerTitleText" xml:space="preserve">
+    <value>Tile Text:</value>
+  </data>
+  <data name="TileManager_ForegoundHeader" xml:space="preserve">
+    <value>Tile Text Color:</value>
+  </data>
+  <data name="TileManager_ForegoundOffContent" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="TileManager_ForegoundOnContent" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="UIUpdateError_Button" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="UIUpdateError_Content" xml:space="preserve">
+    <value>The item has been removed, but an error occured while updating the UI.</value>
+  </data>
+  <data name="UIUpdateError_Title" xml:space="preserve">
+    <value>UI Update Error</value>
+  </data>
+  <data name="UpgradeInfo.Text" xml:space="preserve">
+    <value>UPGRADE INFO</value>
+  </data>
+  <data name="UpgradeInfoMore.Text" xml:space="preserve">
+    <value>In order to keep this app running, some features are paid. Only a few extra features are paid. These features are not needed to use the app, but they are nice addons.</value>
+  </data>
+  <data name="UserPlaylists_Content" xml:space="preserve">
+    <value>You have not posted any sets yet.</value>
+  </data>
+  <data name="UserPlaylists_Header" xml:space="preserve">
+    <value>Nothing to hear here</value>
+  </data>
+  <data name="ExploreGenreCombo_alternativerock.Content" xml:space="preserve">
+    <value>Alternative Rock</value>
+  </data>
+  <data name="ExploreGenreCombo_ambient.Content" xml:space="preserve">
+    <value>Ambient</value>
+  </data>
+  <data name="ExploreGenreCombo_audio.Content" xml:space="preserve">
+    <value>AUDIO</value>
+  </data>
+  <data name="ExploreGenreCombo_audiobooks.Content" xml:space="preserve">
+    <value>Audiobooks</value>
+  </data>
+  <data name="ExploreGenreCombo_business.Content" xml:space="preserve">
+    <value>Business</value>
+  </data>
+  <data name="ExploreGenreCombo_classical.Content" xml:space="preserve">
+    <value>Classical</value>
+  </data>
+  <data name="ExploreGenreCombo_comedy.Content" xml:space="preserve">
+    <value>Comedy</value>
+  </data>
+  <data name="ExploreGenreCombo_country.Content" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="ExploreGenreCombo_danceedm.Content" xml:space="preserve">
+    <value>Dance &amp; EDM</value>
+  </data>
+  <data name="ExploreGenreCombo_dancehall.Content" xml:space="preserve">
+    <value>Dancehall</value>
+  </data>
+  <data name="ExploreGenreCombo_deephouse.Content" xml:space="preserve">
+    <value>Deep House</value>
+  </data>
+  <data name="ExploreGenreCombo_disco.Content" xml:space="preserve">
+    <value>Disco</value>
+  </data>
+  <data name="ExploreGenreCombo_drumbass.Content" xml:space="preserve">
+    <value>Drum &amp; Bass</value>
+  </data>
+  <data name="ExploreGenreCombo_dubstep.Content" xml:space="preserve">
+    <value>Dubstep</value>
+  </data>
+  <data name="ExploreGenreCombo_electronic.Content" xml:space="preserve">
+    <value>Electronic</value>
+  </data>
+  <data name="ExploreGenreCombo_entertainment.Content" xml:space="preserve">
+    <value>Entertainment</value>
+  </data>
+  <data name="ExploreGenreCombo_folksingersongwriter.Content" xml:space="preserve">
+    <value>Folk &amp; Singer-Songwriter</value>
+  </data>
+  <data name="ExploreGenreCombo_hiphoprap.Content" xml:space="preserve">
+    <value>Hip Hop &amp; Rap</value>
+  </data>
+  <data name="ExploreGenreCombo_house.Content" xml:space="preserve">
+    <value>House</value>
+  </data>
+  <data name="ExploreGenreCombo_indie.Content" xml:space="preserve">
+    <value>Indie</value>
+  </data>
+  <data name="ExploreGenreCombo_jazzblues.Content" xml:space="preserve">
+    <value>Jazz &amp; Blues</value>
+  </data>
+  <data name="ExploreGenreCombo_latin.Content" xml:space="preserve">
+    <value>Latin</value>
+  </data>
+  <data name="ExploreGenreCombo_learning.Content" xml:space="preserve">
+    <value>Learning</value>
+  </data>
+  <data name="ExploreGenreCombo_metal.Content" xml:space="preserve">
+    <value>Metal</value>
+  </data>
+  <data name="ExploreGenreCombo_music.Content" xml:space="preserve">
+    <value>MUSIC</value>
+  </data>
+  <data name="ExploreGenreCombo_newspolitics.Content" xml:space="preserve">
+    <value>News &amp; Politics</value>
+  </data>
+  <data name="ExploreGenreCombo_piano.Content" xml:space="preserve">
+    <value>Piano</value>
+  </data>
+  <data name="ExploreGenreCombo_pop.Content" xml:space="preserve">
+    <value>Pop</value>
+  </data>
+  <data name="ExploreGenreCombo_rbsoul.Content" xml:space="preserve">
+    <value>R&amp;B &amp; Soul</value>
+  </data>
+  <data name="ExploreGenreCombo_reggae.Content" xml:space="preserve">
+    <value>Reggae</value>
+  </data>
+  <data name="ExploreGenreCombo_reggaeton.Content" xml:space="preserve">
+    <value>Reggaeton</value>
+  </data>
+  <data name="ExploreGenreCombo_religionspirituality.Content" xml:space="preserve">
+    <value>Religion &amp; Spirtuality</value>
+  </data>
+  <data name="ExploreGenreCombo_rock.Content" xml:space="preserve">
+    <value>Rock</value>
+  </data>
+  <data name="ExploreGenreCombo_science.Content" xml:space="preserve">
+    <value>Science</value>
+  </data>
+  <data name="ExploreGenreCombo_soundtrack.Content" xml:space="preserve">
+    <value>Soundtrack</value>
+  </data>
+  <data name="ExploreGenreCombo_sports.Content" xml:space="preserve">
+    <value>Sports</value>
+  </data>
+  <data name="ExploreGenreCombo_storytelling.Content" xml:space="preserve">
+    <value>Storytelling</value>
+  </data>
+  <data name="ExploreGenreCombo_techno.Content" xml:space="preserve">
+    <value>Techno</value>
+  </data>
+  <data name="ExploreGenreCombo_technology.Content" xml:space="preserve">
+    <value>Technology</value>
+  </data>
+  <data name="ExploreGenreCombo_trance.Content" xml:space="preserve">
+    <value>Trance</value>
+  </data>
+  <data name="ExploreGenreCombo_trap.Content" xml:space="preserve">
+    <value>Trap</value>
+  </data>
+  <data name="ExploreGenreCombo_triphop.Content" xml:space="preserve">
+    <value>Triphop</value>
+  </data>
+  <data name="ExploreGenreCombo_world.Content" xml:space="preserve">
+    <value>World</value>
+  </data>
+  <data name="ExploreTypeCombo_top.Content" xml:space="preserve">
+    <value>Top 50</value>
+  </data>
+  <data name="ExploreTypeCombo_trending.Content" xml:space="preserve">
+    <value>New &amp; Hot</value>
+  </data>
+  <data name="AppBarUI_Home.Label" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Close_Button" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="FeedbackPage_ErrorNoCat" xml:space="preserve">
+    <value>You must enter a cateory to category.</value>
+  </data>
+  <data name="FeedbackPage_ErrorNoFeel" xml:space="preserve">
+    <value>You must choose an option on how you feel about the app to continue.</value>
+  </data>
+  <data name="FeedbackPage_ErrorTitle" xml:space="preserve">
+    <value>Feedback Error</value>
+  </data>
+  <data name="Notifications_Content" xml:space="preserve">
+    <value>Start following and interacting with sounds and people to get started.</value>
+  </data>
+  <data name="Notifications_Header" xml:space="preserve">
+    <value>Nothing to hear here</value>
+  </data>
+  <data name="Notification_CommentOnSound.Text" xml:space="preserve">
+    <value> commented on a sound.</value>
+  </data>
+  <data name="Notification_Follow.Text" xml:space="preserve">
+    <value> is following you.</value>
+  </data>
+  <data name="Notification_Followers.Text" xml:space="preserve">
+    <value>Followers</value>
+  </data>
+  <data name="Notification_Followings.Text" xml:space="preserve">
+    <value>Followings</value>
+  </data>
+  <data name="Notification_HasLikedSound.Text" xml:space="preserve">
+    <value> liked your sound.</value>
+  </data>
+  <data name="Notification_Sounds.Text" xml:space="preserve">
+    <value>Sounds</value>
+  </data>
+  <data name="NowPlayingNavigate_Button" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="NowPlayingNavigate_Header" xml:space="preserve">
+    <value>SoundByte Information</value>
+  </data>
+  <data name="NowPlayingNavigate_InternetAvaliableText" xml:space="preserve">
+    <value>You need to be connected to the internet to perform this task.</value>
+  </data>
+  <data name="NowPlayingNavigate_NotAvaliableText" xml:space="preserve">
+    <value>There are currently no sounds playing or in queue.</value>
+  </data>
+  <data name="AppBarUI_Filter.Label" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="AppBarUI_Pin.Label" xml:space="preserve">
+    <value>Pin</value>
+  </data>
+  <data name="AppBarUI_Pin_Raw" xml:space="preserve">
+    <value>Pin</value>
+  </data>
+  <data name="AppBarUI_Shuffle.Label" xml:space="preserve">
+    <value>Shuffle</value>
+  </data>
+  <data name="AppBarUI_Unpin_Raw" xml:space="preserve">
+    <value>Unpin</value>
+  </data>
+  <data name="DeleteConfirm_FailContent" xml:space="preserve">
+    <value>An error occured while trying to delete this item. Try again later.</value>
+  </data>
+  <data name="DeleteConfirm_FailTitle" xml:space="preserve">
+    <value>Delete Error</value>
+  </data>
+  <data name="DeleteConfirm_OfflineTitle" xml:space="preserve">
+    <value>Remove Offline Sound?</value>
+  </data>
+  <data name="DeleteConfirm_PlaylistContent" xml:space="preserve">
+    <value>Are you sure that you want to delete this set?</value>
+  </data>
+  <data name="DeleteConfirm_PlaylistTitle" xml:space="preserve">
+    <value>Delete Set?</value>
+  </data>
+  <data name="DeleteConfirm_TrackButtonPrimary" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="DeleteConfirm_TrackButtonSecondary" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="DeleteConfirm_TrackContent" xml:space="preserve">
+    <value>Are you sure that you want to delete this sound?</value>
+  </data>
+  <data name="DeleteConfirm_TrackTitle" xml:space="preserve">
+    <value>Delete Sound?</value>
+  </data>
+  <data name="DeletePlaylist_OfflineContent" xml:space="preserve">
+    <value>Are you sure that you want to remove this offline sound?</value>
+  </data>
+  <data name="GeneralError_Content" xml:space="preserve">
+    <value>Error message: {0}.</value>
+  </data>
+  <data name="GeneralError_Header" xml:space="preserve">
+    <value>General Error</value>
+  </data>
+  <data name="HttpError_Header" xml:space="preserve">
+    <value>Connection Error</value>
+  </data>
+  <data name="HttpError_JsonError" xml:space="preserve">
+    <value>An error occured while trying to read the data. Contact the developer.</value>
+  </data>
+  <data name="HttpError_NoInternet" xml:space="preserve">
+    <value>Make sure that you are connected to the internet and try again.</value>
+  </data>
+  <data name="HttpError_TaskCancel" xml:space="preserve">
+    <value>The task was canceled before it finished.</value>
+  </data>
+  <data name="LanguageRestart_Button" xml:space="preserve">
+    <value>Close App</value>
+  </data>
+  <data name="LanguageRestart_Content" xml:space="preserve">
+    <value>The app must restart in order for the language to be changed.</value>
+  </data>
+  <data name="LanguageRestart_Title" xml:space="preserve">
+    <value>Restart Required</value>
+  </data>
+  <data name="OfflinePivotHeader.Label" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="Offline_Content" xml:space="preserve">
+    <value>You have not saved any sounds offline yet.</value>
+  </data>
+  <data name="Offline_Header" xml:space="preserve">
+    <value>No offline sounds</value>
+  </data>
+  <data name="PlaylistNavigate_FailButton" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="PlaylistTracks_Content" xml:space="preserve">
+    <value>There are no sounds in this set.</value>
+  </data>
+  <data name="PlaylistTracks_Header" xml:space="preserve">
+    <value>No Sounds</value>
+  </data>
+  <data name="Raw_Follow" xml:space="preserve">
+    <value>Follow</value>
+  </data>
+  <data name="Raw_Unfollow" xml:space="preserve">
+    <value>Unfollow</value>
+  </data>
+  <data name="SearchFilter_Apply.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="SearchFilter_BPM.PlaceholderText" xml:space="preserve">
+    <value>Number (e.g 160)</value>
+  </data>
+  <data name="SearchFilter_BPMText.Text" xml:space="preserve">
+    <value>BPM (+/-10)</value>
+  </data>
+  <data name="SearchPlaylist_Content" xml:space="preserve">
+    <value>No sets found matching '{0}'.</value>
+  </data>
+  <data name="SearchPlaylist_Header" xml:space="preserve">
+    <value>Nothing to see here</value>
+  </data>
+  <data name="SearchTrack_Content" xml:space="preserve">
+    <value>No sounds found matching '{0}'.</value>
+  </data>
+  <data name="SearchTrack_Header" xml:space="preserve">
+    <value>Nothing to see here</value>
+  </data>
+  <data name="SearchUser_Content" xml:space="preserve">
+    <value>No users found matching '{0}'.</value>
+  </data>
+  <data name="SearchUser_Header" xml:space="preserve">
+    <value>Nothing to see here</value>
+  </data>
+  <data name="SetsPivot.Label" xml:space="preserve">
+    <value>Sets</value>
+  </data>
+  <data name="SoundsPivot.Label" xml:space="preserve">
+    <value>Sounds</value>
+  </data>
+  <data name="SoundsPivotHeader.Label" xml:space="preserve">
+    <value>Sounds</value>
+  </data>
+  <data name="UsersPivot.Label" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="PlaylistPage_NoSetsClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="PlaylistPage_NoSetsContent" xml:space="preserve">
+    <value>There are no sounds in the current set.</value>
+  </data>
+  <data name="PlaylistPage_NoSetsTitle" xml:space="preserve">
+    <value>No Sounds</value>
+  </data>
+  <data name="FeedbackPage_Cancel.Content" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="FeedbackPage_Description.Text" xml:space="preserve">
+    <value>Leave feedback about the app below.</value>
+  </data>
+  <data name="SoundByte_Control_Like" xml:space="preserve">
+    <value>Like</value>
+  </data>
+  <data name="SoundByte_Control_Unlike" xml:space="preserve">
+    <value>Unlike</value>
+  </data>
+  <data name="SoundByte_CrashDialogContact.PlaceholderText" xml:space="preserve">
+    <value>Contact Email (Optional)</value>
+  </data>
+  <data name="SoundByte_CrashDialogContinueButton.Content" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="SoundByte_CrashDialogDescription.PlaceholderText" xml:space="preserve">
+    <value>What were you doing? (Optional)</value>
+  </data>
+  <data name="SoundByte_CrashDialogMoreInfo.Text" xml:space="preserve">
+    <value>More Information: </value>
+    <comment>More information sub heading</comment>
+  </data>
+  <data name="SoundByte_CrashDialogRestartButton.Content" xml:space="preserve">
+    <value>Restart (Recommended)</value>
+  </data>
+  <data name="SoundByte_CrashDialogSubTitle.Text" xml:space="preserve">
+    <value>SoundByte has encountered a problem and needs to close, we are sorry for the inconvenience. If you would like to help us fix this problem, fill in the box below.</value>
+    <comment>Subtitle for the crash dialog</comment>
+  </data>
+  <data name="SoundByte_CrashDialogTitle.Text" xml:space="preserve">
+    <value>Something Went Wrong</value>
+    <comment>Title for the crash dialog.</comment>
+  </data>
+  <data name="SoundByte_FilterDialogApply.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="SoundByte_FilterDialogBPM.Header" xml:space="preserve">
+    <value>BPM</value>
+  </data>
+  <data name="SoundByte_FilterDialogLicense.Header" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="SoundByte_FilterDialogSubTitle.Text" xml:space="preserve">
+    <value>(Tracks)</value>
+  </data>
+  <data name="SoundByte_FilterDialogTagError" xml:space="preserve">
+    <value>Warning: Each tag needs to be seperated by a comma.</value>
+  </data>
+  <data name="SoundByte_FilterDialogTagList.Header" xml:space="preserve">
+    <value>Tags or Genres</value>
+  </data>
+  <data name="SoundByte_FilterDialogTagList.PlaceholderText" xml:space="preserve">
+    <value>Comma Separated List</value>
+  </data>
+  <data name="SoundByte_FilterDialogTitle.Text" xml:space="preserve">
+    <value>Filter Search</value>
+  </data>
+  <data name="SoundByte_FilterDialogType.Header" xml:space="preserve">
+    <value>Type</value>
+  </data>
+</root>

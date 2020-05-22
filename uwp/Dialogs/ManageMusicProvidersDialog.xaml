@@ -1,0 +1,96 @@
+﻿<ContentDialog
+    x:Class="SoundByte.App.Uwp.Dialogs.ManageMusicProvidersDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource AppContentDialog}">
+
+    <ScrollViewer
+        Width="400"
+        Padding="25"
+        HorizontalAlignment="Stretch"
+        VerticalScrollBarVisibility="Hidden">
+        <!--  Stack the content  -->
+        <StackPanel>
+            <TextBlock
+                Margin="5,20,5,10"
+                VerticalAlignment="Center"
+                FontSize="28"
+                FontWeight="Bold"
+                Text="Music Providers"
+                TextAlignment="Center" />
+
+            <!--  SoundCloud  -->
+            <TextBlock
+                Margin="10,13,0,3"
+                Style="{ThemeResource SubTitleStyle}"
+                Text="SoundCloud" />
+            <Button
+                x:Name="SoundCloudSignInButton"
+                Margin="10,5,10,5"
+                Padding="8,12"
+                HorizontalAlignment="Stretch"
+                Click="SoundCloudSignIn"
+                Content="Sign in with SoundCloud"
+                Style="{StaticResource ModernButtonStyle}" />
+
+            <Button
+                x:Name="SoundCloudViewProfileButton"
+                Margin="10,5,10,5"
+                Padding="8,12"
+                HorizontalAlignment="Stretch"
+                Click="SoundCloudViewProfile"
+                Content="View Profile"
+                Style="{StaticResource ModernButtonStyle}" />
+
+            <Button
+                x:Name="SoundCloudSignOutButton"
+                Margin="10,5,10,5"
+                Padding="8,12"
+                HorizontalAlignment="Stretch"
+                Click="SoundCloudSignOut"
+                Content="Sign out"
+                Style="{StaticResource ModernButtonStyle}" />
+
+            <!--  YouTube  -->
+            <TextBlock
+                Margin="10,13,0,3"
+                Style="{ThemeResource SubTitleStyle}"
+                Text="YouTube" />
+            <Button
+                x:Name="YouTubeSignInButton"
+                Margin="10,5,10,5"
+                Padding="8,12"
+                HorizontalAlignment="Stretch"
+                Click="YouTubeSignIn"
+                Content="Sign in with YouTube"
+                Style="{StaticResource ModernButtonStyle}" />
+
+            <Button
+                x:Name="YouTubeViewProfileButton"
+                Margin="10,5,10,5"
+                Padding="8,12"
+                HorizontalAlignment="Stretch"
+                Click="YouTubeViewProfile"
+                Content="View Profile"
+                Style="{StaticResource ModernButtonStyle}" />
+
+            <Button
+                x:Name="YouTubeSignOutButton"
+                Margin="10,5,10,5"
+                Padding="8,12"
+                HorizontalAlignment="Stretch"
+                Click="YouTubeSignOut"
+                Content="Sign out"
+                Style="{StaticResource ModernButtonStyle}" />
+
+            <Button
+                Margin="10,25,10,15"
+                Padding="8,12"
+                HorizontalAlignment="Stretch"
+                Click="{x:Bind Hide}"
+                Content="Close"
+                FontSize="16"
+                Style="{StaticResource ModernButtonStyle}" />
+        </StackPanel>
+    </ScrollViewer>
+</ContentDialog>

@@ -1,0 +1,67 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  App specific themes  -->
+    <ResourceDictionary.ThemeDictionaries>
+        <!--  Dark  -->
+        <ResourceDictionary x:Key="Dark">
+            <!--  New colors  -->
+            <Color x:Key="PageBackgroundColor">#ff1a1a1a</Color>
+            <Color x:Key="PageBackgroundTransparentColor">#001a1a1a</Color>
+            <Color x:Key="PageBackground2Color">#ff202020</Color>
+
+            <!--  Old colors  -->
+            <Color x:Key="ShellBackgroundColor">#FF151515</Color>
+            <Color x:Key="SoundByteButtonBackgroundColor">#882B2B2B</Color>
+            <Color x:Key="SoundByteButtonBorderColor">#FF2B2B2B</Color>
+
+            <Color x:Key="PlaybackGradientTop">#DD000000</Color>
+            <Color x:Key="PlaybackGradientBottom">#66000000</Color>
+        </ResourceDictionary>
+
+        <!--  Light  -->
+        <ResourceDictionary x:Key="Light">
+            <!--  New colors  -->
+            <Color x:Key="PageBackgroundColor">#ffecf0f1</Color>
+            <Color x:Key="PageBackgroundTransparentColor">#00ecf0f1</Color>
+            <Color x:Key="PageBackground2Color">#ffffffff</Color>
+
+            <!--  Old colors  -->
+            <Color x:Key="ShellBackgroundColor">#FFF8F8F8</Color>
+            <Color x:Key="SoundByteButtonBackgroundColor">#88EEEEEE</Color>
+            <Color x:Key="SoundByteButtonBorderColor">#FFBCBCBC</Color>
+
+            <Color x:Key="PlaybackGradientTop">#DDFFFFFF</Color>
+            <Color x:Key="PlaybackGradientBottom">#66FFFFFF</Color>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <!--  New colors  -->
+    <SolidColorBrush x:Key="PageBackground" Color="{ThemeResource PageBackgroundColor}" />
+    <SolidColorBrush x:Key="PageBackground2" Color="{ThemeResource PageBackground2Color}" />
+
+    <Color x:Key="SoundByteAccentColor">#ff78303b</Color>
+    <Color x:Key="SoundByteAccentColor2">#ff6c2b35</Color>
+    <SolidColorBrush x:Key="SoundByteAccent" Color="{ThemeResource SoundByteAccentColor}" />
+    <SolidColorBrush x:Key="SoundByteAccent2" Color="{ThemeResource SoundByteAccentColor2}" />
+
+    <!--  Old colors  -->
+    <AcrylicBrush
+        x:Key="ButtonAccentBrush"
+        BackgroundSource="Backdrop"
+        FallbackColor="{ThemeResource SystemAccentColor}"
+        TintColor="{ThemeResource SystemAccentColor}"
+        TintOpacity="0.8" />
+
+    <AcrylicBrush
+        x:Key="ContentDialogBackgroundAcrylicBrush"
+        BackgroundSource="Backdrop"
+        FallbackColor="#88000000"
+        TintColor="#22000000"
+        TintOpacity="0.5" />
+
+    <!--  Shell Brushes  -->
+    <SolidColorBrush x:Key="ShellBackground" Color="{ThemeResource ShellBackgroundColor}" />
+    <SolidColorBrush x:Key="SoundByteButtonBackground" Color="{ThemeResource SoundByteButtonBackgroundColor}" />
+    <SolidColorBrush x:Key="SoundByteButtonBorder" Color="{ThemeResource SoundByteButtonBorderColor}" />
+    <SolidColorBrush x:Key="TransparentBrush" Color="Transparent" />
+</ResourceDictionary>

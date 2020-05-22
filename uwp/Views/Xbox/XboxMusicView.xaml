@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.Xbox.XboxMusicView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    DataContext="{Binding XboxMusic, Source={StaticResource ViewModelLocator}, Mode=OneTime}">
+
+    <ScrollViewer Margin="0,90,0,0">
+        <Pivot Grid.Row="1" Margin="6,0,0,0">
+            <Pivot.Resources>
+                <Style BasedOn="{StaticResource FluentPivotHeader}" TargetType="PivotHeaderItem" />
+            </Pivot.Resources>
+
+            <PivotItem>
+                <PivotItem.Header>
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="SemiBold"
+                        Text="For You" />
+                </PivotItem.Header>
+
+                <ItemsControl
+                    Margin="20,0,26,80"
+                    ItemsSource="{x:Bind ViewModel.HomeContent}"
+                    Style="{StaticResource PageContentList}" />
+            </PivotItem>
+
+            <PivotItem>
+                <PivotItem.Header>
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="SemiBold"
+                        Text="Likes" />
+                </PivotItem.Header>
+
+                <ItemsControl
+                    Margin="20,0,26,80"
+                    ItemsSource="{x:Bind ViewModel.LikesContent}"
+                    Style="{StaticResource PageContentList}" />
+            </PivotItem>
+
+            <PivotItem>
+                <PivotItem.Header>
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="SemiBold"
+                        Text="Playlists" />
+                </PivotItem.Header>
+
+                <ItemsControl
+                    Margin="20,0,26,80"
+                    ItemsSource="{x:Bind ViewModel.PlaylistsContent}"
+                    Style="{StaticResource PageContentList}" />
+            </PivotItem>
+        </Pivot>
+    </ScrollViewer>
+</Page>

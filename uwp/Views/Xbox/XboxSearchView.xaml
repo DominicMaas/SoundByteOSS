@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.Xbox.XboxSearchView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Transitions="{x:Null}">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <FontIcon
+                FontFamily="Segoe MDL2 Assets"
+                FontSize="120"
+                Glyph="&#xE8D6;" />
+            <TextBlock
+                Margin="0,30,0,0"
+                FontSize="36"
+                FontWeight="Bold"
+                Text="Start searching"
+                TextAlignment="Center" />
+            <TextBlock
+                Width="270"
+                Margin="0,15,0,0"
+                FontSize="18"
+                FontWeight="SemiBold"
+                Opacity="0.8"
+                Text="Find music, playlists and people."
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+            <AutoSuggestBox
+                Width="300"
+                Height="38"
+                Margin="0,30,0,0"
+                HorizontalAlignment="Center"
+                BorderThickness="1"
+                QueryIcon="Find"
+                QuerySubmitted="SearchForItem"
+                Style="{StaticResource AppSearchBox}" />
+        </StackPanel>
+    </Grid>
+</Page>

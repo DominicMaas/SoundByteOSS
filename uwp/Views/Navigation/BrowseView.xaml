@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.Navigation.BrowseView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:SoundByte.App.Uwp.Controls"
+    DataContext="{Binding Browse, Source={StaticResource ViewModelLocator}, Mode=OneTime}">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <EntranceNavigationTransitionInfo />
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Padding="{ThemeResource PagePadding}">
+                <TextBlock Style="{StaticResource TitleStyle}" Text="Browse" />
+
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <controls:AppButton
+                        Click="{x:Bind ViewModel.Refresh}"
+                        Glyph="&#xE72C;"
+                        IsExtended="True"
+                        Label="Refresh" />
+                </StackPanel>
+            </Grid>
+
+            <Pivot
+                x:Name="Pivot"
+                Grid.Row="1"
+                Margin="6,0,0,0">
+                <Pivot.Resources>
+                    <Style BasedOn="{StaticResource FluentPivotHeader}" TargetType="PivotHeaderItem" />
+                </Pivot.Resources>
+
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Text="Tracks" />
+                    </PivotItem.Header>
+
+                    <ItemsControl
+                        Margin="20,0,26,80"
+                        ItemsSource="{x:Bind ViewModel.PageContent}"
+                        Style="{StaticResource PageContentList}" />
+                </PivotItem>
+            </Pivot>
+        </Grid>
+    </ScrollViewer>
+</Page>

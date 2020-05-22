@@ -1,0 +1,117 @@
+﻿<ContentDialog
+    x:Class="SoundByte.App.Uwp.Dialogs.AboutDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="AboutDialog_Loaded"
+    Style="{StaticResource AppContentDialog}"
+    mc:Ignorable="d">
+
+    <Grid Width="460" Padding="25">
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Margin="0,15,0,0">
+                <TextBlock
+                    Margin="0,0,0,15"
+                    FontSize="36"
+                    FontWeight="Bold"
+                    Text="SoundByte"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Margin="0,2"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Opacity="0.9"
+                    Text="Copyright © 2019 Dominic Maas.&#x0a;All Rights Reserved"
+                    TextAlignment="Center" />
+
+                <StackPanel
+                    Margin="0,4,0,2"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        x:Name="AppVersion"
+                        FontSize="14"
+                        FontWeight="SemiLight"
+                        Opacity="0.8"
+                        Text="Version 1.3.1"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Margin="6,0,6,0"
+                        FontSize="14"
+                        FontWeight="SemiLight"
+                        Opacity="0.6"
+                        Text="@"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        x:Name="AppBuildTime"
+                        FontSize="14"
+                        FontWeight="SemiLight"
+                        Opacity="0.8"
+                        Text="10/10/2018 11:03"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+
+                <!--  Social links  -->
+                <TextBlock
+                    Style="{StaticResource SubTitleStyle}"
+                    Text="Social Media"
+                    TextAlignment="Center" />
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <HyperlinkButton
+                        Margin="4,0"
+                        Content="Twitter"
+                        NavigateUri="https://twitter.com/SoundByteUWP"
+                        Style="{StaticResource LinkStyle}" />
+                </StackPanel>
+
+                <!--  More links  -->
+                <TextBlock
+                    Style="{StaticResource SubTitleStyle}"
+                    Text="Links"
+                    TextAlignment="Center" />
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <HyperlinkButton
+                        Margin="4,0"
+                        Content="SoundByte Website"
+                        NavigateUri="https://soundbytemedia.com"
+                        Style="{StaticResource LinkStyle}" />
+                </StackPanel>
+
+                <HyperlinkButton
+                    Margin="0,-4,0,0"
+                    HorizontalAlignment="Center"
+                    Content="Privacy Policy"
+                    NavigateUri="https://soundbytemedia.com/pages/privacy-policy"
+                    Style="{StaticResource LinkStyle}" />
+
+                <!--  Thanks To  -->
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource SubTitleStyle}"
+                    Text="Thanks To" />
+                <TextBlock
+                    Style="{StaticResource TextStyle}"
+                    Text="Dennis Bednarz (@DennisBednarz on Twitter) for the logo and app design."
+                    TextAlignment="Center" />
+                <TextBlock
+                    Style="{StaticResource TextStyle}"
+                    Text="All of the beta testers."
+                    TextAlignment="Center" />
+
+                <Button
+                    Margin="10,15"
+                    Padding="10,12"
+                    HorizontalAlignment="Stretch"
+                    Click="{x:Bind Hide}"
+                    Content="Close"
+                    FontSize="16"
+                    Style="{StaticResource ModernButtonStyle}" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</ContentDialog>

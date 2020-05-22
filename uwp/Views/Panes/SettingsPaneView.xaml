@@ -1,0 +1,319 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.Panes.SettingsPaneView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:SoundByte.App.Uwp.Converters"
+    Transitions="{x:Null}">
+    <Page.Resources>
+        <converters:BoolVisibilityConverter x:Key="BoolVisibilityConverter" />
+    </Page.Resources>
+
+    <Grid Background="Transparent">
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Margin="16,45,16,16">
+                <!--  LOOK AND FEEL  -->
+                <TextBlock Style="{StaticResource SubTitleStyle}" Text="Look and Feel" />
+                <TextBlock Style="{StaticResource TextStyle}" Text="Adjust how different aspects of SoundByte look and feel. Changing the language or toggling interactive mode requires restarting the app." />
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Theme" />
+
+                <ComboBox
+                    x:Name="ThemeComboBox"
+                    Margin="0,8,0,4"
+                    Padding="8,8"
+                    HorizontalAlignment="Stretch"
+                    Background="{ThemeResource SoundByteButtonBackground}"
+                    BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                    BorderThickness="1"
+                    SelectionChanged="AppThemeComboBoxChanged">
+                    <ComboBoxItem x:Name="DefaultTheme" x:Uid="Settings_ThemeDefaultLabel" />
+                    <ComboBoxItem x:Name="DarkTheme" x:Uid="Settings_ThemeDarkLabel" />
+                    <ComboBoxItem x:Name="LightTheme" x:Uid="Settings_ThemeLightLabel" />
+                </ComboBox>
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Language" />
+
+                <ComboBox
+                    x:Name="LanguageComboBox"
+                    Margin="0,8,0,4"
+                    Padding="8,8"
+                    HorizontalAlignment="Stretch"
+                    Background="{ThemeResource SoundByteButtonBackground}"
+                    BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                    BorderThickness="1"
+                    IsEnabled="False"
+                    SelectionChanged="{x:Bind ViewModel.ChangeLangauge}">
+                    <ComboBoxItem
+                        x:Name="Language_English_US"
+                        Content="English"
+                        IsSelected="True"
+                        Tag="en-US" />
+                    <ComboBoxItem
+                        x:Name="Language_French_FR"
+                        Content="French (Alpha)"
+                        Tag="fr" />
+                    <ComboBoxItem
+                        x:Name="Language_Dutch_NL"
+                        Content="Dutch (Alpha)"
+                        Tag="nl" />
+                </ComboBox>
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Start page" />
+                <ComboBox
+                    x:Name="StartPageComboBox"
+                    Margin="0,8,0,4"
+                    Padding="8,8"
+                    HorizontalAlignment="Stretch"
+                    Background="{ThemeResource SoundByteButtonBackground}"
+                    BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                    BorderThickness="1"
+                    SelectionChanged="{x:Bind ViewModel.ChangeStartPage}">
+                    <ComboBoxItem
+                        x:Name="StartPageHome"
+                        Content="Home"
+                        Tag="home" />
+                    <ComboBoxItem
+                        x:Name="StartPageBrowse"
+                        Content="Browse"
+                        Tag="browse" />
+                    <ComboBoxItem
+                        x:Name="StartPagePodcasts"
+                        Content="Podcasts"
+                        Tag="podcasts" />
+                    <ComboBoxItem
+                        x:Name="StartPageMyMusic"
+                        Content="My Music"
+                        Tag="my-music" />
+                </ComboBox>
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Enable Xbox UI" />
+                <ToggleSwitch
+                    FontSize="16"
+                    IsOn="{x:Bind SettingsService.IsInteractiveMode, Mode=TwoWay}"
+                    OffContent="No"
+                    OnContent="Yes" />
+
+                <!--  MY DEVICE  -->
+                <TextBlock
+                    Style="{StaticResource SubTitleStyle}"
+                    Text="My Device"
+                    Visibility="Collapsed" />
+                <TextBlock
+                    Style="{StaticResource TextStyle}"
+                    Text="Manage your local music. "
+                    Visibility="Collapsed" />
+
+                <TextBlock
+                    Style="{StaticResource HeaderStyle}"
+                    Text="Update Library"
+                    Visibility="Collapsed" />
+
+                <Button
+                    Margin="0,8,0,4"
+                    Padding="8,8"
+                    HorizontalAlignment="Stretch"
+                    Background="{ThemeResource SoundByteButtonBackground}"
+                    BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                    BorderThickness="1"
+                    Content="Update"
+                    IsEnabled="False"
+                    Style="{ThemeResource ButtonRevealStyle}"
+                    Visibility="Collapsed" />
+
+                <StackPanel
+                    Margin="0,8,0,4"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        Margin="0,0,5,0"
+                        FontSize="15"
+                        Text="Last Updated: " />
+
+                    <TextBlock
+                        FontSize="15"
+                        Opacity="0.7"
+                        Text="Never" />
+                </StackPanel>
+
+                <TextBlock
+                    Style="{StaticResource HeaderStyle}"
+                    Text="Scanned Folders"
+                    Visibility="Collapsed" />
+
+                <ListView
+                    Width="250"
+                    Margin="0,8,0,4"
+                    HorizontalAlignment="Left"
+                    IsItemClickEnabled="True"
+                    SelectionMode="None"
+                    Visibility="Collapsed">
+                    <ListView.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <AddDeleteThemeTransition />
+                            <ContentThemeTransition />
+                            <ReorderThemeTransition />
+                            <EntranceThemeTransition IsStaggeringEnabled="False" />
+                            <RepositionThemeTransition IsStaggeringEnabled="False" />
+                        </TransitionCollection>
+                    </ListView.ItemContainerTransitions>
+
+                    <ListViewItem
+                        Margin="0"
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        Background="{ThemeResource SoundByteButtonBackground}"
+                        BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                        BorderThickness="1">
+                        <Grid>
+                            <TextBlock
+                                Margin="10,0,49,0"
+                                VerticalAlignment="Center"
+                                Text="D:\Storage\Music\This\That\And\This"
+                                TextTrimming="CharacterEllipsis" />
+
+                            <Button
+                                Width="40"
+                                Height="40"
+                                Margin="0,5,3,5"
+                                HorizontalAlignment="Right"
+                                Background="Transparent"
+                                BorderThickness="1"
+                                Style="{ThemeResource ButtonRevealStyle}">
+                                <SymbolIcon Symbol="Delete" />
+                            </Button>
+                        </Grid>
+                    </ListViewItem>
+                </ListView>
+                <Button
+                    Margin="0,8,0,4"
+                    Padding="8,8"
+                    HorizontalAlignment="Stretch"
+                    Background="{ThemeResource SoundByteButtonBackground}"
+                    BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                    BorderThickness="1"
+                    Content="Add Folder"
+                    IsEnabled="False"
+                    Style="{ThemeResource ButtonRevealStyle}"
+                    Visibility="Collapsed" />
+
+                <TextBlock
+                    Style="{StaticResource HeaderStyle}"
+                    Text="Include Music Library"
+                    Visibility="Collapsed" />
+                <ToggleSwitch
+                    FontSize="16"
+                    IsEnabled="False"
+                    IsOn="True"
+                    OffContent="No"
+                    OnContent="Yes"
+                    Visibility="Collapsed" />
+
+                <!--  PLAYBACK  -->
+                <TextBlock Style="{StaticResource SubTitleStyle}" Text="Playback" />
+                <TextBlock Style="{StaticResource TextStyle}" Text="Change how SoundByte behaves when playing music." />
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Disable video playback" />
+                <ToggleSwitch
+                    FontSize="16"
+                    IsOn="{x:Bind SettingsService.DisableVideoPlayback, Mode=TwoWay}"
+                    OffContent="No"
+                    OnContent="Yes" />
+
+                <TextBlock
+                    Style="{StaticResource HeaderStyle}"
+                    Text="Prevent Screen Lock"
+                    Visibility="{x:Bind SettingsService.PreviewFeaturesEnabled, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" />
+
+                <ToggleSwitch
+                    FontSize="16"
+                    IsEnabled="False"
+                    IsOn="False"
+                    OffContent="No"
+                    OnContent="Yes"
+                    Visibility="{x:Bind SettingsService.PreviewFeaturesEnabled, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" />
+
+                <TextBlock
+                    Style="{StaticResource HeaderStyle}"
+                    Text="Equalizer"
+                    Visibility="{x:Bind SettingsService.PreviewFeaturesEnabled, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" />
+                <Button
+                    Margin="0,8,0,4"
+                    Padding="8,8"
+                    HorizontalAlignment="Stretch"
+                    Background="{ThemeResource SoundByteButtonBackground}"
+                    BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                    BorderThickness="1"
+                    Content="Adjust"
+                    IsEnabled="False"
+                    Style="{ThemeResource ButtonRevealStyle}"
+                    Visibility="{x:Bind SettingsService.PreviewFeaturesEnabled, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" />
+
+                <!--  REMOTE FEATURES  -->
+                <TextBlock Style="{StaticResource SubTitleStyle}" Text="Remote Features" />
+                <TextBlock Style="{StaticResource TextStyle}" Text="Features that allow SoundByte to sync data to other devices and platforms." />
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Sync settings" />
+                <ToggleSwitch
+                    FontSize="16"
+                    IsOn="{x:Bind SettingsService.IsSyncSettingsEnabled, Mode=TwoWay}"
+                    OffContent="No"
+                    OnContent="Yes" />
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Windows Timeline" />
+                <ToggleSwitch
+                    FontSize="16"
+                    IsOn="{x:Bind SettingsService.WindowsTimelineEnabled, Mode=TwoWay}"
+                    OffContent="Disabled"
+                    OnContent="Enabled" />
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Sync last played" />
+                <ToggleSwitch
+                    FontSize="16"
+                    IsOn="{x:Bind SettingsService.SyncLastPlayed, Mode=TwoWay}"
+                    OffContent="Disabled"
+                    OnContent="Enabled" />
+
+                <!--  NOTIFICATIONS  -->
+                <TextBlock
+                    Style="{StaticResource SubTitleStyle}"
+                    Text="Notifications"
+                    Visibility="{x:Bind SettingsService.PreviewFeaturesEnabled, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" />
+                <TextBlock
+                    Style="{StaticResource TextStyle}"
+                    Text="Adjust if and when you see notifications from SoundByte. * Still in development."
+                    Visibility="{x:Bind SettingsService.PreviewFeaturesEnabled, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" />
+
+                <TextBlock
+                    Style="{StaticResource HeaderStyle}"
+                    Text="Enable Notifications"
+                    Visibility="{x:Bind SettingsService.PreviewFeaturesEnabled, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" />
+                <ToggleSwitch
+                    FontSize="16"
+                    IsOn="{x:Bind SettingsService.EnableNotifications, Mode=TwoWay}"
+                    OffContent="No"
+                    OnContent="Yes"
+                    Visibility="{x:Bind SettingsService.PreviewFeaturesEnabled, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}" />
+
+                <!--  ADVANCED  -->
+                <TextBlock Style="{StaticResource SubTitleStyle}" Text="Advanced" />
+                <TextBlock Style="{StaticResource TextStyle}" Text="Only click these buttons if you know what your doing." />
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Enable Preview Features" />
+                <TextBlock Style="{StaticResource TextStyle}" Text="Requires app restart." />
+                <ToggleSwitch
+                    FontSize="16"
+                    IsOn="{x:Bind SettingsService.PreviewFeaturesEnabled, Mode=TwoWay}"
+                    OffContent="No"
+                    OnContent="Yes" />
+
+                <Button
+                    Margin="0,8,0,4"
+                    Padding="10,12"
+                    HorizontalAlignment="Stretch"
+                    Click="{x:Bind ViewModel.ClearAppCache}"
+                    Content="Clear Cache"
+                    Style="{StaticResource ModernButtonStyle}" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

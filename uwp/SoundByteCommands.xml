@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="en-us" Name="SoundByteCommandSet_en-us">
+    <AppName>SoundByte</AppName>
+    <Example> Play my likes </Example>
+
+    <Command Name="playSoundCloudStream">
+      <Example> Play my SoundCloud Stream</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> play [my] [soundcloud] stream </ListenFor>
+      <Feedback> Playing your SoundCloud Stream... </Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="playSoundByteLikes">
+      <Example> Play my likes  </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> play [my] likes </ListenFor>
+      <Feedback> Playing your likes</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="playSoundCloudLikes">
+      <Example>Play my SoundCloud likes</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> play [my] soundcloud likes</ListenFor>
+      <Feedback>Playing your SoundCloud likes</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="playYouTubeLikes">
+      <Example>Play my YouTube likes</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> play [my] youtube likes</ListenFor>
+      <Feedback>Playing your YouTube likes</Feedback>
+      <Navigate />
+    </Command>
+  </CommandSet>
+</VoiceCommands>

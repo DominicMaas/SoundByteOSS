@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "removeComments": true,
+        "outFile": "extension/main.js",
+        "rootDir": "src/",
+        "allowJs": true
+    },
+    "include": [      
+        "src/**/*.js"
+    ]
+}

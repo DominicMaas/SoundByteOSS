@@ -1,0 +1,42 @@
+﻿<Application
+    x:Class="SoundByte.App.Uwp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewModels="using:SoundByte.App.Uwp.ViewModels">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--  Variables  -->
+            <Thickness x:Key="TitleMargin">0,24,0,0</Thickness>
+
+            <!--  Font family for font awesome  -->
+            <FontFamily x:Key="FontAwesomeFont">/Assets/Fonts/Font-Awesome-5-Pro-Light-300.ttf#Font Awesome 5 Pro</FontFamily>
+
+            <!--  The main page transition  -->
+            <TransitionCollection x:Key="MainTransition">
+                <NavigationThemeTransition />
+                <EntranceThemeTransition />
+            </TransitionCollection>
+
+            <!--  App ViewModel Locator  -->
+            <viewModels:ViewModelLocator x:Key="ViewModelLocator" />
+
+            <ResourceDictionary.MergedDictionaries>
+                <!--  WinUI  -->
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+
+                <!--  Used for Track, User and Playlist items  -->
+                <ResourceDictionary Source="Resources/DataTemplates.xaml" />
+                <!--  Color & Lighting brushes used throughout app  -->
+                <ResourceDictionary Source="Resources/Brushes.xaml" />
+                <!--
+                    Contains styles for default components (minimum changes)
+                    Mainily adding lighting effects or acrylic blur. These
+                    styles override the app default
+                -->
+                <ResourceDictionary Source="Resources/DefaultStyles.xaml" />
+                <!--  Contains custom styles for the app  -->
+                <ResourceDictionary Source="Resources/CustomStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.Navigation.HomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:SoundByte.App.Uwp.Controls"
+    DataContext="{Binding Home, Source={StaticResource ViewModelLocator}, Mode=OneTime}">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <EntranceNavigationTransitionInfo />
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <ScrollViewer>
+        <StackPanel Margin="0,0,0,80">
+            <Grid Padding="{ThemeResource PagePadding}">
+                <TextBlock Style="{StaticResource TitleStyle}" Text="Home" />
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <controls:AppButton
+                        Margin="0,0,0,5"
+                        Click="{x:Bind ViewModel.Refresh}"
+                        Glyph="&#xE72C;"
+                        IsExtended="True"
+                        Label="Refresh" />
+                </StackPanel>
+            </Grid>
+
+            <!--  Content  -->
+            <ItemsControl ItemsSource="{x:Bind ViewModel.PageContent}" Style="{StaticResource PageContentList}" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

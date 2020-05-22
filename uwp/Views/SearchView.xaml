@@ -1,0 +1,104 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.SearchView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:SoundByte.App.Uwp.Controls"
+    DataContext="{Binding Search, Source={StaticResource ViewModelLocator}, Mode=OneTime}"
+    Transitions="{StaticResource MainTransition}">
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Padding="{ThemeResource PagePadding}">
+                <TextBlock
+                    x:Name="PageTitle"
+                    Style="{StaticResource TitleStyle}"
+                    Text="Results for ..." />
+
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <controls:AppButton
+                        Click="{x:Bind ViewModel.Refresh}"
+                        Glyph="&#xE72C;"
+                        IsExtended="True"
+                        Label="Refresh" />
+                </StackPanel>
+            </Grid>
+
+            <Pivot Grid.Row="1" Margin="6,0,0,0">
+                <Pivot.Resources>
+                    <Style BasedOn="{StaticResource FluentPivotHeader}" TargetType="PivotHeaderItem" />
+                </Pivot.Resources>
+
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Text="Tracks" />
+                    </PivotItem.Header>
+
+                    <ItemsControl
+                        Margin="20,0,26,80"
+                        ItemsSource="{x:Bind ViewModel.TracksContent}"
+                        Style="{StaticResource PageContentList}" />
+                </PivotItem>
+
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Text="Playlists" />
+                    </PivotItem.Header>
+
+                    <ItemsControl
+                        Margin="20,0,26,80"
+                        ItemsSource="{x:Bind ViewModel.PlaylistsContent}"
+                        Style="{StaticResource PageContentList}" />
+                </PivotItem>
+
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Text="Users" />
+                    </PivotItem.Header>
+
+                    <ItemsControl
+                        Margin="20,0,26,80"
+                        ItemsSource="{x:Bind ViewModel.UsersContent}"
+                        Style="{StaticResource PageContentList}" />
+                </PivotItem>
+
+                <!--<PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock Text="Podcasts" FontSize="18" FontWeight="SemiBold" />
+                    </PivotItem.Header>
+
+                    <Grid VerticalAlignment="Top">
+                        <controls:InfoPane VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                       Visibility="Collapsed" Canvas.ZIndex="50"
+                                       Header="{x:Bind ViewModel.Podcasts.ErrorHeader, Mode=OneWay}"
+                                       Text="{x:Bind ViewModel.Podcasts.ErrorDescription, Mode=OneWay}"
+                                       IsLoading="{x:Bind ViewModel.Podcasts.IsLoading, Mode=OneWay}"
+                                       IsError="{x:Bind ViewModel.Podcasts.IsError, Mode=OneWay}" />
+
+                        <ListView Style="{StaticResource ItemListViewStyle}"
+                              ItemsSource="{x:Bind ViewModel.Podcasts, Mode=OneWay}"
+                              ItemClick="{x:Bind ViewModel.NavigatePodcastShow}"
+                              Height="400"
+                              Margin="-10,20,0,0" />
+                    </Grid>
+                </PivotItem>-->
+            </Pivot>
+        </Grid>
+    </ScrollViewer>
+</Page>

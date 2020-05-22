@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.HistoryView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:SoundByte.App.Uwp.Controls"
+    xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <DrillInNavigationTransitionInfo />
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid>
+        <controls:InfoPane
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Canvas.ZIndex="50"
+            Header="{x:Bind History.ErrorHeader, Mode=OneWay}"
+            IsError="{x:Bind History.IsError, Mode=OneWay}"
+            IsLoading="{x:Bind History.IsLoading, Mode=OneWay}"
+            Text="{x:Bind History.ErrorDescription, Mode=OneWay}"
+            Visibility="Collapsed" />
+
+        <ListView
+            ItemClick="{x:Bind PlayItem}"
+            ItemsSource="{x:Bind History}"
+            Style="{StaticResource ItemListViewStyle}">
+            <ListView.Header>
+                <controls1:ScrollHeader Mode="Fade">
+                    <Grid Margin="0,0,0,10" Padding="10,0,0,15">
+                        <TextBlock Style="{StaticResource TitleStyle}" Text="Recent Plays" />
+
+                        <StackPanel
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Orientation="Horizontal">
+
+                            <controls:AppButton
+                                Margin="0,0,5,0"
+                                Click="{x:Bind PlayAllItems}"
+                                Glyph="&#xE768;"
+                                Label="Play All" />
+
+                            <controls:AppButton
+                                Margin="0,0,5,0"
+                                Click="{x:Bind PlayShuffleItems}"
+                                Glyph="&#xE8B1;"
+                                Label="Shuffle Play" />
+
+                            <controls:AppButton
+                                Margin="0,0,5,0"
+                                Click="{x:Bind ClearAll}"
+                                Glyph="&#xE74D;"
+                                Label="Clear All" />
+
+                            <controls:AppButton
+                                Click="{x:Bind History.RefreshItems}"
+                                Glyph="&#xE72C;"
+                                IsExtended="True"
+                                Label="Refresh" />
+                        </StackPanel>
+                    </Grid>
+                </controls1:ScrollHeader>
+            </ListView.Header>
+        </ListView>
+    </Grid>
+</Page>

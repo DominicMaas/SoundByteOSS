@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.Tutorial.WelcomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid>
+        <StackPanel Margin="40">
+            <TextBlock
+                Margin="0,0,0,5"
+                FontSize="42"
+                FontWeight="Bold"
+                Text="Welcome to SoundByte" />
+            <TextBlock
+                MaxWidth="800"
+                Margin="0,10,0,0"
+                HorizontalAlignment="Left"
+                FontSize="18"
+                FontWeight="Normal"
+                Opacity="0.6"
+                Text="Thank you for downloading SoundByte. In a few easy steps SoundByte will be setup and ready for you to use."
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                MaxWidth="800"
+                Margin="0,10,0,0"
+                HorizontalAlignment="Left"
+                FontSize="18"
+                FontWeight="Normal"
+                Opacity="0.6"
+                Text="Setup which music providers you want to use."
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                MaxWidth="800"
+                Margin="0,10,0,0"
+                HorizontalAlignment="Left"
+                FontSize="18"
+                FontWeight="Normal"
+                Opacity="0.6"
+                Text="Optionally log into your accounts."
+                TextWrapping="Wrap" />
+        </StackPanel>
+
+        <StackPanel
+            Margin="40"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal">
+            <HyperlinkButton
+                Margin="0,0,40,0"
+                Content="Skip"
+                FontWeight="SemiBold"
+                Style="{StaticResource LinkStyle}" />
+
+            <Button
+                Padding="40,10"
+                Background="{ThemeResource SoundByteButtonBackground}"
+                BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                BorderThickness="1"
+                Click="Continue"
+                Content="Continue"
+                FontSize="16"
+                FontWeight="SemiBold" />
+        </StackPanel>
+
+
+    </Grid>
+</Page>

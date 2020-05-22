@@ -1,0 +1,189 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.Xbox.XboxSettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="using:SoundByte.App.Uwp.Views.Panes">
+
+    <ScrollViewer Margin="0,90,0,0">
+        <Grid Margin="32,0,32,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+                <TextBlock
+                    FontSize="26"
+                    Style="{StaticResource TitleStyle}"
+                    Text="Accounts" />
+                <!--  Music Providers  -->
+                <TextBlock Style="{StaticResource SubTitleStyle}" Text="Music Providers" />
+                <TextBlock
+                    Margin="0,5,0,0"
+                    Style="{StaticResource TextStyle}"
+                    Text="Enhance your SoundByte experience by connecting different music providers. With these providers you can access your likes, playlists and perform other tasks." />
+
+                <Button
+                    Margin="0,15,12,10"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Click="ManageMusicProviders"
+                    Content="Manage music providers"
+                    Style="{StaticResource ModernButtonStyle}" />
+
+                <!--  SoundByte Account  -->
+                <TextBlock Style="{StaticResource SubTitleStyle}" Text="SoundByte Account" />
+                <TextBlock
+                    Margin="0,5,0,0"
+                    Style="{StaticResource TextStyle}"
+                    Text="Sign in with or create a SoundByte account to sync your curated likes and history across devices." />
+
+                <Button
+                    x:Name="SoundByteSignInButton"
+                    Margin="0,15,12,10"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Click="SoundByteSignIn"
+                    Content="Sign in with SoundByte"
+                    Style="{StaticResource ModernButtonStyle}" />
+
+                <Button
+                    x:Name="SoundByteSignOutButton"
+                    Margin="0,15,12,10"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Click="SoundByteSignOut"
+                    Content="Sign out"
+                    Style="{StaticResource ModernButtonStyle}" />
+
+                <TextBlock
+                    FontSize="26"
+                    Style="{StaticResource TitleStyle}"
+                    Text="Premium" />
+
+                <core:PremiumPaneView
+                    x:Name="PremiumView"
+                    Grid.Column="2"
+                    Margin="-16,-45,-16,-16"
+                    HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" HorizontalAlignment="Left">
+                <TextBlock
+                    FontSize="26"
+                    Style="{StaticResource TitleStyle}"
+                    Text="Settings" />
+                <!--  LOOK AND FEEL  -->
+                <TextBlock Style="{StaticResource SubTitleStyle}" Text="Look and Feel" />
+                <TextBlock Style="{StaticResource TextStyle}" Text="Adjust how different aspects of SoundByte look and feel. Changing the language or toggling interactive mode requires restarting the app." />
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Theme" />
+
+                <ComboBox
+                    x:Name="ThemeComboBox"
+                    Margin="0,8,0,4"
+                    Padding="8,8"
+                    HorizontalAlignment="Stretch"
+                    Background="{ThemeResource SoundByteButtonBackground}"
+                    BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                    BorderThickness="1"
+                    SelectionChanged="AppThemeComboBoxChanged">
+                    <ComboBoxItem x:Name="DefaultTheme" x:Uid="Settings_ThemeDefaultLabel" />
+                    <ComboBoxItem x:Name="DarkTheme" x:Uid="Settings_ThemeDarkLabel" />
+                    <ComboBoxItem x:Name="LightTheme" x:Uid="Settings_ThemeLightLabel" />
+                </ComboBox>
+
+                <TextBlock Style="{StaticResource HeaderStyle}" Text="Enable Xbox UI (desktop only)" />
+                <ToggleSwitch
+                    FontSize="16"
+                    IsOn="{x:Bind SettingsService.IsInteractiveMode, Mode=TwoWay}"
+                    OffContent="No"
+                    OnContent="Yes" />
+
+                <TextBlock
+                    FontSize="26"
+                    Style="{StaticResource TitleStyle}"
+                    Text="About" />
+                <TextBlock
+                    Margin="0,10,0,0"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Opacity="0.9"
+                    Text="Copyright © 2016 - 2019 Grid Entertainment. All Rights Reserved" />
+                <StackPanel
+                    Margin="0,4,0,2"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        x:Name="AppVersion"
+                        FontSize="14"
+                        FontWeight="SemiLight"
+                        Opacity="0.8"
+                        Text="Version 1.3.1"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Margin="6,0,6,0"
+                        FontSize="14"
+                        FontWeight="SemiLight"
+                        Opacity="0.6"
+                        Text="@"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        x:Name="AppBuildTime"
+                        FontSize="14"
+                        FontWeight="SemiLight"
+                        Opacity="0.8"
+                        Text="10/10/2018 11:03"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <!--  Social links  -->
+                <TextBlock
+                    Style="{StaticResource SubTitleStyle}"
+                    Text="Social Media"
+                    TextAlignment="Left" />
+                <HyperlinkButton
+                    Content="Twitter"
+                    NavigateUri="https://gridentertainment.net/fwlink/yENyTb"
+                    Style="{StaticResource LinkStyle}" />
+
+                <!--  More links  -->
+                <TextBlock
+                    Style="{StaticResource SubTitleStyle}"
+                    Text="Links"
+                    TextAlignment="Left" />
+                <HyperlinkButton
+                    Content="SoundByte"
+                    NavigateUri="https://soundbytemedia.com"
+                    Style="{StaticResource LinkStyle}" />
+                <HyperlinkButton
+                    Content="Grid Entertainment"
+                    NavigateUri="https://gridentertainment.net"
+                    Style="{StaticResource LinkStyle}" />
+
+                <HyperlinkButton
+                    HorizontalAlignment="Left"
+                    Content="Privacy Policy"
+                    NavigateUri="https://gridentertainment.net/fwlink/Y5jGLtoFXs"
+                    Style="{StaticResource LinkStyle}" />
+
+                <!--  Thanks To  -->
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{StaticResource SubTitleStyle}"
+                    Text="Thanks To" />
+                <TextBlock
+                    Style="{StaticResource TextStyle}"
+                    Text="Dennis Bednarz (@DennisBednarz on Twitter) for the logo and app design."
+                    TextAlignment="Left" />
+                <TextBlock
+                    Style="{StaticResource TextStyle}"
+                    Text="All of the beta testers."
+                    TextAlignment="Left" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

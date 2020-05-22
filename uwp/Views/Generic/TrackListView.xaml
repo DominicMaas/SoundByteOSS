@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.Generic.TrackListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls1="using:SoundByte.App.Uwp.Controls">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <DrillInNavigationTransitionInfo />
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid>
+        <controls1:InfoPane VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                            Visibility="Collapsed" Canvas.ZIndex="50"
+                            Header="{x:Bind ViewModel.Model.ErrorHeader, Mode=OneWay}"
+                            Text="{x:Bind ViewModel.Model.ErrorDescription, Mode=OneWay}"
+                            IsLoading="{x:Bind ViewModel.Model.IsLoading, Mode=OneWay}"
+                            IsError="{x:Bind ViewModel.Model.IsError, Mode=OneWay}" />
+
+        <ListView Style="{StaticResource ItemListViewStyle}"
+                  ItemClick="{x:Bind ViewModel.NavigateItem, Mode=OneWay}"
+                  ItemsSource="{x:Bind ViewModel.Model, Mode=OneWay}">
+            <ListView.Header>
+                <controls:ScrollHeader Mode="Fade">
+                    <Grid Padding="10,0,0,15">
+                        <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}" Style="{StaticResource TitleStyle}" />
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                            <controls1:AppButton Glyph="&#xE768;" Label="Play All" Click="{x:Bind ViewModel.PlayAllTracks, Mode=OneWay}"
+                                                 Margin="0,0,5,0" />
+
+                            <controls1:AppButton Glyph="&#xE8B1;" Label="Shuffle Play"
+                                                 Click="{x:Bind ViewModel.PlayShuffleTracks, Mode=OneWay}" Margin="0,0,5,0" />
+
+                            <controls1:AppButton Glyph="&#xE72C;" Label="Refresh" IsExtended="True"
+                                                 Click="{x:Bind ViewModel.Model.RefreshItems, Mode=OneWay}" />
+                        </StackPanel>
+                    </Grid>
+                </controls:ScrollHeader>
+            </ListView.Header>
+        </ListView>
+    </Grid>
+</Page>

@@ -1,0 +1,99 @@
+﻿<Page
+    x:Class="SoundByte.App.Uwp.Views.SoundByteAccountView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    RequestedTheme="Dark">
+
+    <Grid>
+        <StackPanel Margin="70">
+            <TextBlock
+                Margin="0,0,0,15"
+                FontSize="42"
+                FontWeight="Bold"
+                Text="SoundByte Account" />
+            <TextBlock
+                MaxWidth="600"
+                HorizontalAlignment="Left"
+                FontSize="18"
+                FontWeight="SemiBold"
+                Opacity="0.6"
+                Text="A SoundByte Account allows you to sync your history or likes across devices. You can also download and install extensions."
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                Margin="0,20,0,8"
+                FontSize="16"
+                FontWeight="Bold"
+                Text="Email" />
+            <TextBox
+                Width="400"
+                Padding="8,8"
+                HorizontalAlignment="Left"
+                BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                BorderThickness="1"
+                FontSize="16"
+                FontWeight="SemiBold" />
+
+            <TextBlock
+                Margin="0,10,0,8"
+                FontSize="16"
+                FontWeight="Bold"
+                Text="Password" />
+            <PasswordBox
+                Width="400"
+                Padding="8,8"
+                HorizontalAlignment="Left"
+                BorderBrush="{ThemeResource SoundByteButtonBorder}"
+                BorderThickness="1"
+                FontSize="16"
+                FontWeight="SemiBold" />
+
+            <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
+                <TextBlock
+                    Margin="0,0,5,0"
+                    VerticalAlignment="Center"
+                    Text="Sign in with" />
+                <HyperlinkButton Content="Google" Style="{StaticResource LinkStyle}" />
+                <TextBlock
+                    Margin="5,0,5,0"
+                    VerticalAlignment="Center"
+                    Text="or" />
+                <HyperlinkButton
+                    VerticalAlignment="Center"
+                    Content="Microsoft"
+                    Style="{StaticResource LinkStyle}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Margin="0,0,5,0"
+                    VerticalAlignment="Center"
+                    Text="No account?" />
+                <HyperlinkButton
+                    VerticalAlignment="Center"
+                    Content="Create one!"
+                    Style="{StaticResource LinkStyle}" />
+            </StackPanel>
+        </StackPanel>
+
+        <HyperlinkButton
+            Margin="70"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="Skip"
+            Style="{StaticResource LinkStyle}" />
+
+        <Button
+            Margin="70"
+            Padding="40,10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Background="{ThemeResource SoundByteButtonBackground}"
+            BorderBrush="{ThemeResource SoundByteButtonBorder}"
+            BorderThickness="1"
+            Content="Sign in"
+            FontSize="16"
+            FontWeight="SemiBold" />
+    </Grid>
+</Page>

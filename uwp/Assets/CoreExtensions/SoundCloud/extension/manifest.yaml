@@ -1,0 +1,64 @@
+# Basic information about the music provider
+id: 02dfa08f-6c33-47fd-89cc-8a1c7c65be46
+name: SoundCloud Support
+publisher: SoundByte
+version: 1.0.0
+platformVersion: 1.0
+description: Provides support for SoundCloud playback.
+url: https://soundbytemedia.com/store/item/02dfa08f-6c33-47fd-89cc-8a1c7c65be46
+
+# The script that contains code for this extension
+script: main.js
+
+# What areas of the application can be accessed
+permissions:
+  - content
+  - settings
+  - network
+  - navigation
+
+# The platforms this music provider can run on.
+platforms:
+  - uwp
+  - android
+  - ios
+
+# Extension assets
+assets:
+  storeLogo: assets/store.jpg
+
+# Music Provider setup
+provider:
+  # Basic Information
+  name: SoundCloud
+  legacyId: 1 # Only used for previous music providers
+
+  # Authentication
+  authentication:
+    type: oauth
+    clientId: gU5Rw9VDiPPA4OcDlC8VVcb19sHDZFTT
+    connectUrl: https://soundcloud.com/connect?scope=non-expiring&client_id={CLIENT_ID}&responseType=code&display=popup&redirect_uri={REDIRECT_URL}&state={STATE}
+
+  # Handle playback
+  playback:
+    supportsVideo: false
+    onMusicRequest: getMediaStream # JS method to get the media stream
+    #onVideoRequest
+
+  # Music content defintions
+  content:
+    # Explore Page
+    - title: New & Hot SoundCloud Tracks
+      area: ExploreTracks
+      buttons:
+        - PlayAllButton
+        - ShufflePlayButton
+      onGet: getTrendingTracks
+      onViewMore: navigateTrendingTracks
+    - title: Top 50 SoundCloud Tracks
+      area: ExploreTracks
+      buttons:
+        - PlayAllButton
+        - ShufflePlayButton
+      onGet: getTopTracks
+      onViewMore: navigateTopTracks
