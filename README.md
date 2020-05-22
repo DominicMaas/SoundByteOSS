@@ -29,7 +29,7 @@ The Amalthea engine, iOS and UWP will eventually be open sourced (the UWP app st
 
 |Platform|CI|Staging|Store|
 |---|---|---|---|
-| UWP | [![Build status](https://dev.azure.com/SoundByte/SoundByte/_apis/build/status/UWP%20Build%20(Legacy))](https://dev.azure.com/SoundByte/SoundByte/_build/latest?definitionId=14) | - | - |
+| UWP | [![Build status](https://dev.azure.com/SoundByte/SoundByte/_apis/build/status/UWP%20Build%20(Legacy))](https://dev.azure.com/SoundByte/SoundByte/_build/latest?definitionId=14) | ![Build Status](https://vsrm.dev.azure.com/SoundByte/_apis/public/Release/badge/1e68b765-71a7-467e-b205-edb6c6ce9d91/2/2) | - |
 
 ## Build Status (Amalthea)
 
