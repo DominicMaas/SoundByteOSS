@@ -67,12 +67,17 @@ namespace SoundByte.Core.Items.Track
                     break;
 
                 case ServiceTypes.YouTube:
-                    // Get the video streams
-                    var mediaStreams = await youTubeClient.GetVideoMediaStreamInfosAsync(TrackId);
 
-                    audioStream = IsLive
-                        ? mediaStreams.HlsLiveStreamUrl
-                        : mediaStreams.Audio.OrderByDescending(q => q.Bitrate).First()?.Url;
+                    if (IsLive)
+                    {
+                        audioStream = await youTubeClient.Videos.Streams.GetHttpLiveStreamUrlAsync(TrackId);
+                    }
+                    else
+                    {
+                        // Get the media streams for this YouTube video
+                        var manifest = await youTubeClient.Videos.Streams.GetManifestAsync(TrackId);
+                        audioStream = manifest.GetAudio().OrderByDescending(q => q.Bitrate).First()?.Url;
+                    }
                     break;
 
                 default:

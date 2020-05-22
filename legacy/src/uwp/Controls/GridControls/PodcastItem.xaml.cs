@@ -1,8 +1,8 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Animations;
 using Microsoft.Toolkit.Uwp.UI.Extensions;
+using SoundByte.App.Uwp.Helpers;
 using SoundByte.Core.Items.Podcast;
 using System;
-using UICompositionAnimations.Composition;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

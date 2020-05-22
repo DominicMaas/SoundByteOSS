@@ -15,7 +15,7 @@ using Windows.Storage.AccessCache;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using YoutubeExplode.Models.MediaStreams;
+using YoutubeExplode.Videos.Streams;
 
 namespace SoundByte.App.Uwp.Views.Xbox
 {
@@ -107,25 +107,28 @@ namespace SoundByte.App.Uwp.Views.Xbox
                     // If the track is YouTube
                     if (track.ServiceType == ServiceTypes.YouTube)
                     {
-                        // Get the media streams for this YouTube video
-                        var mediaStreams = await SimpleIoc.Default.GetInstance<IPlaybackService>().GetYoutubeClient().GetVideoMediaStreamInfosAsync(track.TrackId);
-
                         // If this track is live, we want to use the HLS live stream URL
                         if (track.IsLive)
                         {
+                            var liveStreamUrl = await SimpleIoc.Default.GetInstance<IPlaybackService>().GetYoutubeClient()
+                                .Videos.Streams.GetHttpLiveStreamUrlAsync(track.TrackId);
+
                             // Get the source and set it.
-                            var source = await AdaptiveMediaSource.CreateFromUriAsync(new Uri(mediaStreams.HlsLiveStreamUrl));
+                            var source = await AdaptiveMediaSource.CreateFromUriAsync(new Uri(liveStreamUrl));
                             if (source.Status == AdaptiveMediaSourceCreationStatus.Success)
                                 VideoOverlay.SetMediaStreamSource(source.MediaSource);
                         }
                         else
                         {
+                            // Get the media streams for this YouTube video
+                            var manifest = await SimpleIoc.Default.GetInstance<IPlaybackService>().GetYoutubeClient().Videos.Streams.GetManifestAsync(track.TrackId);
+
                             // Start at 1080p
-                            var videoStreamUrl = mediaStreams.Video.FirstOrDefault(x => x.VideoQuality == VideoQuality.High1080)?.Url;
+                            var videoStreamUrl = manifest.GetVideo().FirstOrDefault(x => x.VideoQuality == VideoQuality.High1080)?.Url;
 
                             // If this stream does not exist, choose the next highest
                             if (string.IsNullOrEmpty(videoStreamUrl))
-                                videoStreamUrl = mediaStreams.Video.OrderBy(s => s.VideoQuality).Last()?.Url;
+                                videoStreamUrl = manifest.GetVideo().OrderBy(s => s.VideoQuality).Last()?.Url;
 
                             // Set the sources
                             VideoOverlay.Source = new Uri(videoStreamUrl);
