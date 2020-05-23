@@ -16,12 +16,11 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>
-    </PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>SoundByte.App.Uwp_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>BC68D216A184E031924C89DE546330885ABDF6E2</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>B8FAADF9DF43F9A26A64FF19515C528840873154</PackageCertificateThumbprint>
     <AppxPackageDir>E:\temp\</AppxPackageDir>
     <RuntimeIdentifiers>win10-arm64;win10-x64;win10-x86;win10-arm64-aot;win10-x64-aot;win10-x86-aot</RuntimeIdentifiers>
     <LangVersion>8.0</LangVersion>
