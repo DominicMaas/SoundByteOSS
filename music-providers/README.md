@@ -4,6 +4,9 @@ This repository contains the official SoundByte Music Providers. These music pro
 
 The `soundbyte.d.ts` file is the JavaScript API def, (note that some features may be added via the manifest file).
 
+***Please Note**: These instruction apply to SoundByte versions with the Amalthea engine. The currently released SoundByte app for UWP does not support these music providers.*
+
+
 ## How to build
 
 These extensions do not use TypeScript, but instead make use of the TypeScript CLI to combine files.
@@ -24,10 +27,6 @@ These extensions do not use TypeScript, but instead make use of the TypeScript C
 6. The music provider is now installed. You will need to refresh your screens to see any changes (swipe down)
 
 ## UWP install instructions
-
-**\*Please Note**: These instruction apply to SoundByte v20. This version is not yet publicly released.\*
-
-**\*Please Note**: Depending on your SoundByte version, SoundCloud is considered a core extension and cannot be overridden. If this is the case, please upgrade your SoundByte client to v20.\*
 
 1. Open SoundByte on your Windows 10 device
 2. Open the '..' menu (icon on the top right of your screen)
