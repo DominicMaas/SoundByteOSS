@@ -1,4 +1,13 @@
-# SoundByte
+<h1 align="center">
+SoundByte
+</h1>
+
+<img src="https://urdzyq.dm.files.1drv.com/y4mHnS7xpObcTANZwpA20OzxBmVfBwH29na9RL-7sc7VwUSv2avOzn2lEvtAtbfnzBRr_aXeu0IyaKDRNqY4yeeT0LrR16wgbzilxFpZlE5VQxckBdkgxa_EiklMZ6218rXVlW1k_oKZnlvSlFtRX48_ysKj6vIKyZRQ-_KoQJRLDwR-Siu7nmMCBUEFUYmGem0y97uapYO01h0GDk-BxpGdA?width=3840&height=1790&cropmode=none" alt="SoundByte Screenshot">
+
+<h4 align="center">An extensible music client for Windows 10 &amp; Xbox One. Future support for iOS &amp; Android.</h4>
+
+## Introduction
+
 The current released SoundByte App for UWP
 
 TODO: Explain everything
