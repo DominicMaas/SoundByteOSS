@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+google-services.json
+GoogleService-Info.plist
+Constants.cs
