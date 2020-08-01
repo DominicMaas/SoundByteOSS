@@ -1,0 +1,604 @@
+﻿<mvx:MvxWindowsPage
+    x:Class="SoundByte.App.UWP.Views.RootView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls1="using:SoundByte.App.UWP.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:muxm="using:Microsoft.UI.Xaml.Media"
+    xmlns:mvx="using:MvvmCross.Platforms.Uap.Views"
+    Background="{ThemeResource PageBackground}"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <StaticResource x:Key="NavigationViewTopPaneBackground" ResourceKey="SystemControlChromeMediumLowAcrylicWindowMediumBrush" />
+
+                    <Style x:Key="NavigationButton" TargetType="Button">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Foreground" Value="{ThemeResource NavigationViewItemForeground}" />
+                        <Setter Property="BorderBrush" Value="{ThemeResource NavigationViewItemBorderBrush}" />
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="Padding" Value="8,4,8,4" />
+                        <Setter Property="HorizontalAlignment" Value="Left" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+                        <Setter Property="FontWeight" Value="Normal" />
+                        <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+                        <Setter Property="UseSystemFocusVisuals" Value="True" />
+                        <Setter Property="FocusVisualSecondaryThickness" Value="0" />
+                        <Setter Property="FocusVisualPrimaryThickness" Value="4" />
+                        <Setter Property="FocusVisualMargin" Value="-3" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
+                                        <ContentPresenter
+                                            x:Name="ContentPresenter"
+                                            Padding="{TemplateBinding Padding}"
+                                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            AutomationProperties.AccessibilityView="Raw"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            Content="{TemplateBinding Content}"
+                                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                                            ContentTransitions="{TemplateBinding ContentTransitions}"
+                                            CornerRadius="3" />
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Normal">
+                                                    <Storyboard>
+                                                        <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="PointerOver">
+                                                    <VisualState.Setters>
+                                                        <Setter Target="RootGrid.(RevealBrush.State)" Value="PointerOver" />
+                                                        <Setter Target="RootGrid.Background" Value="{ThemeResource NavigationViewItemBackgroundPointerOver}" />
+                                                        <Setter Target="ContentPresenter.BorderBrush" Value="{ThemeResource NavigationViewItemBorderBrushPointerOver}" />
+                                                        <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource NavigationViewItemForegroundPointerOver}" />
+                                                        <Setter Target="ContentPresenter.BorderThickness" Value="1" />
+                                                    </VisualState.Setters>
+                                                    <Storyboard>
+                                                        <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Pressed">
+                                                    <VisualState.Setters>
+                                                        <Setter Target="RootGrid.(RevealBrush.State)" Value="Pressed" />
+                                                        <Setter Target="RootGrid.Background" Value="{ThemeResource NavigationViewItemBackgroundPressed}" />
+                                                        <Setter Target="ContentPresenter.BorderBrush" Value="{ThemeResource NavigationViewItemBorderBrushPressed}" />
+                                                        <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource NavigationViewItemForegroundPressed}" />
+                                                        <Setter Target="ContentPresenter.BorderThickness" Value="1" />
+                                                    </VisualState.Setters>
+                                                    <Storyboard>
+                                                        <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Disabled">
+                                                    <VisualState.Setters>
+                                                        <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource ButtonForegroundDisabled}" />
+                                                        <Setter Target="ContentPresenter.BorderThickness" Value="0" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <!--  Notifications  -->
+        <controls:InAppNotification
+            x:Name="NotificationManager"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            BorderThickness="1"
+            Canvas.ZIndex="5000"
+            ShowDismissButton="True" />
+
+        <!--  Titlebar  -->
+        <Border
+            x:Name="Titlebar"
+            Height="32"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Background="{StaticResource NavigationViewTopPaneBackground}"
+            Canvas.ZIndex="200" />
+
+        <!--  Extended Acrylic  -->
+        <controls:DropShadowPanel
+            Margin="0,32,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            BlurRadius="8"
+            Canvas.ZIndex="11"
+            IsTabStop="False"
+            OffsetX="0"
+            OffsetY="2"
+            ShadowOpacity="0.3"
+            Color="Black">
+            <Border
+                Height="42"
+                Background="{StaticResource NavigationViewTopPaneBackground}"
+                Canvas.ZIndex="10" />
+        </controls:DropShadowPanel>
+
+        <!--  App Title  -->
+        <TextBlock
+            x:Name="AppTitle"
+            Margin="160,7,160,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="210"
+            FontSize="14"
+            FontWeight="SemiBold"
+            IsHitTestVisible="False"
+            Style="{StaticResource CaptionTextBlockStyle}"
+            Text="SoundByte - Music Player"
+            TextTrimming="CharacterEllipsis"
+            TextWrapping="NoWrap" />
+
+        <!--  Navigation View  -->
+        <muxc:NavigationView
+            x:Name="NavigationView"
+            Margin="36,32,36,0"
+            VerticalAlignment="Top"
+            BackRequested="NavigationView_BackRequested"
+            Background="Transparent"
+            Canvas.ZIndex="20"
+            IsSettingsVisible="False"
+            ItemInvoked="NavigationView_ItemInvoked"
+            PaneDisplayMode="Top">
+            <muxc:NavigationView.MenuItems>
+                <!--  Home  -->
+                <muxc:NavigationViewItem Tag="home">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource FontAwesomeFont}" Glyph="&#xf550;" />
+                    </muxc:NavigationViewItem.Icon>
+                    <muxc:NavigationViewItem.Content>
+                        <TextBlock
+                            Margin="0,-4,0,0"
+                            FontWeight="SemiBold"
+                            Text="Home" />
+                    </muxc:NavigationViewItem.Content>
+                </muxc:NavigationViewItem>
+
+                <!--  Discover  -->
+                <muxc:NavigationViewItem Tag="discover">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource FontAwesomeFont}" Glyph="&#xf57e;" />
+                    </muxc:NavigationViewItem.Icon>
+                    <muxc:NavigationViewItem.Content>
+                        <TextBlock
+                            Margin="0,-4,0,0"
+                            FontWeight="SemiBold"
+                            Text="Discover" />
+                    </muxc:NavigationViewItem.Content>
+                </muxc:NavigationViewItem>
+
+                <!--  Podcasts  -->
+                <muxc:NavigationViewItem Tag="podcasts">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource FontAwesomeFont}" Glyph="&#xf2ce;" />
+                    </muxc:NavigationViewItem.Icon>
+                    <muxc:NavigationViewItem.Content>
+                        <TextBlock
+                            Margin="0,-4,0,0"
+                            FontWeight="SemiBold"
+                            Text="Podcasts" />
+                    </muxc:NavigationViewItem.Content>
+                </muxc:NavigationViewItem>
+
+                <!--  My Music  -->
+                <muxc:NavigationViewItem Tag="my-music">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource FontAwesomeFont}" Glyph="&#xf001;" />
+                    </muxc:NavigationViewItem.Icon>
+                    <muxc:NavigationViewItem.Content>
+                        <TextBlock
+                            Margin="0,-4,0,0"
+                            FontWeight="SemiBold"
+                            Text="My Music" />
+                    </muxc:NavigationViewItem.Content>
+                </muxc:NavigationViewItem>
+            </muxc:NavigationView.MenuItems>
+
+            <muxc:NavigationView.PaneFooter>
+                <!--  Right Navigation  -->
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <!--  Search Button  -->
+                    <Button
+                        x:Name="SearchButton"
+                        Width="40"
+                        Height="40"
+                        Margin="1,0,1,0"
+                        VerticalAlignment="Top"
+                        Style="{StaticResource NavigationButton}">
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Search for something..." />
+                        </ToolTipService.ToolTip>
+                        <TextBlock
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="16"
+                            Text="&#xE721;" />
+                        <Button.Flyout>
+                            <Flyout LightDismissOverlayMode="On">
+                                <AutoSuggestBox
+                                    Width="330"
+                                    Height="36"
+                                    Margin="5"
+                                    BorderThickness="1"
+                                    PlaceholderText="Search for something..."
+                                    QueryIcon="Find"
+                                    QuerySubmitted="SearchForItem"
+                                    Style="{StaticResource AppSearchBox}" />
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+
+                    <!--  Download Update button  -->
+                    <Button
+                        x:Name="UpdatePendingButton"
+                        Width="40"
+                        Height="40"
+                        Margin="1,0,1,0"
+                        VerticalAlignment="Top"
+                        Click="NavigateCommandBar"
+                        Style="{StaticResource NavigationButton}"
+                        Tag="update"
+                        Visibility="Collapsed">
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="New Update Pending" />
+                        </ToolTipService.ToolTip>
+                        <TextBlock
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="16"
+                            Text="&#xE896;" />
+                    </Button>
+
+                    <!--  Menu Button  -->
+                    <Button
+                        Width="40"
+                        Height="40"
+                        Margin="1,0,1,0"
+                        VerticalAlignment="Top"
+                        Style="{StaticResource NavigationButton}">
+                        <TextBlock
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="16"
+                            Text="&#xE712;" />
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="View more" />
+                        </ToolTipService.ToolTip>
+                        <Button.Flyout>
+                            <MenuFlyout Placement="Bottom">
+                                <!--  My Accounts  -->
+                                <MenuFlyoutItem
+                                    Command="{x:Bind MeVm.ToggleSoundByteAccountCommand}"
+                                    FocusVisualPrimaryThickness="4"
+                                    FocusVisualSecondaryThickness="0"
+                                    Text="{x:Bind MeVm.SoundByteAccountStatus, Mode=OneWay}">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE716;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <!--  My Accounts  -->
+                                <MenuFlyoutItem
+                                    Command="{x:Bind MeVm.NavigateMusicProviderAccountsCommand}"
+                                    FocusVisualPrimaryThickness="4"
+                                    FocusVisualSecondaryThickness="0"
+                                    Text="Music provider accounts">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE716;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <MenuFlyoutSeparator />
+
+                                <!--  Browse Music Providers  -->
+                                <MenuFlyoutItem
+                                    Command="{x:Bind MeVm.NavigateBrowseMusicProviderCommand}"
+                                    FocusVisualPrimaryThickness="4"
+                                    FocusVisualSecondaryThickness="0"
+                                    Text="Browse music providers">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEC4F;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <!--  Installed Music Providers  -->
+                                <MenuFlyoutItem
+                                    Command="{x:Bind MeVm.NavigateInstalledMusicProviderCommand}"
+                                    FocusVisualPrimaryThickness="4"
+                                    FocusVisualSecondaryThickness="0"
+                                    Text="Installed music providers">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEC4F;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <!--  Load music provider  -->
+                                <MenuFlyoutItem
+                                    Click="NavigateCommandBar"
+                                    FocusVisualPrimaryThickness="4"
+                                    FocusVisualSecondaryThickness="0"
+                                    Tag="music-provider-load"
+                                    Text="Load from device">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEC4F;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <MenuFlyoutSeparator />
+
+                                <!--  SoundByte Premium  -->
+                                <MenuFlyoutItem
+                                    Command="{x:Bind MeVm.NavigateManagePremiumCommand}"
+                                    FocusVisualPrimaryThickness="4"
+                                    FocusVisualSecondaryThickness="0"
+                                    Text="Manage premium">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE719;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <MenuFlyoutSeparator />
+
+                                <!--  Settings  -->
+                                <MenuFlyoutItem
+                                    Command="{x:Bind MeVm.NavigateSettingsCommand}"
+                                    FocusVisualPrimaryThickness="4"
+                                    FocusVisualSecondaryThickness="0"
+                                    Text="Settings">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE713;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <!--  About  -->
+                                <MenuFlyoutItem
+                                    Click="NavigateCommandBar"
+                                    FocusVisualPrimaryThickness="4"
+                                    FocusVisualSecondaryThickness="0"
+                                    Tag="about"
+                                    Text="About">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE946;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                            </MenuFlyout>
+                        </Button.Flyout>
+                    </Button>
+                </StackPanel>
+            </muxc:NavigationView.PaneFooter>
+
+            <muxc:NavigationView.AutoSuggestBox>
+                <!--  Search for Something  -->
+                <AutoSuggestBox
+                    x:Name="SearchBox"
+                    Height="40"
+                    MinWidth="300"
+                    Margin="0,0,-10,0"
+                    BorderThickness="1"
+                    PlaceholderText="Search for something..."
+                    QueryIcon="Find"
+                    QuerySubmitted="SearchForItem"
+                    Style="{StaticResource AppSearchBox}"
+                    SuggestionChosen="SearchBox_OnSuggestionChosen"
+                    TextChanged="SearchBox_OnTextChanged" />
+            </muxc:NavigationView.AutoSuggestBox>
+        </muxc:NavigationView>
+
+        <!--  Split view which contains application content and the extra info pages  -->
+        <SplitView
+            x:Name="PageSplitView"
+            Margin="0,74,0,0"
+            Background="Transparent"
+            Canvas.ZIndex="10"
+            DisplayMode="Overlay"
+            LightDismissOverlayMode="On"
+            OpenPaneLength="400"
+            PaneBackground="Transparent"
+            PanePlacement="Right">
+            <SplitView.Pane>
+                <controls:DropShadowPanel
+                    Margin="20,20,20,20"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    VerticalContentAlignment="Stretch"
+                    BlurRadius="24"
+                    Canvas.ZIndex="60"
+                    OffsetX="0"
+                    OffsetY="8"
+                    ShadowOpacity="0.35"
+                    Color="Black">
+                    <Grid Background="{ThemeResource SystemControlAcrylicElementBrush}" CornerRadius="3">
+                        <controls:DropShadowPanel
+                            Height="45"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            HorizontalContentAlignment="Stretch"
+                            BlurRadius="8"
+                            Canvas.ZIndex="10"
+                            OffsetY="2"
+                            ShadowOpacity="0.2">
+                            <Grid HorizontalAlignment="Stretch" Background="{ThemeResource PageBackground2}">
+                                <!--  Hold title and back content  -->
+                                <StackPanel
+                                    Height="44"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Orientation="Horizontal">
+                                    <!--  Back Button  -->
+                                    <Button
+                                        x:Name="PaneBackButton"
+                                        Width="44"
+                                        Height="44"
+                                        Click="NavigateCommandBar"
+                                        Style="{StaticResource NavigationButton}"
+                                        Tag="back-pane"
+                                        Visibility="Collapsed">
+                                        <TextBlock
+                                            FontFamily="Segoe MDL2 Assets"
+                                            FontSize="16"
+                                            Text="&#xE72B;" />
+                                    </Button>
+
+                                    <!--  Title  -->
+                                    <TextBlock
+                                        x:Name="PaneTitle"
+                                        Margin="15,0,0,0"
+                                        VerticalAlignment="Center"
+                                        FontSize="20"
+                                        FontWeight="Bold" />
+                                </StackPanel>
+
+                                <!--  Close button  -->
+                                <Button
+                                    Width="44"
+                                    Height="44"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Click="NavigateCommandBar"
+                                    Style="{StaticResource NavigationButton}"
+                                    Tag="close-pane">
+                                    <TextBlock
+                                        FontFamily="Segoe MDL2 Assets"
+                                        FontSize="16"
+                                        Text="&#xE711;" />
+                                </Button>
+                            </Grid>
+                        </controls:DropShadowPanel>
+
+                        <!--  Frame holding content  -->
+                        <Frame
+                            x:Name="SideFrame"
+                            Margin="0"
+                            Background="{ThemeResource PageBackground}"
+                            Navigated="SideFrameNavigated" />
+                    </Grid>
+                </controls:DropShadowPanel>
+            </SplitView.Pane>
+
+            <!--  Page Content  -->
+            <Grid>
+
+                <!--  Show if the page is loading  -->
+                <ProgressBar
+                    x:Name="LoadingRing"
+                    Margin="0,2,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Canvas.ZIndex="800"
+                    Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+                    IsIndeterminate="True"
+                    Visibility="Collapsed" />
+
+                <!--  Main Page Content will be rendered here  -->
+                <Frame
+                    x:Name="ShellFrameContent"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="Transparent"
+                    Canvas.ZIndex="8"
+                    Navigated="ShellFrame_Navigated" />
+
+                <!--  Desktop Now Playing Bar  -->
+                <controls:DropShadowPanel
+                    x:Name="NowPlaying"
+                    Width="1500"
+                    MaxWidth="1500"
+                    Margin="38,0,38,24"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    HorizontalContentAlignment="Stretch"
+                    x:Load="False"
+                    BlurRadius="14"
+                    Canvas.ZIndex="50"
+                    OffsetX="0"
+                    OffsetY="4"
+                    Opacity="0.4"
+                    ShadowOpacity="0.35"
+                    Color="Black">
+                    <controls:DropShadowPanel.RenderTransform>
+                        <TranslateTransform X="0" Y="200" />
+                    </controls:DropShadowPanel.RenderTransform>
+                    <controls1:NowPlayingBar
+                        HorizontalAlignment="Stretch"
+                        Canvas.ZIndex="1"
+                        Visibility="Visible" />
+                </controls:DropShadowPanel>
+            </Grid>
+        </SplitView>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1500" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NowPlaying.HorizontalAlignment" Value="Stretch" />
+                        <Setter Target="NowPlaying.Width" Value="Auto" />
+                        <Setter Target="SearchBox.Visibility" Value="Visible" />
+                        <Setter Target="SearchButton.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="960" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchBox.Visibility" Value="Visible" />
+                        <Setter Target="SearchButton.Visibility" Value="Collapsed" />
+                        <Setter Target="NowPlaying.HorizontalAlignment" Value="Stretch" />
+                        <Setter Target="NowPlaying.Width" Value="Auto" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchBox.Visibility" Value="Collapsed" />
+                        <Setter Target="SearchButton.Visibility" Value="Visible" />
+                        <Setter Target="NowPlaying.HorizontalAlignment" Value="Stretch" />
+                        <Setter Target="NowPlaying.Width" Value="Auto" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchBox.Visibility" Value="Collapsed" />
+                        <Setter Target="SearchButton.Visibility" Value="Visible" />
+                        <Setter Target="NowPlaying.HorizontalAlignment" Value="Stretch" />
+                        <Setter Target="NowPlaying.Width" Value="Auto" />
+                        <Setter Target="AppTitle.HorizontalAlignment" Value="Left" />
+                        <Setter Target="AppTitle.Margin" Value="48,7,0,0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</mvx:MvxWindowsPage>

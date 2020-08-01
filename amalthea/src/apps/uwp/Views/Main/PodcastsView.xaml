@@ -1,0 +1,37 @@
+﻿<mvx:MvxWindowsPage
+    x:Class="SoundByte.App.UWP.Views.Main.PodcastsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mvx="using:MvvmCross.Platforms.Uap.Views"
+    NavigationCacheMode="Enabled"
+    Background="{ThemeResource PageBackground}"
+    xmlns:controls="using:SoundByte.App.UWP.Controls">
+
+    <ScrollViewer>
+        <StackPanel Margin="0,0,0,80">
+            <Grid Padding="{ThemeResource PagePadding}">
+                <TextBlock Style="{StaticResource TitleStyle}" Text="Podcasts" />
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <controls:AppButton
+                        Margin="0,0,5,0"
+                        ClickCommand="{x:Bind Vm.ImportPodcastCommand}"
+                        Glyph="&#xE710;"
+                        IsExtended="True"
+                        Label="Import Podcast" />
+
+                    <controls:AppButton
+                        ClickCommand="{x:Bind Vm.RefreshCommand}"
+                        Glyph="&#xE72C;"
+                        IsExtended="True"
+                        Label="Refresh" />
+                </StackPanel>
+            </Grid>
+
+            <!--  Content  -->
+            <ItemsControl ItemsSource="{x:Bind Vm.PageContent}" Style="{StaticResource PageContentList}" />
+        </StackPanel>
+    </ScrollViewer>
+</mvx:MvxWindowsPage>

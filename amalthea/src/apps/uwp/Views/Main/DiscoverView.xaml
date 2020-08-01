@@ -1,0 +1,66 @@
+﻿<mvx:MvxWindowsPage
+    x:Class="SoundByte.App.UWP.Views.Main.DiscoverView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mvx="using:MvvmCross.Platforms.Uap.Views"
+    NavigationCacheMode="Enabled"
+    Background="{ThemeResource PageBackground}"
+    xmlns:controls="using:SoundByte.App.UWP.Controls">
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Padding="{ThemeResource PagePadding}">
+                <TextBlock Style="{StaticResource TitleStyle}" Text="Discover" />
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <controls:AppButton
+                        ClickCommand="{x:Bind Vm.RefreshCommand}"
+                        Glyph="&#xE72C;"
+                        IsExtended="True"
+                        Label="Refresh" />
+                </StackPanel>
+            </Grid>
+
+            <Pivot Grid.Row="1" Margin="6,0,0,0">
+                <Pivot.Resources>
+                    <Style BasedOn="{StaticResource FluentPivotHeader}" TargetType="PivotHeaderItem" />
+                </Pivot.Resources>
+
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Text="Music" />
+                    </PivotItem.Header>
+
+                    <ItemsControl
+                        Margin="20,0,26,80"
+                        ItemsSource="{x:Bind Vm.MediaContent}"
+                        Style="{StaticResource PageContentList}" />
+                </PivotItem>
+
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Text="Podcasts" />
+                    </PivotItem.Header>
+
+                    <ItemsControl
+                        Margin="20,0,26,80"
+                        ItemsSource="{x:Bind Vm.PodcastsContent}"
+                        Style="{StaticResource PageContentList}" />
+                </PivotItem>
+            </Pivot>
+        </Grid>
+    </ScrollViewer>
+</mvx:MvxWindowsPage>

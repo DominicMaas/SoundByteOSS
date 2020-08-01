@@ -1,0 +1,95 @@
+﻿<UserControl
+    x:Class="SoundByte.App.UWP.Controls.Media.Grid.UserItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="246"
+    d:DesignWidth="184"
+    PointerEntered="ShowHoverAnimation"
+    PointerExited="HideHoverAnimation"
+    mc:Ignorable="d">
+
+    <Grid
+        Width="174"
+        Height="236"
+        Margin="5"
+        VerticalAlignment="Top"
+        Background="#00FFFFFF">
+
+        <!--  Shadow Panel  -->
+        <controls:DropShadowPanel
+            x:Name="ShadowPanel"
+            Width="164"
+            Height="164"
+            Margin="5,0,5,0"
+            VerticalAlignment="Top"
+            BlurRadius="8"
+            IsTabStop="False"
+            OffsetX="0"
+            OffsetY="3"
+            ShadowOpacity="0.6"
+            Color="#FF000000">
+            <Grid CornerRadius="3">
+                <Border
+                    x:Name="HoverArea"
+                    Margin="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="#FF000000"
+                    Canvas.ZIndex="10"
+                    Opacity="0.3" />
+
+                <!--  Background Blur Image  -->
+                <Image
+                    Width="164"
+                    Height="164"
+                    VerticalAlignment="Center"
+                    Canvas.ZIndex="1"
+                    Source="{x:Bind Path=User.ArtworkUrl, Mode=OneWay}"
+                    Stretch="UniformToFill" />
+
+                <Border
+                    Width="164"
+                    Height="164"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="{ThemeResource SystemControlAcrylicElementBrush}"
+                    Canvas.ZIndex="2" />
+
+                <Ellipse
+                    Width="132"
+                    Height="132"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Canvas.ZIndex="3"
+                    IsHitTestVisible="False"
+                    Stretch="Uniform">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{x:Bind Path=User.ArtworkUrl, Mode=OneWay}" Stretch="Uniform" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </controls:DropShadowPanel>
+
+        <StackPanel Margin="10,176,10,0">
+            <TextBlock
+                MaxHeight="40"
+                FontSize="14"
+                FontWeight="SemiBold"
+                Text="{x:Bind User.Username, Mode=OneWay}"
+                TextAlignment="Left"
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                Margin="0,2,0,0"
+                FontSize="13"
+                FontWeight="SemiBold"
+                Opacity="0.5"
+                Text="{x:Bind User.Username, Mode=OneWay}"
+                TextAlignment="Left"
+                TextTrimming="CharacterEllipsis" />
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,97 @@
+﻿<mvx:MvxWindowsPage
+    x:Class="SoundByte.App.UWP.Views.Panes.InstalledMusicProvidersView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mp="using:SoundByte.Core.Models.MusicProvider"
+    xmlns:mvx="using:MvvmCross.Platforms.Uap.Views"
+    Background="{ThemeResource PageBackground}"
+    mc:Ignorable="d">
+
+    <ListView
+        x:Name="ListView"
+        Margin="0,45,0,0"
+        ItemsSource="{x:Bind Vm.MusicProviders}"
+        SelectionMode="None">
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            </Style>
+        </ListView.ItemContainerStyle>
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="mp:MusicProvider">
+                <Grid
+                    Margin="7,10,0,10"
+                    BorderBrush="{ThemeResource PageBackground2}"
+                    BorderThickness="0,0,0,1">
+                    <Ellipse
+                        Width="44"
+                        Height="44"
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{x:Bind Manifest.Assets.StoreLogo}" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <StackPanel Margin="60,0,0,0" HorizontalAlignment="Left">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Text="{x:Bind Manifest.Name}"
+                            TextWrapping="Wrap" />
+
+                        <StackPanel Margin="0,1,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0,0,2,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Opacity="0.6"
+                                Text="Published by"
+                                TextWrapping="Wrap" />
+
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Opacity="0.9"
+                                Text="{x:Bind Manifest.Publisher}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0,0,2,0"
+                                FontSize="14"
+                                FontWeight="Medium"
+                                Opacity="0.9"
+                                Text="Version:"
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                FontSize="14"
+                                Opacity="0.9"
+                                Text="{x:Bind Manifest.Version}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,10,0,24" Orientation="Horizontal">
+                            <Button
+                                Margin="0,0,10,0"
+                                Background="{ThemeResource SoundByteAccent}"
+                                Click="ViewMusicProvider"
+                                Content="View store page"
+                                Style="{StaticResource ModernButtonStyle}" />
+
+                            <Button
+                                Click="UninstallMusicProvider"
+                                Content="Uninstall"
+                                Style="{StaticResource ModernButtonStyle}" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</mvx:MvxWindowsPage>

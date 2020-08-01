@@ -1,0 +1,90 @@
+﻿<UserControl
+    x:Class="SoundByte.App.UWP.Controls.Media.List.PlaylistListViewItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="60"
+    d:DesignWidth="500"
+    mc:Ignorable="d">
+
+    <Grid
+        Margin="0,8,0,8"
+        HorizontalAlignment="Stretch"
+        Background="#00FFFFFF">
+
+        <!--  Sizing  -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="90" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Image, Title, User  -->
+        <Grid Grid.Column="0" Grid.ColumnSpan="4">
+            <controls:DropShadowPanel
+                Width="54"
+                Height="54"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                BlurRadius="12"
+                IsTabStop="False"
+                OffsetX="0"
+                OffsetY="2"
+                ShadowOpacity="0.5"
+                Color="#FF000000">
+                <Grid CornerRadius="3">
+                    <Image
+                        Width="54"
+                        Height="54"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Source="{x:Bind Path=Playlist.ArtworkUrl, Mode=OneWay}"
+                        Stretch="UniformToFill" />
+                </Grid>
+            </controls:DropShadowPanel>
+
+            <StackPanel Margin="66,0,0,0" VerticalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    FontSize="17"
+                    FontWeight="SemiBold"
+                    Text="{x:Bind Path=Playlist.Title, Mode=OneWay}"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="NoWrap" />
+
+                <TextBlock
+                    Margin="0,2,0,0"
+                    HorizontalAlignment="Left"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Opacity="0.6"
+                    Text="{x:Bind Path=Playlist.User.Username, Mode=OneWay}" />
+            </StackPanel>
+        </Grid>
+
+        <!--  Uploaded  -->
+        <TextBlock
+            Grid.Column="4"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Opacity="0.8"
+            Text="{x:Bind Path=Playlist.Created, Converter={StaticResource DateTimeConverter}, Mode=OneWay}"
+            TextAlignment="Left"
+            TextTrimming="CharacterEllipsis" />
+
+        <!--  Duration  -->
+        <TextBlock
+            Grid.Column="5"
+            Margin="15,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            FontWeight="SemiBold"
+            Opacity="0.8"
+            Text="{x:Bind Path=Playlist.Duration, Converter={StaticResource ReadableDurationConverter}, Mode=OneWay}" />
+    </Grid>
+</UserControl>

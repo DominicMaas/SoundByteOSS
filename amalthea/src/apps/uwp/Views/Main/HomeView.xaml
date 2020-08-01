@@ -1,0 +1,31 @@
+﻿<mvx:MvxWindowsPage
+    x:Class="SoundByte.App.UWP.Views.Main.HomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:SoundByte.App.UWP.Controls"
+    xmlns:mvx="using:MvvmCross.Platforms.Uap.Views"
+    Background="{ThemeResource PageBackground}"
+    NavigationCacheMode="Enabled">
+
+    <ScrollViewer>
+        <StackPanel Margin="0,0,0,80">
+            <Grid Padding="{ThemeResource PagePadding}">
+                <TextBlock Style="{StaticResource TitleStyle}" Text="Home" />
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <controls:AppButton
+                        Margin="0,0,0,5"
+                        ClickCommand="{x:Bind Vm.RefreshCommand}"
+                        Glyph="&#xE72C;"
+                        IsExtended="True"
+                        Label="Refresh" />
+                </StackPanel>
+            </Grid>
+
+            <!--  Content  -->
+            <ItemsControl ItemsSource="{x:Bind Vm.PageContent}" Style="{StaticResource PageContentList}" />
+        </StackPanel>
+    </ScrollViewer>
+</mvx:MvxWindowsPage>

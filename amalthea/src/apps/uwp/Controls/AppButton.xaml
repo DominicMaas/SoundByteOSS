@@ -1,0 +1,38 @@
+﻿<UserControl
+    x:Class="SoundByte.App.UWP.Controls.AppButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Button
+        Height="40"
+        Padding="11,0,11,0"
+        Command="{x:Bind ClickCommand, Mode=OneWay}"
+        Style="{StaticResource ModernButtonStyle}">
+        <ToolTipService.ToolTip>
+            <ToolTip>
+                <TextBlock Text="{x:Bind Label, Mode=OneWay}" />
+            </ToolTip>
+        </ToolTipService.ToolTip>
+
+        <Button.Content>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="16"
+                    FontWeight="Normal"
+                    OpticalMarginAlignment="TrimSideBearings"
+                    Text="{x:Bind Glyph, Mode=OneWay}"
+                    TextAlignment="Center" />
+
+                <TextBlock
+                    Margin="8,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    FontWeight="SemiBold"
+                    Text="{x:Bind Label, Mode=OneWay}" />
+            </StackPanel>
+        </Button.Content>
+    </Button>
+</UserControl>

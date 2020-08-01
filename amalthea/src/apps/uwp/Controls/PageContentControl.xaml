@@ -1,0 +1,100 @@
+﻿<UserControl
+    x:Class="SoundByte.App.UWP.Controls.PageContentControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SoundByte.App.UWP.Controls"
+    xmlns:models="using:SoundByte.Core.Models.Content"
+    x:Name="UiPageContentControl">
+
+    <Grid>
+        <!--  Header  -->
+        <TextBlock
+            Margin="0,15,0,-5"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Style="{StaticResource SubTitleStyle}"
+            Text="{x:Bind Source.Title, Mode=OneWay}" />
+
+        <!--  Buttons  -->
+        <ItemsControl
+            x:Name="ButtonHolder"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            IsFocusEngagementEnabled="False"
+            IsTabStop="False"
+            ItemsSource="{x:Bind Source.Buttons, Mode=OneWay}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="models:ContentButton">
+                    <local:AppButton
+                        Margin="5,0,0,0"
+                        Glyph="{x:Bind Glyph}"
+                        IsExtended="{x:Bind IsExtended}"
+                        Label="{x:Bind Label}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+
+        <!--  Gradient Fade  -->
+        <Rectangle
+            Width="30"
+            Height="270"
+            Margin="0,50,0,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="50">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="{ThemeResource PageBackgroundTransparentColor}" />
+                    <GradientStop Offset="0.7" Color="{ThemeResource PageBackgroundColor}" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <!--  View More Button  -->
+        <Button
+            Width="48"
+            Height="48"
+            Margin="0,0,-24,40"
+            HorizontalAlignment="Right"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Canvas.ZIndex="100"
+            Click="OnViewMoreClick"
+            CornerRadius="100"
+            Style="{StaticResource ModernCircleButtonStyle}"
+            ToolTipService.Placement="Left"
+            ToolTipService.ToolTip="View All">
+            <FontIcon
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="Segoe MDL2 Assets"
+                Glyph="&#xE761;" />
+        </Button>
+
+        <!--  Content  -->
+        <Grid Height="300" Margin="-10,35,0,0">
+            <local:InfoPane
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Canvas.ZIndex="50"
+                Header="{x:Bind Source.Collection.ErrorHeader, Mode=OneWay}"
+                IsError="{x:Bind Source.Collection.IsError, Mode=OneWay}"
+                IsLoading="{x:Bind Source.Collection.IsLoading, Mode=OneWay}"
+                Text="{x:Bind Source.Collection.ErrorDescription, Mode=OneWay}"
+                Visibility="Collapsed" />
+
+            <GridView
+                ItemClick="GridView_ItemClick"
+                ItemContainerStyle="{StaticResource ContentControlGridViewItemStyle}"
+                ItemTemplateSelector="{StaticResource GridMediaSelector}"
+                ItemsSource="{x:Bind Source.Collection, Mode=OneWay}"
+                Style="{StaticResource ContentGroupGridViewStyle}"
+                XYFocusUp="{x:Bind ButtonHolder}" />
+        </Grid>
+    </Grid>
+</UserControl>
