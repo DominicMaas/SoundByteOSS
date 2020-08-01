@@ -12,6 +12,13 @@ namespace SoundByte.App.macOS.Services
     {
         public event PlaybackServiceEventHandlers.MediaChangedEventHandler OnMediaChange;
         public event PlaybackServiceEventHandlers.StateChangedEventHandler OnStateChange;
+
+        public PlaybackService(IMusicProviderService musicProviderService, ITelemetryService telemetryService,
+            IDialogService dialogService)
+        {
+
+        }
+
         public bool IsQueueShuffled()
         {
             throw new NotImplementedException();

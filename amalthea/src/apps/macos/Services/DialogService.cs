@@ -1,18 +1,33 @@
 using System.Threading.Tasks;
+using AppKit;
 using SoundByte.Core.Services.Definitions;
 
 namespace SoundByte.App.macOS.Services
 {
     public class DialogService : IDialogService
     {
-        public async Task ShowErrorMessageAsync(string title, string body)
+        public Task ShowErrorMessageAsync(string title, string body)
         {
-            throw new System.NotImplementedException();
+            var alert = new NSAlert {
+                AlertStyle = NSAlertStyle.Critical,
+                InformativeText = body,
+                MessageText = title,
+            };
+            alert.RunModal ();
+
+            return Task.CompletedTask;
         }
 
-        public async Task ShowInfoMessageAsync(string title, string body)
+        public Task ShowInfoMessageAsync(string title, string body)
         {
-            throw new System.NotImplementedException();
+            var alert = new NSAlert {
+                AlertStyle = NSAlertStyle.Informational,
+                InformativeText = body,
+                MessageText = title,
+            };
+            alert.RunModal ();
+
+            return Task.CompletedTask;
         }
 
         public async Task ShowDialogAsync<T>(params object[] param)
