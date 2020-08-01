@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using Firebase.RemoteConfig;
+using Foundation;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
@@ -55,7 +56,12 @@ namespace SoundByte.App.iOS
                 UIControlState.Normal);
 
             UITabBarItem.Appearance.TitlePositionAdjustment = new UIOffset(0, -4);
-
+            
+#pragma warning disable 618
+            // Bug: https://github.com/xamarin/GoogleApisForiOSComponents/issues/368
+            RemoteConfig.SharedInstance.ConfigSettings = new RemoteConfigSettings(true);
+#pragma warning restore 618
+            
             return result;
         }
     }
