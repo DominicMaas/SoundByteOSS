@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>SoundByte.App.macOS</string>
+	<string>SoundByte</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.SoundByte.App.macOS</string>
+	<string>com.soundbytemedia.macos</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

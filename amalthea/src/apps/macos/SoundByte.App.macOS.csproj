@@ -11,6 +11,8 @@
         <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
         <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
         <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+        <LangVersion>8</LangVersion>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
         <DebugSymbols>true</DebugSymbols>
@@ -45,30 +47,47 @@
         <PlatformTarget>x86</PlatformTarget>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="System"/>
-        <Reference Include="System.Core"/>
-        <Reference Include="Xamarin.Mac"/>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="Xamarin.Mac" />
     </ItemGroup>
     <ItemGroup>
-        <ImageAsset Include="Assets.xcassets\Contents.json"/>
+        <ImageAsset Include="Assets.xcassets\Contents.json" />
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="Resources\"/>
+        <Folder Include="Resources\" />
+        <Folder Include="Views" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Info.plist"/>
-        <None Include="Entitlements.plist"/>
+        <None Include="Info.plist" />
+        <None Include="Entitlements.plist" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Main.cs"/>
-        <Compile Include="AppDelegate.cs"/>
-        <Compile Include="ViewController.cs"/>
+        <Compile Include="Main.cs" />
+        <Compile Include="AppDelegate.cs" />
+        <Compile Include="Services\DialogService.cs" />
+        <Compile Include="Services\PlaybackService.cs" />
+        <Compile Include="Services\StoreService.cs" />
+        <Compile Include="Setup.cs" />
+        <Compile Include="ViewController.cs" />
         <Compile Include="ViewController.designer.cs">
             <DependentUpon>ViewController.cs</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
-        <InterfaceDefinition Include="Main.storyboard"/>
+        <InterfaceDefinition Include="Main.storyboard" />
     </ItemGroup>
-    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets"/>
+    <ItemGroup>
+      <PackageReference Include="MvvmCross" Version="6.4.2" />
+      <PackageReference Include="MvvmCross.Plugin.Messenger" Version="6.4.2" />
+      <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+      <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\core\SoundByte.Core.csproj">
+        <Project>{4455fa4d-a5fd-4545-8465-78f338c310ec}</Project>
+        <Name>SoundByte.Core</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
