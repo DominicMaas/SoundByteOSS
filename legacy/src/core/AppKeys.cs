@@ -50,7 +50,6 @@ namespace SoundByte.Core
         #region UWP
 
         public static readonly string GoogleAnalyticsUWPTrackerId = "UA-37972059-7";
-        public static readonly string HockeyAppUWPClientId = "a2086136dd244de98a2460215085c47b";
         public static readonly string AppCenterUWPClientId = "792fe734-d9cc-4c13-8b00-6a8a180c598b";
 
         #endregion UWP

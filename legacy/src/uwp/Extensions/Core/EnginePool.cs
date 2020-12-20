@@ -64,9 +64,7 @@ namespace SoundByte.App.Uwp.Extensions.Core
                 if (_parent._cache.Count >= _parent._config.StartEngines)
                 {
                     _engine.ResetCallStack();
-                    _engine.ResetMemoryUsage();
-                    _engine.ResetStatementsCount();
-                    _engine.ResetTimeoutTicks();
+                    _engine.ResetConstraints();
                     _engine = null;
                 }
                 else
