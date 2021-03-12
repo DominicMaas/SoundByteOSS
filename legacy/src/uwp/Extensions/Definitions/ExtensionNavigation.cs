@@ -32,10 +32,6 @@ namespace SoundByte.App.Uwp.Extensions.Definitions
                     App.NavigateTo(typeof(FilteredListView), param);
                     break;
 
-                case PageName.HistoryView:
-                    App.NavigateTo(typeof(HistoryView), param);
-                    break;
-
                 default:
                     throw new ArgumentException("Invalid page name.", nameof(name));
             }

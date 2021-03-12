@@ -31,31 +31,6 @@
                     Click="ManageMusicProviders"
                     Content="Manage music providers"
                     Style="{StaticResource ModernButtonStyle}" />
-
-                <!--  SoundByte Account  -->
-                <TextBlock Style="{StaticResource SubTitleStyle}" Text="SoundByte Account" />
-                <TextBlock
-                    Margin="0,5,0,0"
-                    Style="{StaticResource TextStyle}"
-                    Text="Sign in with or create a SoundByte account to sync your curated likes and history across devices." />
-
-                <Button
-                    x:Name="SoundByteSignInButton"
-                    Margin="0,15,12,10"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
-                    Click="SoundByteSignIn"
-                    Content="Sign in with SoundByte"
-                    Style="{StaticResource ModernButtonStyle}" />
-
-                <Button
-                    x:Name="SoundByteSignOutButton"
-                    Margin="0,15,12,10"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
-                    Click="SoundByteSignOut"
-                    Content="Sign out"
-                    Style="{StaticResource ModernButtonStyle}" />
             </StackPanel>
 
             <StackPanel Grid.Column="2" HorizontalAlignment="Left">
@@ -99,7 +74,7 @@
                     FontSize="14"
                     FontWeight="SemiBold"
                     Opacity="0.9"
-                    Text="In memory of Dennis Bednarz&#x0a;&#x0a;Copyright © 2020 Dominic Maas&#x0a;All Rights Reserved" />
+                    Text="In memory of Dennis Bednarz&#x0a;&#x0a;Copyright © 2021 Dominic Maas&#x0a;All Rights Reserved" />
                 <StackPanel
                     Margin="0,4,0,2"
                     HorizontalAlignment="Left"

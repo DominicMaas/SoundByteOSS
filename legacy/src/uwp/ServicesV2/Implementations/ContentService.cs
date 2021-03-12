@@ -2,7 +2,6 @@
 using SoundByte.Core.Items.Generic;
 using SoundByte.Core.Services;
 using SoundByte.Core.Sources.Generic;
-using SoundByte.Core.Sources.SoundByte;
 using SoundByte.Core.Sources.SoundCloud;
 using SoundByte.Core.Sources.SoundCloud.Search;
 using SoundByte.Core.Sources.SoundCloud.User;
@@ -67,20 +66,6 @@ namespace SoundByte.App.Uwp.ServicesV2.Implementations
                 new PlayContentButton(),
                 new ShufflePlayContentButton()
             }, parent => App.NavigateTo(typeof(MixedListView), new GenericListViewModel.Holder(parent.Collection, "SoundCloud Stream"))));
-
-            // Recently played items
-            AddContent(ContentArea.ForYou, new ContentGroup(new SoundByteHistorySource(), "Recently Played", new List<ContentButton>
-            {
-                new PlayContentButton(),
-                new ShufflePlayContentButton()
-            }, parent => App.NavigateTo(typeof(HistoryView))));
-
-            // Most played items
-            AddContent(ContentArea.ForYou, new ContentGroup(new SoundByteMostPlayedSource(), "Most Played", new List<ContentButton>
-            {
-                new PlayContentButton(),
-                new ShufflePlayContentButton()
-            }, parent => App.NavigateTo(typeof(TrackListView), new GenericListViewModel.Holder(parent.Collection, "Most Played"))));
         }
 
         private void BuildExplore()
@@ -95,13 +80,6 @@ namespace SoundByte.App.Uwp.ServicesV2.Implementations
 
         private void BuildStreamingLikes()
         {
-            // SoundByte
-            AddContent(ContentArea.StreamingLikes, new ContentGroup(new SoundByteLikeSource(), "SoundByte", new List<ContentButton>
-            {
-                new PlayContentButton(),
-                new ShufflePlayContentButton()
-            }, parent => App.NavigateTo(typeof(TrackListView), new GenericListViewModel.Holder(parent.Collection, "Likes"))));
-
             // YouTube
             AddContent(ContentArea.StreamingLikes, new ContentGroup(new YouTubeLikeSource(), "YouTube", new List<ContentButton>
             {

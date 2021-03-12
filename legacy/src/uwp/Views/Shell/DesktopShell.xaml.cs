@@ -490,7 +490,7 @@ namespace SoundByte.App.Uwp.Views.Shell
                     break;
 
                 case "account":
-                    OpenSidePane(typeof(AccountManagerView), "Accounts");
+                    await NavigationService.Current.CallDialogAsync<ManageMusicProvidersDialog>();
                     break;
 
                 case "playing":

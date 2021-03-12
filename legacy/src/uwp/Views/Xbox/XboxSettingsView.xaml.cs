@@ -28,9 +28,6 @@ namespace SoundByte.App.Uwp.Views.Xbox
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // Refresh accounts UI
-            RefreshUi();
-
             // Load settings
             LoadSettingsPage();
 
@@ -43,21 +40,6 @@ namespace SoundByte.App.Uwp.Views.Xbox
             var buildData = await Task.Run(() => JsonConvert.DeserializeObject<BuildInformation>(File.ReadAllText(dataFile.Path)));
 
             AppBuildTime.Text = buildData.BuildTime;
-        }
-
-        private void RefreshUi()
-        {
-            // All the linked accounts we could have
-            if (SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundByte))
-            {
-                SoundByteSignInButton.Visibility = Visibility.Collapsed;
-                SoundByteSignOutButton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                SoundByteSignInButton.Visibility = Visibility.Visible;
-                SoundByteSignOutButton.Visibility = Visibility.Collapsed;
-            }
         }
 
         private void LoadSettingsPage()
@@ -119,20 +101,6 @@ namespace SoundByte.App.Uwp.Views.Xbox
         private async void ManageMusicProviders(object sender, RoutedEventArgs e)
         {
             await NavigationService.Current.CallDialogAsync<ManageMusicProvidersDialog>();
-        }
-
-        private void SoundByteSignIn(object sender, RoutedEventArgs e)
-        {
-            App.NavigateTo(typeof(AccountView), new AccountView.AccountViewParams
-            {
-                Service = ServiceTypes.SoundByte,
-            });
-        }
-
-        private void SoundByteSignOut(object sender, RoutedEventArgs e)
-        {
-            SoundByteService.Current.DisconnectService(ServiceTypes.SoundByte, string.Empty);
-            RefreshUi();
         }
     }
 }

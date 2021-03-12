@@ -35,12 +35,6 @@ namespace SoundByte.Core
 
         #endregion YouTube
 
-        #region SoundByte
-
-        public static readonly string SoundByteClientId = "14ceedcc88565d564b47ab9335b10886";
-
-        #endregion SoundByte
-
         #region Generic
 
         public static readonly string AppLegacyCallback = Uri.EscapeUriString("http://localhost/soundbyte");

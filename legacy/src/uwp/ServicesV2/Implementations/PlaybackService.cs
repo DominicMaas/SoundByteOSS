@@ -466,21 +466,6 @@ namespace SoundByte.App.Uwp.ServicesV2.Implementations
                     { "Device", SystemInformation.DeviceFamily },
                     { "Current Version / First Version", SystemInformation.FirstVersionInstalled.ToFormattedString() + "/" + SystemInformation.ApplicationVersion.ToFormattedString()},
                 });
-
-                try
-                {
-                    // Only perform logic if soundbyte account is connected
-                    // and the track type is not a local track
-                    if (SoundByteService.Current.IsSoundByteAccountConnected
-                        && track.ServiceType != ServiceTypes.Local)
-                    {
-                        await SoundByteService.Current.PostItemAsync(ServiceTypes.SoundByte, "history", track);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    _telemetryService.TrackException(ex);
-                }
             });
 
             try

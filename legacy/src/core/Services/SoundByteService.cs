@@ -125,10 +125,6 @@ namespace SoundByte.Core.Services
                                 { "part", "snippet" }
                             }).ConfigureAwait(false)).Response.Channels.FirstOrDefault()?.ToBaseUser();
                             break;
-
-                        case ServiceTypes.SoundByte:
-                            service.CurrentUser = AsyncHelper.RunSync(async () => await GetAsync<BaseUser>(ServiceTypes.SoundByte, "/me").ConfigureAwait(false)).Response;
-                            break;
                     }
                 }
                 catch (SoundByteException ex)
@@ -225,10 +221,6 @@ namespace SoundByte.Core.Services
                             service.CurrentUser = AsyncHelper.RunSync(async () => await GetAsync<SoundCloudUser>(ServiceTypes.SoundCloud, "/me").ConfigureAwait(false)).Response.ToBaseUser();
                             break;
 
-                        case ServiceTypes.SoundByte:
-                            service.CurrentUser = AsyncHelper.RunSync(async () => await GetAsync<BaseUser>(ServiceTypes.SoundByte, "/me").ConfigureAwait(false)).Response;
-                            break;
-
                         case ServiceTypes.YouTube:
                             service.CurrentUser = AsyncHelper.RunSync(async () => await GetAsync<YouTubeChannelHolder>(ServiceTypes.YouTube, "/channels", new Dictionary<string, string>
                             {
@@ -273,11 +265,6 @@ namespace SoundByte.Core.Services
             // Fire the event
             OnServiceDisconnected?.Invoke(type, reason);
         }
-
-        /// <summary>
-        ///     Has the user logged in with their SoundByte account.
-        /// </summary>
-        public bool IsSoundByteAccountConnected => IsServiceConnected(ServiceTypes.SoundByte);
 
         /// <summary>
         /// Is the user logged into a service. Warning: will throw an exception if

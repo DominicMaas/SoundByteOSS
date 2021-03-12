@@ -119,10 +119,6 @@ namespace SoundByte.App.Uwp
                         vaultName = "SoundByte.YouTube";
                         break;
 
-                    case ServiceTypes.SoundByte:
-                        vaultName = "SoundByte.SoundByteV2";
-                        break;
-
                     default:
                         vaultName = string.Empty;
                         break;
@@ -156,10 +152,6 @@ namespace SoundByte.App.Uwp
 
                     case ServiceTypes.YouTube:
                         SettingsService.Instance.DeleteAllFromVault("SoundByte.YouTube");
-                        break;
-
-                    case ServiceTypes.SoundByte:
-                        SettingsService.Instance.DeleteAllFromVault("SoundByte.SoundByteV2");
                         break;
                 }
 
@@ -276,7 +268,6 @@ namespace SoundByte.App.Uwp
         {
             var soundCloudToken = GetLoginTokenFromVault("SoundByte.SoundCloud", ServiceTypes.SoundCloud);
             var youTubeToken = GetLoginTokenFromVault("SoundByte.YouTube", ServiceTypes.YouTube);
-            var soundByteToken = GetLoginTokenFromVault("SoundByte.SoundByteV2", ServiceTypes.SoundByte);
 
             var secretList = new List<ServiceInfo>
             {
@@ -315,14 +306,6 @@ namespace SoundByte.App.Uwp
                 new ServiceInfo
                 {
                     Service = ServiceTypes.Local
-                },
-                new ServiceInfo
-                {
-                    Service = ServiceTypes.SoundByte,
-                    ClientId = AppKeys.SoundByteClientId,
-                    UserToken = soundByteToken,
-                    ApiUrl = "https://soundbytemedia.com/api/v1/{0}?client_id={1}",
-                    AuthenticationScheme = "Bearer"
                 }
             };
 

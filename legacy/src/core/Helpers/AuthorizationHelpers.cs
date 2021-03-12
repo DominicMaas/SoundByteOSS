@@ -37,10 +37,6 @@ namespace SoundByte.Core.Helpers
                 case ServiceTypes.YouTube:
                     serviceName = "youtube";
                     break;
-
-                case ServiceTypes.SoundByte:
-                    serviceName = "soundbyte";
-                    break;
             }
 
             try
@@ -85,10 +81,6 @@ namespace SoundByte.Core.Helpers
 
                 case ServiceTypes.YouTube:
                     serviceName = "youtube";
-                    break;
-
-                case ServiceTypes.SoundByte:
-                    serviceName = "soundbyte";
                     break;
             }
 

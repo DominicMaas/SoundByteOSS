@@ -343,18 +343,6 @@ namespace SoundByte.Core.Items.Track
                     throw new ArgumentOutOfRangeException();
             }
 
-            try
-            {
-                if (SoundByteService.Current.IsSoundByteAccountConnected)
-                {
-                    await SoundByteService.Current.PostItemAsync(ServiceTypes.SoundByte, "likes", this);
-                }
-            }
-            catch
-            {
-                // ignored
-            }
-
             IsLiked = hasLiked;
         }
 
@@ -382,18 +370,6 @@ namespace SoundByte.Core.Items.Track
 
                 default:
                     throw new ArgumentOutOfRangeException();
-            }
-
-            try
-            {
-                if (SoundByteService.Current.IsSoundByteAccountConnected)
-                {
-                    await SoundByteService.Current.DeleteAsync(ServiceTypes.SoundByte, $"likes/{ServiceType}-{TrackId}");
-                }
-            }
-            catch
-            {
-                // ignored
             }
 
             IsLiked = !hasUnliked;

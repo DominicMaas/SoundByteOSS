@@ -349,9 +349,6 @@
     <Compile Include="Views\Generic\MixedListView.xaml.cs">
       <DependentUpon>MixedListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Panes\AccountManagerView.xaml.cs">
-      <DependentUpon>AccountManagerView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Navigation\PodcastsView.xaml.cs">
       <DependentUpon>PodcastsView.xaml</DependentUpon>
     </Compile>
@@ -381,9 +378,6 @@
     </Compile>
     <Compile Include="Views\Playback\NowPlayingView.xaml.cs">
       <DependentUpon>NowPlayingView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\HistoryView.xaml.cs">
-      <DependentUpon>HistoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Tutorial\WelcomeView.xaml.cs">
       <DependentUpon>WelcomeView.xaml</DependentUpon>
@@ -589,10 +583,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Panes\AccountManagerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Navigation\PodcastsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -630,10 +620,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Playback\NowPlayingView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\HistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

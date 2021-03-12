@@ -23,7 +23,7 @@
                     FontSize="14"
                     FontWeight="SemiBold"
                     Opacity="0.9"
-                    Text="In memory of Dennis Bednarz&#x0a;&#x0a;Copyright © 2020 Dominic Maas&#x0a;All Rights Reserved"
+                    Text="In memory of Dennis Bednarz&#x0a;&#x0a;Copyright © 2021 Dominic Maas&#x0a;All Rights Reserved"
                     TextAlignment="Center" />
 
                 <StackPanel

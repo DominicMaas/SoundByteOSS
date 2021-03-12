@@ -1,7 +1,6 @@
 ﻿using SoundByte.Core.Sources;
 using SoundByte.Core.Sources.Generic;
 using SoundByte.Core.Sources.Podcast;
-using SoundByte.Core.Sources.SoundByte;
 using SoundByte.Core.Sources.SoundCloud;
 using SoundByte.Core.Sources.SoundCloud.Search;
 using SoundByte.Core.Sources.SoundCloud.User;
@@ -26,12 +25,7 @@ namespace SoundByte.Core.Managers
         {
             RegisterSource<PodcastItemSource>();
             RegisterSource<PodcastSearchSource>();
-            RegisterSource<SoundByteHistorySource>();
-            RegisterSource<SoundByteMostPlayedSource>();
-            RegisterSource<SoundByteLikeSource>();
-            RegisterSource<SoundBytePlaylistSource>();
             RegisterSource<DummyTrackSource>();
-            RegisterSource<SoundBytePodcastSource>();
             RegisterSource<SoundCloudSearchPlaylistSource>();
             RegisterSource<SoundCloudSearchTrackSource>();
             RegisterSource<SoundCloudSearchUserSource>();

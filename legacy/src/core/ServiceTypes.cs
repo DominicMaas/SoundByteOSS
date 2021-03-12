@@ -9,7 +9,6 @@
         public const int SoundCloudV2 = 2;
         public const int YouTube = 3;
         public const int ITunesPodcast = 4;
-        public const int SoundByte = 5;
         public const int Unknown = 6;
         public const int Local = 7;
     }

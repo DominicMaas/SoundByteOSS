@@ -11,7 +11,6 @@ using SoundByte.Core.Items.User;
 using SoundByte.Core.Services;
 using SoundByte.Core.Sources;
 using SoundByte.Core.Sources.Generic;
-using SoundByte.Core.Sources.SoundByte;
 using SoundByte.Core.Sources.SoundCloud;
 using SoundByte.Core.Sources.SoundCloud.User;
 using SoundByte.Core.Sources.YouTube;
@@ -399,13 +398,6 @@ namespace SoundByte.App.Uwp.Helpers
         {
             switch (command)
             {
-                case "playSoundByteLikes":
-                    if (SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundByte))
-                    {
-                        await HandleTrackProtocolAsync(new TrackProtocolItem(new SoundByteLikeSource()));
-                    }
-                    break;
-
                 case "playSoundCloudLikes":
                     if (SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundCloud))
                     {

@@ -67,10 +67,6 @@ namespace SoundByte.App.Uwp.Views
                     connectUri = $"https://accounts.google.com/o/oauth2/v2/auth?client_id={AppKeys.YouTubeLoginClientId}&redirect_uri={AppKeys.AppLegacyCallback}&response_type=code&state={_stateVerification}&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube";
                     break;
 
-                case ServiceTypes.SoundByte:
-                    connectUri = $"https://soundbytemedia.com/connect/authorize?client_id={AppKeys.SoundByteClientId}&response_type=code&redirect_uri={AppKeys.AppLegacyCallback}&state={_stateVerification}&scope=api%20offline_access";
-                    break;
-
                 default:
                     throw new ArgumentOutOfRangeException();
             }
