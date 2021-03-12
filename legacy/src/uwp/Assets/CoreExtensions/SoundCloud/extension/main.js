@@ -12,7 +12,7 @@ function getExploreItems(count, token, parameters, kind) {
     var filter = parameters["filter"] || "all-music";
     var genre = "soundcloud%3Agenres%3A" + filter;
     var returnTracks = new Array();
-    var uri = "https://api-v2.soundcloud.com/charts?kind=" + kind + "&genre=" + genre + "&limit=" + count + "&offset=" + token + "&linked_partitioning=1&client_id=" + clientId;
+    var uri = "https://api-v2.soundcloud.com/charts?kind=" + kind + "&genre=" + genre + "&limit=" + count + "&offset=" + token + "&linked_partitioning=1&client_id=" + "sCFubJLD5LtMoZI4xUu46btuIqerNC84";
     var data = JSON.parse(network.getString(uri));
     var nextUrl = data.next_href;
     var extractedToken = null;

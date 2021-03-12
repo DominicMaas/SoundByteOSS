@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dominic Maas")]
 [assembly: AssemblyProduct("SoundByte")]
-[assembly: AssemblyCopyright("Copyright © 2020 Dominic Maas")]
+[assembly: AssemblyCopyright("Copyright © 2021 Dominic Maas")]
 [assembly: AssemblyTrademark("SoundByte")]
 [assembly: AssemblyCulture("")]
 
@@ -23,6 +23,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("19.52.0.0")]
-[assembly: AssemblyFileVersion("19.52.0.0")]
+[assembly: AssemblyVersion("21.0.0.0")]
+[assembly: AssemblyFileVersion("21.0.0.0")]
 [assembly: ComVisible(false)]
