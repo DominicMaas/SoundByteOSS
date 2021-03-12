@@ -29,66 +29,69 @@ namespace SoundByte.Core.Sources.SoundCloud
         {
             if (SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundCloud))
             {
-                // Call the SoundCloud API and get the items
-                var items = await SoundByteService.Current.GetAsync<StreamTrackHolder>(ServiceTypes.SoundCloudV2, "/stream",
-                    new Dictionary<string, string>
-                    {
-                        {"limit", count.ToString()},
-                        {"linked_partitioning", "1"},
-                        {"cursor", token}
-                    }, cancellationToken).ConfigureAwait(false);
-
-                // If there are no tracks
-                if (!items.Response.Items.Any())
-                {
-                    return new SourceResponse(null, null, false, "No items", "Follow someone to get started.");
-                }
-
-                // Parse uri for cursor
-                var param = new QueryParameterCollection(items.Response.NextList);
-                var nextToken = param.FirstOrDefault(x => x.Key == "offset").Value;
-
-                // Convert the items to base items
-                var baseItems = new List<BaseSoundByteItem>();
-                foreach (var item in items.Response.Items)
-                {
-                    var type = ItemType.Unknown;
-
-                    // Set the type depending on the SoundCloud String
-                    // and if the object exists.
-                    switch (item.Type)
-                    {
-                        case "track-repost":
-                        case "track":
-                            if (item.Track != null)
-                                type = ItemType.Track;
-                            break;
-
-                        case "playlist-repost":
-                        case "playlist":
-                            if (item.Playlist != null)
-                                type = ItemType.Playlist;
-                            break;
-                    }
-
-                    // Add item to the list
-                    switch (type)
-                    {
-                        case ItemType.Playlist:
-                            baseItems.Add(new BaseSoundByteItem(item.Playlist?.ToBasePlaylist()));
-                            break;
-
-                        case ItemType.Track:
-                            baseItems.Add(new BaseSoundByteItem(item.Track?.ToBaseTrack()));
-                            break;
-                    }
-                }
-
-                // Return the items
-                return new SourceResponse(baseItems, nextToken);
+                return new SourceResponse(null, null, false, "Feature no longer available", "Due to changes with SoundCloud, it's no longer possible to fetch a logged in users stream.");
             }
 
-            return new SourceResponse(null, null, false, "SoundCloud account not connected.", "To view your SoundCloud Stream, login under the 'accounts' button.");
+                //// Call the SoundCloud API and get the items
+                //var items = await SoundByteService.Current.GetAsync<StreamTrackHolder>(ServiceTypes.SoundCloudV2, "/stream",
+                //    new Dictionary<string, string>
+                //    {
+                //        {"limit", count.ToString()},
+                //        {"linked_partitioning", "1"},
+                //        {"cursor", token}
+                //    }, cancellationToken).ConfigureAwait(false);
+
+                //// If there are no tracks
+                //if (!items.Response.Items.Any())
+                //{
+                //    return new SourceResponse(null, null, false, "No items", "Follow someone to get started.");
+                //}
+
+                //// Parse uri for cursor
+                //var param = new QueryParameterCollection(items.Response.NextList);
+                //var nextToken = param.FirstOrDefault(x => x.Key == "offset").Value;
+
+                //// Convert the items to base items
+                //var baseItems = new List<BaseSoundByteItem>();
+                //foreach (var item in items.Response.Items)
+                //{
+                //    var type = ItemType.Unknown;
+
+                //    // Set the type depending on the SoundCloud String
+                //    // and if the object exists.
+                //    switch (item.Type)
+                //    {
+                //        case "track-repost":
+                //        case "track":
+                //            if (item.Track != null)
+                //                type = ItemType.Track;
+                //            break;
+
+                //        case "playlist-repost":
+                //        case "playlist":
+                //            if (item.Playlist != null)
+                //                type = ItemType.Playlist;
+                //            break;
+                //    }
+
+                //    // Add item to the list
+                //    switch (type)
+                //    {
+                //        case ItemType.Playlist:
+                //            baseItems.Add(new BaseSoundByteItem(item.Playlist?.ToBasePlaylist()));
+                //            break;
+
+                //        case ItemType.Track:
+                //            baseItems.Add(new BaseSoundByteItem(item.Track?.ToBaseTrack()));
+                //            break;
+                //    }
+                //}
+
+                //// Return the items
+                //return new SourceResponse(baseItems, nextToken);
+                // }
+
+                return new SourceResponse(null, null, false, "SoundCloud account not connected.", "To view your SoundCloud Stream, login under the 'accounts' button.");
         }
 
         [JsonObject]
