@@ -30,8 +30,8 @@ namespace SoundByte.Core
 
         #region YouTube
 
-        public static readonly string YouTubeLoginClientId = "1065985627197-th8jmhv58pf9dk4530khul402nn49hs5.apps.googleusercontent.com";
-        public static readonly string YouTubeClientId = "AIzaSyACcC1JE0krWn90rfk5kVpx-Y8qkoqta40";
+        public static readonly string YouTubeLoginClientId = "82331099881-4sf24bfns9f7p8b9o5ovvi8lveolru8i.apps.googleusercontent.com";
+        public static readonly string YouTubeClientId = "AIzaSyACS4Bnh7dC1KOjx-BxBzChVb7_1vWQsVY";
 
         #endregion YouTube
 
