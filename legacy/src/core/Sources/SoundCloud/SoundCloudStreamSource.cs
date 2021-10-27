@@ -27,10 +27,10 @@ namespace SoundByte.Core.Sources.SoundCloud
 
         public override async Task<SourceResponse> GetItemsAsync(int count, string token, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundCloud))
-            {
+            //if (SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundCloud))
+            //{//
                 return new SourceResponse(null, null, false, "Feature no longer available", "Due to changes with SoundCloud, it's no longer possible to fetch a logged in users stream.");
-            }
+            //}
 
                 //// Call the SoundCloud API and get the items
                 //var items = await SoundByteService.Current.GetAsync<StreamTrackHolder>(ServiceTypes.SoundCloudV2, "/stream",
@@ -91,7 +91,7 @@ namespace SoundByte.Core.Sources.SoundCloud
                 //return new SourceResponse(baseItems, nextToken);
                 // }
 
-                return new SourceResponse(null, null, false, "SoundCloud account not connected.", "To view your SoundCloud Stream, login under the 'accounts' button.");
+                //return new SourceResponse(null, null, false, "SoundCloud account not connected.", "To view your SoundCloud Stream, login under the 'accounts' button.");
         }
 
         [JsonObject]

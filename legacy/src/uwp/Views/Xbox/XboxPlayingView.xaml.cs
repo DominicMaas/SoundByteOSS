@@ -124,11 +124,11 @@ namespace SoundByte.App.Uwp.Views.Xbox
                             var manifest = await SimpleIoc.Default.GetInstance<IPlaybackService>().GetYoutubeClient().Videos.Streams.GetManifestAsync(track.TrackId);
 
                             // Start at 1080p
-                            var videoStreamUrl = manifest.GetVideo().FirstOrDefault(x => x.VideoQuality == VideoQuality.High1080)?.Url;
+                            var videoStreamUrl = manifest.GetVideoStreams().FirstOrDefault(x => x.VideoQuality.IsHighDefinition)?.Url;
 
                             // If this stream does not exist, choose the next highest
                             if (string.IsNullOrEmpty(videoStreamUrl))
-                                videoStreamUrl = manifest.GetVideo().OrderBy(s => s.VideoQuality).Last()?.Url;
+                                videoStreamUrl = manifest.GetVideoStreams().OrderBy(s => s.VideoQuality).Last()?.Url;
 
                             // Set the sources
                             VideoOverlay.Source = new Uri(videoStreamUrl);

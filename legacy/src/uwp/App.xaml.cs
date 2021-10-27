@@ -1,7 +1,6 @@
 ﻿#nullable enable
 
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.AppCenter.Push;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using SoundByte.App.Uwp.Common;
@@ -746,9 +745,6 @@ namespace SoundByte.App.Uwp
             // If this is just a pre launch, don't
             // actually set the content to the frame.
             if (e.PrelaunchActivated) return;
-
-            // Handle notifications
-            Push.CheckLaunchedFromNotification(e);
 
             // Track app use
             SystemInformation.TrackAppUse(e);

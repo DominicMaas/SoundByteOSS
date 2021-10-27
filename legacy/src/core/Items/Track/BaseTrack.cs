@@ -76,7 +76,7 @@ namespace SoundByte.Core.Items.Track
                     {
                         // Get the media streams for this YouTube video
                         var manifest = await youTubeClient.Videos.Streams.GetManifestAsync(TrackId);
-                        audioStream = manifest.GetAudio().OrderByDescending(q => q.Bitrate).First()?.Url;
+                        audioStream = manifest.GetAudioStreams().OrderByDescending(q => q.Bitrate).First()?.Url;
                     }
                     break;
 

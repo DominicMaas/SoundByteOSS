@@ -2,7 +2,6 @@
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using Microsoft.AppCenter.Push;
 using Microsoft.Toolkit.Uwp.Helpers;
 using SoundByte.Core;
 using System;
@@ -28,7 +27,7 @@ namespace SoundByte.App.Uwp.ServicesV2.Implementations
             _googleAnalyticsClient = AnalyticsManager.Current.CreateTracker(AppKeys.GoogleAnalyticsUWPTrackerId);
 
             // Used for general analytics, push notifications and crashes
-            AppCenter.Start(AppKeys.AppCenterUWPClientId, typeof(Analytics), typeof(Push), typeof(Crashes));
+            AppCenter.Start(AppKeys.AppCenterUWPClientId, typeof(Analytics), typeof(Crashes));
 
             // Set country code
             AppCenter.SetCountryCode(RegionInfo.CurrentRegion.TwoLetterISORegionName);
