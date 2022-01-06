@@ -184,73 +184,73 @@ namespace SoundByte.App.Uwp.Views.Shell
             // Hide the loading bar as the rest of the content is loaded in the background
             await App.SetLoadingAsync(false);
 
-            // Rate and Review dialog if we are not xbox, have the dialog enabled, and the launch count
-            // is greater than 10
-            if (Settings.EnableRating && !DeviceHelper.IsXbox && SystemInformation.LaunchCount > 10)
-            {
-                var enjoyDialog = new MessageDialog("Enjoying SoundByte?");
-                enjoyDialog.Commands.Add(new UICommand("Not really", a =>
-                {
-                    // Show the feedback dialog
-                    OpenSidePane(typeof(FeedbackPaneView), "Feedback");
+            //// Rate and Review dialog if we are not xbox, have the dialog enabled, and the launch count
+            //// is greater than 10
+            //if (Settings.EnableRating && !DeviceHelper.IsXbox && SystemInformation.LaunchCount > 10)
+            //{
+            //    var enjoyDialog = new MessageDialog("Enjoying SoundByte?");
+            //    enjoyDialog.Commands.Add(new UICommand("Not really", a =>
+            //    {
+            //        // Show the feedback dialog
+            //        OpenSidePane(typeof(FeedbackPaneView), "Feedback");
 
-                    SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Not enjoy, leave feedback.");
+            //        SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Not enjoy, leave feedback.");
 
-                    Settings.EnableRating = false;
-                }));
+            //        Settings.EnableRating = false;
+            //    }));
 
-                enjoyDialog.Commands.Add(new UICommand("Yes!", async a =>
-                {
-                    var ratingDialog = new MessageDialog("How about leaving a rating on the store?");
-                    ratingDialog.Commands.Add(new UICommand("No thanks", _ =>
-                    {
-                        SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Enjoy, no review.");
-                    }));
+            //    enjoyDialog.Commands.Add(new UICommand("Yes!", async a =>
+            //    {
+            //        var ratingDialog = new MessageDialog("How about leaving a rating on the store?");
+            //        ratingDialog.Commands.Add(new UICommand("No thanks", _ =>
+            //        {
+            //            SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Enjoy, no review.");
+            //        }));
 
-                    ratingDialog.Commands.Add(new UICommand("Okay", async _ =>
-                    {
-                        if (ApiInformation.IsMethodPresent("Windows.Services.Store.StoreContext", "RequestRateAndReviewAppAsync"))
-                        {
-                            var storeContext = StoreContext.GetDefault();
-                            var result = await storeContext.RequestRateAndReviewAppAsync();
-                            switch (result.Status)
-                            {
-                                case StoreRateAndReviewStatus.Succeeded:
-                                    SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Enjoy, review: Succeeded.");
-                                    Settings.EnableRating = false;
-                                    break;
+            //        ratingDialog.Commands.Add(new UICommand("Okay", async _ =>
+            //        {
+            //            if (ApiInformation.IsMethodPresent("Windows.Services.Store.StoreContext", "RequestRateAndReviewAppAsync"))
+            //            {
+            //                var storeContext = StoreContext.GetDefault();
+            //                var result = await storeContext.RequestRateAndReviewAppAsync();
+            //                switch (result.Status)
+            //                {
+            //                    case StoreRateAndReviewStatus.Succeeded:
+            //                        SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Enjoy, review: Succeeded.");
+            //                        Settings.EnableRating = false;
+            //                        break;
 
-                                case StoreRateAndReviewStatus.CanceledByUser:
-                                    SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Enjoy, review: CanceledByUser.");
-                                    Settings.EnableRating = false;
-                                    break;
+            //                    case StoreRateAndReviewStatus.CanceledByUser:
+            //                        SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Enjoy, review: CanceledByUser.");
+            //                        Settings.EnableRating = false;
+            //                        break;
 
-                                case StoreRateAndReviewStatus.NetworkError:
-                                    SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Enjoy, review: NetworkError.");
-                                    Settings.EnableRating = true;
-                                    break;
+            //                    case StoreRateAndReviewStatus.NetworkError:
+            //                        SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Enjoy, review: NetworkError.");
+            //                        Settings.EnableRating = true;
+            //                        break;
 
-                                case StoreRateAndReviewStatus.Error:
-                                    SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Enjoy, review: Error.");
-                                    Settings.EnableRating = true;
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            Settings.EnableRating = false;
-                            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store:REVIEW?PFN={Package.Current.Id.FamilyName}"));
-                        }
-                    }));
+            //                    case StoreRateAndReviewStatus.Error:
+            //                        SimpleIoc.Default.GetInstance<ITelemetryService>().TrackEvent("Rating: Enjoy, review: Error.");
+            //                        Settings.EnableRating = true;
+            //                        break;
+            //                }
+            //            }
+            //            else
+            //            {
+            //                Settings.EnableRating = false;
+            //                await Launcher.LaunchUriAsync(new Uri($"ms-windows-store:REVIEW?PFN={Package.Current.Id.FamilyName}"));
+            //            }
+            //        }));
 
-                    await ratingDialog.ShowAsync();
-                }));
+            //        await ratingDialog.ShowAsync();
+            //    }));
 
-                enjoyDialog.DefaultCommandIndex = 1;
-                enjoyDialog.CancelCommandIndex = 0;
+            //    enjoyDialog.DefaultCommandIndex = 1;
+            //    enjoyDialog.CancelCommandIndex = 0;
 
-                await enjoyDialog.ShowAsync();
-            }
+            //    await enjoyDialog.ShowAsync();
+            //}
 
             // Show tips
             //ExtensionTeachingTip.IsOpen = true;
