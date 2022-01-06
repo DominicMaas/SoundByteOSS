@@ -276,7 +276,8 @@ namespace SoundByte.App.Uwp
                     ClientIds = AppKeys.SoundCloudClientIds,
                     ClientId = AppKeys.SoundCloudClientId,
                     UserToken = soundCloudToken,
-                    ApiUrl = "https://api.soundcloud.com/{0}?client_id={1}",
+                    ApiUrl = "https://api.soundcloud.com/",
+                    IncludeClientIdInAuthRequests = false,
                     AuthenticationScheme = "OAuth"
                 },
                 new ServiceInfo
@@ -285,7 +286,8 @@ namespace SoundByte.App.Uwp
                     ClientIds = AppKeys.SoundCloudClientIds,
                     ClientId = AppKeys.SoundCloudClientId,
                     UserToken = soundCloudToken,
-                    ApiUrl = "https://api-v2.soundcloud.com/{0}?client_id={1}",
+                    ApiUrl = "https://api-v2.soundcloud.com/",
+                    IncludeClientIdInAuthRequests = false,
                     AuthenticationScheme = "OAuth"
                 },
                 new ServiceInfo
@@ -293,14 +295,16 @@ namespace SoundByte.App.Uwp
                     Service = ServiceTypes.YouTube,
                     ClientId = AppKeys.YouTubeClientId,
                     UserToken = youTubeToken,
-                    ApiUrl = "https://www.googleapis.com/youtube/v3/{0}?key={1}",
+                    ApiUrl = "https://www.googleapis.com/youtube/v3/",
+                    ClientIdName = "key",
                     AuthenticationScheme = "Bearer"
                 },
                 new ServiceInfo
                 {
                     Service = ServiceTypes.ITunesPodcast,
                     ClientId = "0",
-                    ApiUrl = "https://itunes.apple.com/{0}?key={1}"
+                    ApiUrl = "https://itunes.apple.com/",
+                    ClientIdName = "key",
                 },
                 new ServiceInfo
                 {

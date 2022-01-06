@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SoundByte.Core.Sources.SoundCloud
 {
-    
+
     public class SoundCloudLikedPlaylistSource : ISource
     {
         public override Dictionary<string, object> GetParameters()
@@ -35,8 +35,8 @@ namespace SoundByte.Core.Sources.SoundCloud
             // Convert SoundCloud specific playlists to base playlists
             var basePlaylists = new List<BaseSoundByteItem>();
 
-            var endpoint = $"/users/{SoundByteService.Current.GetConnectedUser(ServiceTypes.SoundCloud)?.UserId}/playlists/liked_and_owned";
-            var serviceType = ServiceTypes.SoundCloudV2;
+            var endpoint = $"/users/{SoundByteService.Current.GetConnectedUser(ServiceTypes.SoundCloud)?.UserId}/likes/playlists";
+            var serviceType = ServiceTypes.SoundCloud;
 
             // Call the SoundCloud api and get the items
             var playlists = await SoundByteService.Current.GetAsync<UserLikePlaylistHolder>(serviceType, endpoint,
@@ -48,7 +48,7 @@ namespace SoundByte.Core.Sources.SoundCloud
                 }, cancellationToken).ConfigureAwait(false);
 
             // If there are no tracks
-            if (!playlists.Response.Playlists.Any())
+            if (!playlists.Response.Collection.Any())
             {
                 return new SourceResponse(null, null, false, "Nothing to hear here",
                     "This user has uploaded no playlists");
@@ -58,51 +58,26 @@ namespace SoundByte.Core.Sources.SoundCloud
             var param = new QueryParameterCollection(playlists.Response.NextList);
             var nextToken = param.FirstOrDefault(x => x.Key == "offset").Value;
 
-            playlists.Response.Playlists.ForEach(x => basePlaylists.Add(new BaseSoundByteItem(x.Playlist.ToBasePlaylist())));
+            playlists.Response.Collection.ForEach(x => basePlaylists.Add(new BaseSoundByteItem(x.ToBasePlaylist())));
 
             // Return the items
             return new SourceResponse(basePlaylists, nextToken);
         }
 
         [JsonObject]
-        private class UserPlaylistHolder
-        {
-            /// <summary>
-            ///     List of playlists
-            /// </summary>
-            [JsonProperty("collection")]
-            public List<SoundCloudPlaylist> Playlists { get; set; }
-
-            /// <summary>
-            ///     The next list of items
-            /// </summary>
-            [JsonProperty("next_href")]
-            public string NextList { get; set; }
-        }
-
         private class UserLikePlaylistHolder
         {
             /// <summary>
             ///     List of playlists
             /// </summary>
             [JsonProperty("collection")]
-            public List<LikePlaylistBootstrap> Playlists { get; set; }
+            public List<SoundCloudPlaylist> Collection { get; set; }
 
             /// <summary>
             ///     The next list of items
             /// </summary>
             [JsonProperty("next_href")]
             public string NextList { get; set; }
-        }
-
-        [JsonObject]
-        private class LikePlaylistBootstrap
-        {
-            /// <summary>
-            ///     A playlist
-            /// </summary>
-            [JsonProperty("playlist")]
-            public SoundCloudPlaylist Playlist { get; set; }
         }
     }
 }

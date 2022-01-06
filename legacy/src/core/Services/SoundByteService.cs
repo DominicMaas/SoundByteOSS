@@ -300,6 +300,8 @@ namespace SoundByte.Core.Services
         /// <returns>Fully build request url</returns>
         private string BuildRequestUrl(int type, string endpoint, Dictionary<string, string> optionalParams)
         {
+            if (optionalParams == null) optionalParams = new Dictionary<string, string>();
+
             // Strip out the / infront of the endpoint if it exists
             endpoint = endpoint.TrimStart('/');
 
@@ -308,17 +310,32 @@ namespace SoundByte.Core.Services
             if (service == null)
                 throw new ServiceNotExistException(type);
 
+            if (IsServiceConnected(type))
+            {
+                if (service.IncludeClientIdInAuthRequests)
+                {
+                    optionalParams.Add(service.ClientIdName, service.ClientId);
+                }
+            }
+            else
+            {
+                optionalParams.Add(service.ClientIdName, service.ClientId);
+            }
+
             // Build the base url
-            var requestUri = string.Format(service.ApiUrl, endpoint, service.ClientId);
+            var requestUri = service.ApiUrl.TrimEnd('/') + "/" + endpoint.TrimStart('/');
+
+            if (optionalParams.Count > 0)
+                requestUri += "?";
 
             // Check that there are optional params then loop through all
             // the params and add them onto the request URL
-            if (optionalParams != null)
-                requestUri = optionalParams
-                    .Where(param => !string.IsNullOrEmpty(param.Key) && !string.IsNullOrEmpty(param.Value))
-                    .Aggregate(requestUri, (current, param) => current + "&" + param.Key + "=" + param.Value);
+            foreach (var p in optionalParams.Where(param => !string.IsNullOrEmpty(param.Key) && !string.IsNullOrEmpty(param.Value)))
+            {
+                requestUri += $"{p.Key}={p.Value}&";
+            }
 
-            return requestUri;
+            return requestUri.TrimEnd('&');
         }
 
         /// <summary>

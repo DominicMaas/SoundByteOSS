@@ -27,11 +27,8 @@ namespace SoundByte.Core.Helpers
             switch (service)
             {
                 case ServiceTypes.SoundCloud:
-                    serviceName = "soundcloud";
-                    break;
-
                 case ServiceTypes.SoundCloudV2:
-                    serviceName = "soundcloudv2";
+                    serviceName = "soundcloud";
                     break;
 
                 case ServiceTypes.YouTube:
@@ -41,10 +38,9 @@ namespace SoundByte.Core.Helpers
 
             try
             {
-                var result = await HttpService.Instance.PostAsync<SoundByteAuthHolder>("https://soundbytemedia.com/api/v1/app/auth",
+                var result = await HttpService.Instance.PostAsync<SoundByteAuthHolder>($"https://dominicmaas.co.nz/api/soundbyte/auth/{serviceName}",
                     new Dictionary<string, string>
                     {
-                        { "service", serviceName },
                         { "code", authCode }
                     });
 
@@ -72,11 +68,8 @@ namespace SoundByte.Core.Helpers
             switch (service)
             {
                 case ServiceTypes.SoundCloud:
-                    serviceName = "soundcloud";
-                    break;
-
                 case ServiceTypes.SoundCloudV2:
-                    serviceName = "soundcloudv2";
+                    serviceName = "soundcloud";
                     break;
 
                 case ServiceTypes.YouTube:
@@ -86,11 +79,10 @@ namespace SoundByte.Core.Helpers
 
             try
             {
-                var result = await HttpService.Instance.PostAsync<SoundByteAuthHolder>("https://soundbytemedia.com/api/v1/app/refresh-auth",
+                var result = await HttpService.Instance.PostAsync<SoundByteAuthHolder>($"https://dominicmaas.co.nz/api/soundbyte/refresh-auth/{serviceName}",
                     new Dictionary<string, string>
                     {
-                        { "service", serviceName },
-                        { "refreshtoken", refreshToken }
+                        { "refresh_token", refreshToken }
                     });
 
                 if (!result.Response.IsSuccess)

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SoundByte.Core.Sources.SoundCloud.User
 {
-    
+
     public class SoundCloudUserLikeSource : ISource
     {
         public string UserId { get; set; }
@@ -34,7 +34,7 @@ namespace SoundByte.Core.Sources.SoundCloud.User
             CancellationToken cancellationToken = default(CancellationToken))
         {
             // Call the SoundCloud API and get the items
-            var tracks = await SoundByteService.Current.GetAsync<LikeTrackHolder>(ServiceTypes.SoundCloud, $"/users/{UserId}/favorites",
+            var tracks = await SoundByteService.Current.GetAsync<LikeTrackHolder>(ServiceTypes.SoundCloud, $"/users/{UserId}/likes/tracks",
                 new Dictionary<string, string>
                 {
                     {"limit", count.ToString()},

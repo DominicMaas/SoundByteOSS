@@ -43,6 +43,10 @@ namespace SoundByte.Core.Items
         /// </summary>
         public string ApiUrl { get; set; }
 
+        public string ClientIdName { get; set; } = "client_id";
+
+        public bool IncludeClientIdInAuthRequests { get; set; } = true;
+
         /// <summary>
         ///      Authentication scheme to use for this service, usually set to
         ///     Bearer or OAuth.
