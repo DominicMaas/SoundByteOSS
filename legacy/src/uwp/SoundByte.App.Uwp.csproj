@@ -164,6 +164,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Common\HttpRandomAccessStream.cs" />
     <Compile Include="Common\TaskUtilities.cs" />
     <Compile Include="Controls\ListControls\PlaylistListItem.xaml.cs">
       <DependentUpon>PlaylistListItem.xaml</DependentUpon>

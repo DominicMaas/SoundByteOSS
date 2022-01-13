@@ -48,22 +48,7 @@ namespace SoundByte.Core.Items.Track
 
                 case ServiceTypes.SoundCloud:
                 case ServiceTypes.SoundCloudV2:
-                    // SoundCloud has a fixed rate on playbacks. This system chooses a key on random and plays from it. These
-                    // keys are provided by the web service (so more can be added when needed) so chances of expiring the key should
-                    // be rare (especially when users start using YouTube and Fanburst Playback instead).
-
-                    // Create list of keys with our default key
-                    var apiKeys = new List<string>
-                    {
-                        service.ClientId
-                    };
-
-                    // Add backup keys
-                    apiKeys.AddRange(service.ClientIds);
-
-                    // Get random key
-                    var randomNumber = new Random().Next(apiKeys.Count);
-                    audioStream = $"https://api.soundcloud.com/tracks/{TrackId}/stream?client_id={apiKeys[randomNumber]}";
+                    audioStream = $"https://api.soundcloud.com/tracks/{TrackId}/stream";
                     break;
 
                 case ServiceTypes.YouTube:

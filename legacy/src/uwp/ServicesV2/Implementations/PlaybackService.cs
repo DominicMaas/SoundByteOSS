@@ -25,6 +25,8 @@ using Windows.Storage.Streams;
 using Windows.System;
 using Windows.UI.Notifications;
 using YoutubeExplode;
+using System.Net.Http;
+using Windows.Web.Http.Headers;
 
 namespace SoundByte.App.Uwp.ServicesV2.Implementations
 {
@@ -608,6 +610,30 @@ namespace SoundByte.App.Uwp.ServicesV2.Implementations
                                     args.SetUri(new Uri(youTubeAudioUrl));
                                 }
                             }
+                            break;
+
+                        case ServiceTypes.SoundCloud:
+                        case ServiceTypes.SoundCloudV2:
+                            // Build the url for soundcloud
+                            var soundcloudStreamUrl = await track.GetAudioStreamAsync(_youTubeClient);
+
+                            // SoundCloud now requires auth feeds
+
+                            var scConnected = SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundCloud);
+                            if (!scConnected)
+                                throw new Exception("You must be logged into your SoundCloud account to play music from SoundCloud!");
+
+                            // Get scheme and token
+                            var scheme = SoundByteService.Current.Services.FirstOrDefault(x => x.Service == ServiceTypes.SoundCloud)?.AuthenticationScheme;
+                            var token = SoundByteService.Current.Services.FirstOrDefault(x => x.Service == ServiceTypes.SoundCloud)?.UserToken?.AccessToken;
+
+                            // Client with Auth
+                            var client = new Windows.Web.Http.HttpClient();
+                            client.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue(scheme, token);
+
+                            var stream = await HttpRandomAccessStream.CreateAsync(client, new Uri(soundcloudStreamUrl));
+                            args.SetStream(stream, stream.ContentType);
+
                             break;
 
                         case ServiceTypes.Local:
