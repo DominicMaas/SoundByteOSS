@@ -32,6 +32,10 @@ namespace SoundByte.Core.Sources.SoundCloud.User
         public override async Task<SourceResponse> GetItemsAsync(int count, string token,
             CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (!SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundCloud))
+                return new SourceResponse(null, null, false, "Not logged in",
+                    "A connected SoundCloud account is required to view this content.");
+
             // Call the SoundCloud API and get the items
             var tracks = await SoundByteService.Current.GetAsync<TrackHolder>(ServiceTypes.SoundCloud, $"/users/{UserId}/tracks",
                 new Dictionary<string, string>

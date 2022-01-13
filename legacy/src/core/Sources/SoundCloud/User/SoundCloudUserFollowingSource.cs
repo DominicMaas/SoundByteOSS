@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace SoundByte.Core.Sources.SoundCloud.User
 {
-    
+
     public class SoundCloudUserFollowingSource : ISource
     {
         public string UserId { get; set; }
@@ -45,6 +45,10 @@ namespace SoundByte.Core.Sources.SoundCloud.User
         public override async Task<SourceResponse> GetItemsAsync(int count, string token,
             CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (!SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundCloud))
+                return new SourceResponse(null, null, false, "Not logged in",
+                    "A connected SoundCloud account is required to view this content.");
+
             // Call the SoundCloud API and get the items
             var followings = await SoundByteService.Current.GetAsync<UserListHolder>(ServiceTypes.SoundCloud, $"/users/{UserId}/followings",
                 new Dictionary<string, string>

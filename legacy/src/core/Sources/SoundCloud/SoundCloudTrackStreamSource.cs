@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SoundByte.Core.Sources.SoundCloud
 {
-    
+
     public class SoundCloudTrackStreamSource : ISource
     {
         public override Dictionary<string, object> GetParameters()

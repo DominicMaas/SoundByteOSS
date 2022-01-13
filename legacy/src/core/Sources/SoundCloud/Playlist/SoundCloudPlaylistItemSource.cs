@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SoundByte.Core.Sources.SoundCloud.Playlist
 {
-    
+
     public class SoundCloudPlaylistItemSource : ISource
     {
         public string PlaylistId { get; set; }
@@ -31,6 +31,10 @@ namespace SoundByte.Core.Sources.SoundCloud.Playlist
         public override async Task<SourceResponse> GetItemsAsync(int count, string token,
             CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (!SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundCloud))
+                return new SourceResponse(null, null, false, "Not logged in",
+                    "A connected SoundCloud account is required to view this content.");
+
             // Call the SoundCloud API and get the playlist items
             var tracks = await SoundByteService.Current.GetAsync<SoundCloudPlaylist>(ServiceTypes.SoundCloud, "playlists/" + PlaylistId, null, cancellationToken).ConfigureAwait(false);
 

@@ -296,6 +296,13 @@ namespace SoundByte.App.Uwp.ServicesV2.Implementations
                 return;
             }
 
+            if ((trackToPlay.ServiceType == ServiceTypes.SoundCloud || trackToPlay.ServiceType == ServiceTypes.SoundCloudV2)
+                && !SoundByteService.Current.IsServiceConnected(ServiceTypes.SoundCloud))
+            {
+                await NavigationService.Current.CallMessageDialogAsync("SoundCloud now requires all third party apps to authenticate stream requests. This means you must log into your SoundCloud account in order to play music on SoundByte.", "Unable to play SoundCloud track");
+                return;
+            }
+
             var keepTrying = 0;
 
             while (keepTrying < 50)
