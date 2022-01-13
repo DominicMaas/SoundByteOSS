@@ -11,25 +11,11 @@
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
-    <ScrollViewer>
-        <StackPanel Margin="0,0,0,80">
-            <Grid Padding="{ThemeResource PagePadding}">
-                <TextBlock Style="{StaticResource TitleStyle}" Text="Home" />
-                <StackPanel
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"
-                    Orientation="Horizontal">
-                    <controls:AppButton
-                        Margin="0,0,0,5"
-                        Click="{x:Bind ViewModel.Refresh}"
-                        Glyph="&#xE72C;"
-                        IsExtended="True"
-                        Label="Refresh" />
-                </StackPanel>
-            </Grid>
-
-            <!--  Content  -->
-            <ItemsControl ItemsSource="{x:Bind ViewModel.PageContent}" Style="{StaticResource PageContentList}" />
-        </StackPanel>
-    </ScrollViewer>
+    <Grid>
+        <WebView
+            x:Name="WebView"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Source="https://dominicmaas.co.nz/soundbyte-postmortem?IsSoundByteContext=true" />
+    </Grid>
 </Page>
