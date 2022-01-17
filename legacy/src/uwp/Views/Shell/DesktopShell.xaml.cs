@@ -542,11 +542,11 @@ namespace SoundByte.App.Uwp.Views.Shell
                     break;
 
                 case "feedback":
-                    await Launcher.LaunchUriAsync(new Uri("https://soundbytemedia.com/docs/feedback"));
+                    await Launcher.LaunchUriAsync(new Uri("https://github.com/DominicMaas/SoundByteOSS/issues"));
                     break;
 
                 case "new":
-                    await Launcher.LaunchUriAsync(new Uri($"https://soundbytemedia.com/docs/changelog/uwp"));
+                    await Launcher.LaunchUriAsync(new Uri($"https://github.com/DominicMaas/SoundByteOSS/wiki/Changelog-(UWP)"));
                     break;
 
                 case "review":

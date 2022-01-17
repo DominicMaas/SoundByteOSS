@@ -31,14 +31,6 @@ namespace SoundByte.App.Uwp.ServicesV2.Implementations
 
             // Set country code
             AppCenter.SetCountryCode(RegionInfo.CurrentRegion.TwoLetterISORegionName);
-
-            // Set application details (used for targeting notifications. Most important is application version for example).
-            var properties = new CustomProperties();
-            properties.Set("AppVersion", string.Format("{0}.{1}.{2}", Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build));
-            properties.Set("WindowsVersion", SystemInformation.OperatingSystemVersion.ToString());
-            properties.Set("DevicePlatform", AnalyticsInfo.VersionInfo.DeviceFamily);
-
-            AppCenter.SetCustomProperties(properties);
         }
 
         public async Task OptOutAsync()

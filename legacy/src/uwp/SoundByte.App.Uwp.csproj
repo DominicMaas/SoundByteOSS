@@ -11,8 +11,8 @@
     <AssemblyName>SoundByte.App.Uwp</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.22000.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -271,9 +271,7 @@
     <Compile Include="ServicesV2\ILibraryService.cs" />
     <Compile Include="ServicesV2\Implementations\ContentService.cs" />
     <Compile Include="ServicesV2\Implementations\ExtensionService.cs" />
-    <Compile Include="ServicesV2\Implementations\SessionService.cs" />
     <Compile Include="ServicesV2\IPlaybackService.cs" />
-    <Compile Include="ServicesV2\ISessionService.cs" />
     <Compile Include="ServicesV2\ITelemetryService.cs" />
     <Compile Include="Sources\ExtensionSource.cs" />
     <Compile Include="ViewModels\Generic\FilteredListViewModel.cs" />
@@ -658,19 +656,13 @@
       <Version>1.7.0</Version>
     </PackageReference>
     <PackageReference Include="Jint">
-      <Version>3.0.0-beta-1914</Version>
-    </PackageReference>
-    <PackageReference Include="LiteDB">
-      <Version>5.0.11</Version>
+      <Version>3.0.0-beta-1525</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>4.4.0</Version>
+      <Version>4.5.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>4.4.0</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client">
-      <Version>5.0.11</Version>
+      <Version>4.5.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.13</Version>
@@ -731,7 +723,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="WindowsDesktop, Version=10.0.19041.0">
+    <SDKReference Include="WindowsDesktop, Version=10.0.22000.0">
       <Name>Windows Desktop Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>

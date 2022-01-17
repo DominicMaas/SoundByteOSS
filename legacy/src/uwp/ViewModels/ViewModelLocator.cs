@@ -21,7 +21,6 @@ namespace SoundByte.App.Uwp.ViewModels
             SimpleIoc.Default.Register<IContentService, ContentService>(true);
             SimpleIoc.Default.Register<IExtensionService, ExtensionService>(true);
             SimpleIoc.Default.Register<IPlaybackService, PlaybackService>(true);
-            SimpleIoc.Default.Register<ISessionService, ServicesV2.Implementations.SessionService>(true);
         }
 
         public ViewModelLocator()

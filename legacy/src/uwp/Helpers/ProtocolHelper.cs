@@ -99,12 +99,6 @@ namespace SoundByte.App.Uwp.Helpers
                         parser.TryGetValue("command", out var playbackCommand);
                         HandlePlaybackCommand(playbackCommand);
                         break;
-
-                    case "remote":
-                        parser.TryGetValue("connection_code", out var connectionCode);
-                        parser.TryGetValue("display_name", out var displayName);
-                        await SimpleIoc.Default.GetInstance<ISessionService>().ConnectAsync(connectionCode, displayName);
-                        break;
                 }
 
                 return false;
