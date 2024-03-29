@@ -63,10 +63,7 @@ namespace SoundByte.App.Uwp.Extensions.Core
                 // The engine pool is above max count, don't return this engine
                 if (_parent._cache.Count >= _parent._config.StartEngines)
                 {
-                    _engine.ResetCallStack();
-                    _engine.ResetMemoryUsage();
-                    _engine.ResetStatementsCount();
-                    _engine.ResetTimeoutTicks();
+                    _engine.Dispose();
                     _engine = null;
                 }
                 else

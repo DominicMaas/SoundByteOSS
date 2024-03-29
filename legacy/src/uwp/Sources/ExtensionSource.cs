@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using SoundByte.App.Uwp.Extensions.Core;
+using WinRTXamlToolkit.IO.Serialization;
 
 namespace SoundByte.App.Uwp.Sources
 {
@@ -47,7 +48,7 @@ namespace SoundByte.App.Uwp.Sources
             catch (JavaScriptException jsex)
             {
                 SimpleIoc.Default.GetInstance<ITelemetryService>().TrackException(jsex);
-                throw new SoundByteException("Error running extension", $"Error running JavaScript: {jsex.Error} at {jsex.LineNumber}:{jsex.Column}, {jsex.StackTrace}", jsex);
+                throw new SoundByteException("Error running extension", $"Error running JavaScript: {jsex.Error} at {jsex.Location.SerializeAsJson()}, {jsex.JavaScriptStackTrace}", jsex);
             }
             catch (Exception ex)
             {
